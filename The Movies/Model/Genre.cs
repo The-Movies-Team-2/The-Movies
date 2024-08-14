@@ -1,0 +1,27 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace The_Movies.Model
+{
+    internal class Genre
+    {
+        public int Id;
+        public string Name;
+        
+        public Genre(string name)
+
+        {
+            Name = name;
+        }
+        public Genre(int id, string name)
+
+        {
+            Name = name;
+            Id = id;
+        }
+
+    }
+}
