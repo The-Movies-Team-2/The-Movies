@@ -20,5 +20,17 @@ namespace The_Movies
         {
             InitializeComponent();
         }
+
+        private void CreateMovie_Button_Click(object sender, RoutedEventArgs e)
+        {
+            CreateMovieWindow c = new CreateMovieWindow();
+            c.Show();
+        }
+
+        private void ShowOverview_Button_Click(object sender, RoutedEventArgs e)
+        {
+            MovieOverviewWindow m = new MovieOverviewWindow();
+            m.Show();
+        }
     }
 }

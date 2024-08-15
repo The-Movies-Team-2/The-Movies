@@ -7,8 +7,20 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <Button Content="Vis Filmoversigt" HorizontalAlignment="Left" Margin="348,163,0,0" VerticalAlignment="Top" Height="54" Width="137"/>
-        <Button Content="Tilføj Film" HorizontalAlignment="Left" Margin="348,287,0,0" VerticalAlignment="Top" Height="54" Width="137"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100"></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <Button Content="Vis Filmoversigt" HorizontalAlignment="Center" VerticalAlignment="Top" Height="54" Width="136" Grid.Column="1" Grid.Row="1" Click="ShowOverview_Button_Click"/>
+        <Button Content="Tilføj Film" HorizontalAlignment="Center" Margin="0,72,0,0" VerticalAlignment="Top" Height="54" Width="136" Grid.Column="1" Grid.Row="1" Click="CreateMovie_Button_Click"/>
+        <Label Content="The Movies" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30" FontWeight="Bold" Grid.Column="1"/>
 
     </Grid>
 </Window>

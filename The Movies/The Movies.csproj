@@ -10,11 +10,18 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Applikation\Controller.cs" />
+    <Compile Remove="Application\Movie\**" />
+    <EmbeddedResource Remove="Application\Movie\**" />
+    <None Remove="Application\Movie\**" />
+    <Page Remove="Application\Movie\**" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Applikation\Movie\NewFolder1\" />
+    <Compile Remove="Application\Controller.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Include="App.xaml" />
   </ItemGroup>
 
 </Project>

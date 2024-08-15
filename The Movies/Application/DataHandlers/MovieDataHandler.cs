@@ -4,9 +4,10 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using The_Movies.Applikation.Repositories;
 using The_Movies.Model;
 
-namespace The_Movies.Applikation
+namespace The_Movies.Applikation.DataHandlers
 {
     internal class MovieDataHandler
     {
@@ -14,7 +15,7 @@ namespace The_Movies.Applikation
         private MovieRepository _repository = new MovieRepository();
 
         //læser fra tekstfiler
-        public void Read() 
+        public void Read()
         {
             CheckIfFileExists(_filePath);
             List<string> lines = File.ReadLines(_filePath).ToList();
@@ -26,7 +27,7 @@ namespace The_Movies.Applikation
                 //match kolonner med udleveret csv fil!!
                 string title = values[3];
 
-                string[]strings = values[4].Split(",");
+                string[] strings = values[4].Split(",");
                 List<int> genreids = new List<int>();
                 //konverter strings til int og put dem i genreidlisten 
                 foreach (string s in strings)
@@ -35,19 +36,19 @@ namespace The_Movies.Applikation
                 }
 
                 int playingTime = int.Parse(values[5]);
-                int id = int.Parse(values[10]); 
+                int id = int.Parse(values[10]);
 
-                Movie movie = new Movie(title,id,playingTime,genreids);
+                Movie movie = new Movie(title, id, playingTime, genreids);
                 _repository.Add(movie);
             }
         }
 
         //skriver til tekstfiler
-        public void Write() 
+        public void Write()
         {
             CheckIfFileExists(_filePath);
 
-           List<Movie> lines = _repository.GetAll().ToList();
+            List<Movie> lines = _repository.GetAll().ToList();
             foreach (Movie movie in lines)
             {
                 //Console.OutputEncoding = Encoding.UTF8;
@@ -58,7 +59,7 @@ namespace The_Movies.Applikation
         }
 
         //tjek om fil eksisterer 
-        public void CheckIfFileExists(string fullPath) 
+        public void CheckIfFileExists(string fullPath)
         {
             if (!File.Exists(fullPath))
             {

@@ -5,11 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 using The_Movies.Model;
 
-namespace The_Movies.Applikation
+namespace The_Movies.Applikation.Repositories
 {
     internal class MovieRepository
     {
-        private List<Movie> movies = new List<Movie>(); 
+        private List<Movie> movies = new List<Movie>();
 
         public void Add(Movie movie)
         {
@@ -18,7 +18,7 @@ namespace The_Movies.Applikation
             movie.Id = maxId + 1;
             movies.Add(movie);
         }
-        public List<Movie> GetAll() 
+        public List<Movie> GetAll()
         {
             return movies;
         }

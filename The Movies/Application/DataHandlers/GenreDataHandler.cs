@@ -4,9 +4,10 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using The_Movies.Applikation.Repositories;
 using The_Movies.Model;
 
-namespace The_Movies.Applikation
+namespace The_Movies.Applikation.DataHandlers
 {
     internal class GenreDataHandler
     {
@@ -18,16 +19,16 @@ namespace The_Movies.Applikation
         {
             CheckIfFileExists(_filePath);
             List<string> lines = File.ReadLines(_filePath).ToList();
-            
+
             foreach (string line in lines)
             {
                 string[] values = line.Split(',');
 
                 string name = values[0];
                 int id = int.Parse(values[1]);
-                
+
                 Genre genre = new Genre(name);
-                
+
                 _repository.Add(genre);
             }
         }
@@ -40,7 +41,7 @@ namespace The_Movies.Applikation
             List<Genre> lines = _repository.GetAll().ToList();
             foreach (Genre genre in lines)
             {
-                
+
                 string createText = $"{genre.Name},{genre.Id}";
                 File.AppendAllText(_filePath, createText + Environment.NewLine);
             }

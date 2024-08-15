@@ -5,13 +5,13 @@ using System.Text;
 using System.Threading.Tasks;
 using The_Movies.Model;
 
-namespace The_Movies.Applikation
+namespace The_Movies.Applikation.Repositories
 {
     internal class GenreRepository
     {
         private List<Genre> genres = new List<Genre>();
 
-        public void Add (Genre genre) 
+        public void Add(Genre genre)
         {
             int maxId = 0;
             if (genres.Count > 0) maxId = genres.Max(h => h.Id);
