@@ -10,14 +10,14 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Application\Movie\**" />
-    <EmbeddedResource Remove="Application\Movie\**" />
-    <None Remove="Application\Movie\**" />
-    <Page Remove="Application\Movie\**" />
+    <Compile Remove="Applikation\Movie\**" />
+    <EmbeddedResource Remove="Applikation\Movie\**" />
+    <None Remove="Applikation\Movie\**" />
+    <Page Remove="Applikation\Movie\**" />
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Remove="Application\Controller.cs" />
+    <Compile Remove="Applikation\Controller.cs" />
   </ItemGroup>
 
   <ItemGroup>

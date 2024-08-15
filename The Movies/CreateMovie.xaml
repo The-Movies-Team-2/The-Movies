@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:The_Movies"
         mc:Ignorable="d"
-        Title="Create movie" Height="450" Width="800">
+        Title="Create movie" Height="450" Width="800" MinWidth="100">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="100" ></RowDefinition>
@@ -14,18 +14,44 @@
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition MinWidth="300"></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <Label Grid.Column="1" Content="Tilføj film" FontSize="30" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-        <Label Grid.Column="1" Content="Titel" FontWeight="Bold" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="1" VerticalAlignment="Top"/>
-        <TextBox Grid.Column="1" HorizontalAlignment="Left" Margin="102,10,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Filmens titel her" VerticalAlignment="Top" Width="120"/>
-        <Label Grid.Column="1" Grid.Row="1" Content="Spilletid" FontWeight="Bold"  Margin="10,36,199,80"/>
-        <TextBox Grid.Column="1" HorizontalAlignment="Left" Margin="102,41,0,0" Grid.Row="1" TextWrapping="Wrap" Text="antal minutter her" VerticalAlignment="Top" Width="120"/>
-        <Label Grid.Column="1" Content="Genre" FontWeight="Bold" HorizontalAlignment="Left" Margin="10,64,0,0" Grid.Row="1" VerticalAlignment="Top"/>
-        <ListBox Grid.Column="1" Grid.Row="1" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="102,72,44,152"/>
-        <Button Grid.Column="1" Content="Gem film" Margin="186,274,10,10" Grid.Row="1"/>
-        <Button Grid.Column="1" Content="+Tilføj genre" Background="Transparent" BorderBrush="Transparent" HorizontalAlignment="Left" Margin="150,157,0,0" Grid.Row="1" VerticalAlignment="Top"/>
 
+        <Label Grid.Column="1" Content="Tilføj film" FontSize="30" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        
+        <StackPanel Grid.Column="1" Grid.Row="1">
+            <!-- Titel stackpanel -->
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,30,0" >
+                <Label Content="Titel" FontWeight="Bold" Margin="5,5,20,5"/>
+                <TextBox Text="Filmens titel her" Margin="5" Width="100"/>
+            </StackPanel>
+            
+            <!-- spilletid stackpanel -->
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right"  Margin="0,0,0,0">
+                <Label Content="Spilletid" FontWeight="Bold" Margin="5,5,20,5" VerticalAlignment="Bottom"/>
+                <TextBox Text="0" VerticalAlignment="Bottom" Margin="5" Width="100" PreviewTextInput="NumericTextBox_PreviewTextInput"/>
+                <Label Content="min" VerticalAlignment="Bottom"></Label>
+            </StackPanel>
+            
+            <!-- genre stackpanel -->
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,30,0">
+                <Label Content="Genre" FontWeight="Bold"  Margin="5,5,20,5"/>
+                <!-- stackpanel til flere genredropboxe -->
+                <StackPanel Margin="5">
+                    <!-- genredropboxe generes her-->
+                    <StackPanel>
+                        <ListBox d:ItemsSource="{d:SampleData ItemCount=5}" Width="100" MinHeight="30"/>
+                    </StackPanel>
+                    <!-- tilføj genreknap til sidst -->
+                    <Button Content="+Tilføj genre" Background="Transparent" BorderBrush="Transparent"/>
+                </StackPanel>
+            </StackPanel>
+          
+            <Button Content="Gem film"/>
+            
+        </StackPanel>
+        
+       
     </Grid>
 </Window>
