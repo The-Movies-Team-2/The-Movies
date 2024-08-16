@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace The_Movies.Applikation.Controller
+namespace The_Movies.Controllers
 {
     internal class MovieController
     {

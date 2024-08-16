@@ -10,17 +10,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Applikation\Movie\**" />
-    <EmbeddedResource Remove="Applikation\Movie\**" />
-    <None Remove="Applikation\Movie\**" />
-    <Page Remove="Applikation\Movie\**" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Compile Remove="Applikation\Controller.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Page Include="App.xaml" />
   </ItemGroup>
 

@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using The_Movies.Model;
 
-namespace The_Movies.Applikation.Repositories
+namespace The_Movies.Repositories
 {
     internal class MovieRepository
     {

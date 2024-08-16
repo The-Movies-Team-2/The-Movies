@@ -4,10 +4,10 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using The_Movies.Applikation.Repositories;
 using The_Movies.Model;
+using The_Movies.Repositories;
 
-namespace The_Movies.Applikation.DataHandlers
+namespace The_Movies.DataHandlers
 {
     internal class MovieDataHandler
     {
@@ -52,7 +52,7 @@ namespace The_Movies.Applikation.DataHandlers
             foreach (Movie movie in lines)
             {
                 //Console.OutputEncoding = Encoding.UTF8;
-                string createText = $"ukendt biograf;ukendt by;Forestillingstidspunkt;{movie.Title};{movie.genreids};{movie.PlayingTime};Filminstruktør;Premieredato;Bookingmail;Bookingtelefonnummer;{movie.Id}";
+                string createText = $"ukendt biograf;ukendt by;Forestillingstidspunkt;{movie.Title};{movie.GenreIds};{movie.PlayingTime};Filminstruktør;Premieredato;Bookingmail;Bookingtelefonnummer;{movie.Id}";
                 File.AppendAllText(_filePath, createText + Environment.NewLine);
             }
 
