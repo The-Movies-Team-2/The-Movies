@@ -40,7 +40,7 @@
                 <!-- stackpanel til flere genredropboxe -->
                 <StackPanel Margin="5">
                     <!-- genredropboxe generes her-->
-                        <ComboBox  ItemsSource="{Binding Genres}" DisplayMemberPath="Name" SelectedItem="{Binding SelectedGenre, Mode=TwoWay}" ></ComboBox>
+                        <ComboBox  ItemsSource="{Binding Genres}" DisplayMemberPath="Name" SelectedItem="{Binding SelectedGenre, Mode=TwoWay }" ></ComboBox>
                 <!-- tilføj genreknap til sidst -->
                     <Button Content="+Tilføj genre" Background="Transparent" BorderBrush="Transparent"/>
                 </StackPanel>

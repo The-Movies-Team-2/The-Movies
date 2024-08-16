@@ -21,7 +21,7 @@ namespace The_Movies.Viewmodel
         public string Title {  get; set; }
         public int Duration { get; set; }
         //TODO
-        public Genre SelectedGenre;
+        public Genre SelectedGenre { get; set; }
 
 
         public MainViewModel()
