@@ -24,13 +24,13 @@
             <!-- Titel stackpanel -->
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,30,0" >
                 <Label Content="Titel" FontWeight="Bold" Margin="5,5,20,5"/>
-                <TextBox Text="Filmens titel her" Margin="5" Width="100"/>
+                <TextBox Text="{Binding Title, Mode=TwoWay}" Margin="5" Width="100"/>
             </StackPanel>
 
             <!-- spilletid stackpanel -->
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right"  Margin="0,0,0,0">
                 <Label Content="Spilletid" FontWeight="Bold" Margin="5,5,20,5" VerticalAlignment="Bottom"/>
-                <TextBox Text="0" VerticalAlignment="Bottom" Margin="5" Width="100" PreviewTextInput="NumericTextBox_PreviewTextInput"/>
+                <TextBox Text="{Binding Duration, Mode=TwoWay}" VerticalAlignment="Bottom" Margin="5" Width="100" PreviewTextInput="NumericTextBox_PreviewTextInput"/>
                 <Label Content="min" VerticalAlignment="Bottom"></Label>
             </StackPanel>
 
@@ -46,7 +46,7 @@
                 </StackPanel>
             </StackPanel>
 
-            <Button Content="Gem film"/>
+            <Button Content="Gem film"  Command="{Binding CreateMovieCMD}" CommandParameter="{Binding}"/>
 
         </StackPanel>
     </Grid>

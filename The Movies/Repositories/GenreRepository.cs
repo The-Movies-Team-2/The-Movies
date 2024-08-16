@@ -11,6 +11,19 @@ namespace The_Movies.Repositories
     {
         private List<Genre> genres = new List<Genre>();
 
+        public GenreRepository() {
+            Add(new Genre("Drama"));
+            Add(new Genre("Gys"));
+            Add(new Genre("Action"));
+            Add(new Genre("Komedie"));
+            Add(new Genre("Science Fiction"));
+            Add(new Genre("Romantik"));
+            Add(new Genre("Eventyr"));
+            Add(new Genre("Krimi"));
+            Add(new Genre("Animation"));
+            Add(new Genre("Thriller"));
+        }
+
         public void Add(Genre genre)
         {
             int maxId = 0;

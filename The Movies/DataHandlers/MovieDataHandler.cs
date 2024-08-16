@@ -11,7 +11,7 @@ namespace The_Movies.DataHandlers
 {
     internal class MovieDataHandler
     {
-        private string _filePath = @"C:\\TheMovies\\Movies.txt";
+        private static string _filePath = @"C:\\TheMovies\\Movies.txt";
         private MovieRepository _repository = new MovieRepository();
 
         //læser fra tekstfiler
@@ -61,6 +61,15 @@ namespace The_Movies.DataHandlers
         //tjek om fil eksisterer 
         public void CheckIfFileExists(string fullPath)
         {
+
+            string directory = Path.GetDirectoryName(fullPath);
+
+            // Tjek og opret mappen hvis den ikke findes
+            if (!Directory.Exists(directory))
+            {
+                Directory.CreateDirectory(directory);
+            }
+
             if (!File.Exists(fullPath))
             {
                 FileStream fs = File.Create(fullPath);
