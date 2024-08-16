@@ -9,7 +9,7 @@ namespace The_Movies.Model
     internal class Genre
     {
         public int Id;
-        public string Name;
+        public string Name {  get; set; }
         
         public Genre(string name)
 

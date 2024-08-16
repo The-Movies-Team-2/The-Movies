@@ -12,6 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using The_Movies.Viewmodel;
 
 namespace The_Movies
 {
@@ -20,9 +21,11 @@ namespace The_Movies
     /// </summary>
     public partial class CreateMovieWindow : Window
     {
+        MainViewModel dvm = new MainViewModel();
         public CreateMovieWindow()
         {
             InitializeComponent();
+            DataContext = dvm;
         }
         private void NumericTextBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
