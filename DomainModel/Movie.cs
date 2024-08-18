@@ -4,29 +4,30 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace The_Movies.Model
+namespace The_Movies.DomainModel
 {
-    internal class Movie
+    public class Movie
     {
         public int Id { get; set; }
         public string Title { get; set; }
         public int PlayingTime { get; set; }
-        public List<int> GenreIds = new List<int>();
 
-        public Movie(string title, int id, int time, List<int> genres)
+        public List<Genre> Genres = new List<Genre>();
+
+        public Movie(int id, string title, int time, List<Genre> genres)
         {
             Title = title;
             PlayingTime = time;
             Id = id;
-            GenreIds = genres;
+            Genres = genres;
         }
 
-        public Movie(string title, int time, List<int> genres)
+        public Movie(string title, int time, List<Genre> genres)
         
         {
             Title = title; 
             PlayingTime = time;
-            GenreIds = genres; 
+            Genres = genres; 
         }
 
     }

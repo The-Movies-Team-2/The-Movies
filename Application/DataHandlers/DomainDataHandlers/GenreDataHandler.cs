@@ -4,10 +4,10 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using The_Movies.Model;
-using The_Movies.Repositories;
+using The_Movies.ApplicationLayer.Repositories;
+using The_Movies.DomainModel;
 
-namespace The_Movies.DataHandlers
+namespace ApplicationLayer.DataHandlers.DomainDataHandlers
 {
     internal class GenreDataHandler
     {

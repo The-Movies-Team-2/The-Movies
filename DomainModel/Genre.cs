@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace The_Movies.Model
+namespace The_Movies.DomainModel
 {
-    internal class Genre
+    public class Genre
     {
         public int Id;
         public string Name {  get; set; }

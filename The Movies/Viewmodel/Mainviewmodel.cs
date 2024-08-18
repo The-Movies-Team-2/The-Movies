@@ -1,20 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.ObjectModel;
 using System.Windows.Input;
-using The_Movies.Controllers;
-using The_Movies.Model;
+
+using The_Movies.DomainModel;
 using The_Movies.Commands;
+using The_Movies.ApplicationLayer.Controllers;
 
 namespace The_Movies.Viewmodel
 {
     internal class MainViewModel
     {
         public ObservableCollection<Genre> Genres { get; set; }
+
         public MovieController MovieController { get; set; }
         public GenreController GenreController { get; set; }
 
@@ -51,7 +47,7 @@ namespace The_Movies.Viewmodel
         {
             movie.Title = Title;
             movie.PlayingTime = Duration;
-            movie.GenreIds.Add(SelectedGenre.Id);
+            movie.Genres.Add(SelectedGenre);
             MovieController.Add(movie);
         }
 

@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using The_Movies.DataHandlers;
-using The_Movies.Model;
-using The_Movies.Repositories;
+using ApplicationLayer.DataHandlers.DomainDataHandlers;
+using The_Movies.ApplicationLayer.Repositories;
+using The_Movies.DomainModel;
 
-namespace The_Movies.Controllers
+
+namespace The_Movies.ApplicationLayer.Controllers
 {
-    internal class GenreController
+    public class GenreController
     {
         private readonly GenreRepository repository;
         private readonly GenreDataHandler dataHandler;
