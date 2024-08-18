@@ -46,7 +46,7 @@
                 </StackPanel>
             </StackPanel>
 
-            <Button Content="Gem film"  Command="{Binding CreateMovieCMD}" CommandParameter="{Binding}"/>
+            <Button Content="Gem film"  Command="{Binding CreateMovieCMD}" CommandParameter="{Binding}" Click="Button_Click"/>
 
         </StackPanel>
     </Grid>

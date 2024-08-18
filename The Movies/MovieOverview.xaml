@@ -1,0 +1,29 @@
+﻿<Window x:Class="The_Movies.MovieOverviewWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:The_Movies"
+        mc:Ignorable="d"
+        Title="Movie overview" Height="450" Width="800">
+    <Grid>
+        <ListBox ItemsSource="{Binding Movies}" Margin="27,82,46,82">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="{Binding Title}" Width="150"></Label>
+                        <StackPanel Orientation="Horizontal" Width="60" HorizontalAlignment="Right">
+                            <Label Content="{Binding Path=PlayingTime, StringFormat='{}{0} min'}"/>
+                            <Label Content="min"></Label>
+                        </StackPanel>
+                        <Label Content="{Binding GenreString}" HorizontalAlignment="Right"></Label>
+
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <Label Content="Filmoversigt" FontWeight="Bold" FontSize="25" HorizontalAlignment="Center" Margin="0,34,0,0" VerticalAlignment="Top"/>
+        <Button Content="Luk filmoversigt" HorizontalAlignment="Left" Margin="488,369,0,0" VerticalAlignment="Top" Click="Button_Click"/>
+
+    </Grid>
+</Window>

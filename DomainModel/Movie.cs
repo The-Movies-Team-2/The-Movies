@@ -14,6 +14,14 @@ namespace The_Movies.DomainModel
 
         public List<Genre> Genres = new List<Genre>();
 
+        public string GenreString
+        {
+            get
+            { 
+                return string.Join(", ", Genres.Select(p => p.Name));
+            }
+        }
+
         public Movie(int id, string title, int time, List<Genre> genres)
         {
             Title = title;

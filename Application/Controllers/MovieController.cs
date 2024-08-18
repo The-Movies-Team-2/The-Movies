@@ -16,7 +16,6 @@ namespace The_Movies.ApplicationLayer.Controllers
         private readonly MasterDataHandler dataHandler;
         public MovieController() 
         { 
-            
             dataHandler = new MasterDataHandler();
             repository = dataHandler.MovieRepository;
         }
@@ -26,6 +25,11 @@ namespace The_Movies.ApplicationLayer.Controllers
         {
             repository.Add(movie);
             dataHandler.Write();
+        }
+
+        public List<Movie> GetAll()
+        {
+            return repository.GetAll();
         }
     }
 }
