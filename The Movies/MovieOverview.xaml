@@ -7,21 +7,21 @@
         mc:Ignorable="d"
         Title="Movie overview" Height="450" Width="800">
     <Grid>
-        <ListBox ItemsSource="{Binding Movies}" Margin="27,82,46,82">
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <StackPanel Orientation="Horizontal">
-                        <Label Content="{Binding Title}" Width="150"></Label>
-                        <StackPanel Orientation="Horizontal" Width="60" HorizontalAlignment="Right">
-                            <Label Content="{Binding Path=PlayingTime, StringFormat='{}{0} min'}"/>
-                            <Label Content="min"></Label>
-                        </StackPanel>
-                        <Label Content="{Binding GenreString}" HorizontalAlignment="Right"></Label>
+        <DataGrid ItemsSource="{Binding Movies}" AutoGenerateColumns="False" Margin="50,90,50,100">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Titel" Binding="{Binding Title}" Width="200" />
+                <DataGridTextColumn Header="Varighed" Binding="{Binding PlayingTime, StringFormat='{}{0} min'}" Width="60">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="HorizontalAlignment" Value="Center" />
+                            <Setter Property="TextAlignment" Value="Center" />
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="Genre" Binding="{Binding GenreString}" />
+            </DataGrid.Columns>
+        </DataGrid>
 
-                    </StackPanel>
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
         <Label Content="Filmoversigt" FontWeight="Bold" FontSize="25" HorizontalAlignment="Center" Margin="0,34,0,0" VerticalAlignment="Top"/>
         <Button Content="Luk filmoversigt" HorizontalAlignment="Left" Margin="488,369,0,0" VerticalAlignment="Top" Click="Button_Click"/>
 
