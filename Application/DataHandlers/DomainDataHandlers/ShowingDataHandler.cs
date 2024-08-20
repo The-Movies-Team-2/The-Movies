@@ -4,12 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace The_Movies.Model
-{ 
-    public class Cinema
+namespace ApplicationLayer.DataHandlers.DomainDataHandlers
+{
+    internal class ShowingDataHandler
     {
-        public int Id { get; set; }
-        public string Name { get; set; }
-
     }
 }

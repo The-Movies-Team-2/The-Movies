@@ -13,9 +13,10 @@ namespace ApplicationLayer.DataHandlers
     {
         private MovieDataHandler _movieDataHandler = new MovieDataHandler();
         private GenreDataHandler _genreDataHandler = new GenreDataHandler();
+        private ShowingDataHandler showingDataHandler = new ShowingDataHandler();
 
         internal MovieRepository MovieRepository { get; set; }
-        
+        internal ShowingRepository ShowingRepository { get; set; }
 
         public MasterDataHandler()
         {

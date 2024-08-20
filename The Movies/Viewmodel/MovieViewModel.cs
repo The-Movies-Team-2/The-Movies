@@ -28,7 +28,7 @@ namespace The_Movies.Viewmodel
                 Movies.Add(movie);
 
             }
-            Movies.Add(new Movie(1, "test", 0, new List<Genre>()));
+            //Movies.Add(new Movie(1, "test", 0, new List<Genre>()));
         }
 
 
