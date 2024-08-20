@@ -41,7 +41,7 @@
                 <StackPanel Margin="5">
                     <!-- genredropboxe generes her-->
                     <StackPanel x:Name="GenreComboboxes">
-                        <ComboBox  ItemsSource="{Binding AvailableGenres}" DisplayMemberPath="Name" SelectedItem="{Binding SelectedGenre, Mode=TwoWay}" Width="100" ></ComboBox>
+                        <ComboBox  ItemsSource="{Binding AvailableGenres}" DisplayMemberPath="Name" SelectedItem="{Binding SelectedGenres[0], Mode=TwoWay}" Width="100" ></ComboBox>
                     </StackPanel>
                     <!-- tilføj genreknap til sidst -->
                     <Button Content="+Tilføj genre" Background="Transparent" BorderBrush="Transparent" Click="AddGenreComboBoX"/>

@@ -24,7 +24,7 @@ namespace The_Movies.Viewmodel
             MovieController = new MovieController();
             GenreController = new GenreController();
             AvailableGenres = new ObservableCollection<Genre>();
-            SelectedGenres = new ObservableCollection<Genre>();
+            SelectedGenres = new ObservableCollection<Genre> { null };
 
             LoadGenres();
 
