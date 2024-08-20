@@ -7,6 +7,12 @@
         mc:Ignorable="d"
         Title="Movie overview" Height="450" Width="800">
     <Grid>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="Black"/>
+                <GradientStop Color="#FF8D3131" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
         <DataGrid ItemsSource="{Binding Movies}" AutoGenerateColumns="False" Margin="50,90,50,100">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Titel" Binding="{Binding Title}" Width="200" />
@@ -22,8 +28,9 @@
             </DataGrid.Columns>
         </DataGrid>
 
-        <Label Content="Filmoversigt" FontWeight="Bold" FontSize="25" HorizontalAlignment="Center" Margin="0,34,0,0" VerticalAlignment="Top"/>
+        <Label Content="Filmoversigt" FontWeight="Bold" FontSize="25" HorizontalAlignment="Center" Margin="0,34,0,0" VerticalAlignment="Top" Foreground="#FFD21B1B" FontFamily="Bernard MT Condensed"/>
         <Button Content="Luk filmoversigt" HorizontalAlignment="Left" Margin="488,369,0,0" VerticalAlignment="Top" Click="Button_Click"/>
+        <Image HorizontalAlignment="Left" Height="100" Margin="78,54,0,0" VerticalAlignment="Top" Width="100"/>
 
     </Grid>
 </Window>
