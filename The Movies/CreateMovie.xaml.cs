@@ -26,6 +26,7 @@ namespace The_Movies
         {
             InitializeComponent();
             DataContext = dvm;
+            int NumberOfGenres = 0;
         }
         private void NumericTextBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
@@ -37,6 +38,38 @@ namespace The_Movies
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+
+        private void AddGenreComboBoX(object sender, RoutedEventArgs e)
+        {
+            ComboBox genreComboBox = new ComboBox();
+            genreComboBox.Width = 100;
+
+            // Opret ItemsSource binding til Genres
+            Binding itemsSourceBinding = new Binding("AvailableGenres");
+            genreComboBox.SetBinding(ComboBox.ItemsSourceProperty, itemsSourceBinding);
+
+            // Sæt DisplayMemberPath
+            genreComboBox.DisplayMemberPath = "Name";
+
+            // Find indekset for den nye ComboBox
+            int index = dvm.SelectedGenres.Count;
+
+            // Sørg for, at listen er lang nok
+            if (index >= dvm.SelectedGenres.Count)
+            {
+                dvm.SelectedGenres.Add(null);  // Tilføj en ny post til listen
+            }
+
+            // Opret SelectedItem binding til den korrekte indeks i SelectedGenres
+            Binding selectedItemBinding = new Binding($"SelectedGenres[{index}]")
+            {
+                Mode = BindingMode.TwoWay
+            };
+            genreComboBox.SetBinding(ComboBox.SelectedItemProperty, selectedItemBinding);
+
+            // Tilføj ComboBox til StackPanel
+            GenreComboboxes.Children.Add(genreComboBox);
         }
     }
 }
