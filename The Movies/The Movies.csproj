@@ -29,12 +29,20 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="Popcorn.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Page Include="App.xaml" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Application\ApplicationLayer.csproj" />
     <ProjectReference Include="..\DomainModel\DomainModel.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Popcorn.png" />
   </ItemGroup>
 
 </Project>
