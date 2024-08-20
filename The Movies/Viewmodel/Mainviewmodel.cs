@@ -18,6 +18,7 @@ namespace The_Movies.Viewmodel
 
         public string Title {  get; set; }
         public int Duration { get; set; }
+        public string Director { get; set; }
 
 
         public MainViewModel()
@@ -47,6 +48,7 @@ namespace The_Movies.Viewmodel
         public void AddMovie(Movie movie)
         {
             movie.Title = Title;
+            movie.Director = Director;
             movie.PlayingTime = Duration;
             movie.Genres = SelectedGenres.Distinct().ToList();
             MovieController.Add(movie);

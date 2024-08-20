@@ -16,6 +16,7 @@
         <DataGrid ItemsSource="{Binding Movies}" AutoGenerateColumns="False" Margin="50,90,50,100">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Titel" Binding="{Binding Title}" Width="200" />
+                <DataGridTextColumn Header="Instruktør" Binding="{Binding Director}" Width="200"/>
                 <DataGridTextColumn Header="Varighed" Binding="{Binding PlayingTime, StringFormat='{}{0} min'}" Width="60">
                     <DataGridTextColumn.ElementStyle>
                         <Style TargetType="TextBlock">
