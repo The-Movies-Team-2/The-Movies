@@ -7,6 +7,12 @@
         mc:Ignorable="d"
         Title="Create movie" Height="450" Width="800" MinWidth="100">
     <Grid>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="Black"/>
+                <GradientStop Color="#FF972445" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
         <Grid.RowDefinitions>
             <RowDefinition Height="100" ></RowDefinition>
             <RowDefinition></RowDefinition>
@@ -23,20 +29,20 @@
         <StackPanel Grid.Column="1" Grid.Row="1">
             <!-- Titel stackpanel -->
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,30,0" >
-                <Label Content="Titel" FontWeight="Bold" Margin="5,5,20,5"/>
+                <Label Content="Titel" FontWeight="Bold" Margin="5,5,20,5" Foreground="#FFE5D8D8"/>
                 <TextBox Text="{Binding Title, Mode=TwoWay}" Margin="5" Width="100"/>
             </StackPanel>
 
             <!-- spilletid stackpanel -->
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right"  Margin="0,0,0,0">
-                <Label Content="Spilletid" FontWeight="Bold" Margin="5,5,20,5" VerticalAlignment="Bottom"/>
+                <Label Content="Spilletid" FontWeight="Bold" Margin="5,5,20,5" VerticalAlignment="Bottom" Foreground="#FFE5D8D8"/>
                 <TextBox Text="{Binding Duration, Mode=TwoWay}" VerticalAlignment="Bottom" Margin="5" Width="100" PreviewTextInput="NumericTextBox_PreviewTextInput"/>
-                <Label Content="min" VerticalAlignment="Bottom"></Label>
+                <Label Content="min" VerticalAlignment="Bottom" Foreground="#FFE5D8D8" FontWeight="Bold"></Label>
             </StackPanel>
 
             <!-- genre stackpanel -->
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,30,0">
-                <Label Content="Genre" FontWeight="Bold"  Margin="5,5,20,5"/>
+                <Label Content="Genre" FontWeight="Bold"  Margin="5,5,20,5" Foreground="#FFE5D8D8"/>
                 <!-- stackpanel til flere genredropboxe -->
                 <StackPanel Margin="5">
                     <!-- genredropboxe generes her-->
@@ -44,11 +50,18 @@
                         <ComboBox  ItemsSource="{Binding AvailableGenres}" DisplayMemberPath="Name" SelectedItem="{Binding SelectedGenres[0], Mode=TwoWay}" Width="100" ></ComboBox>
                     </StackPanel>
                     <!-- tilføj genreknap til sidst -->
-                    <Button Content="+Tilføj genre" Background="Transparent" BorderBrush="Transparent" Click="AddGenreComboBoX"/>
+                    <Button Content="+Tilføj genre" Background="Transparent" BorderBrush="Transparent" Click="AddGenreComboBoX" Foreground="#FFE5D8D8" FontWeight="Bold"/>
                 </StackPanel>
             </StackPanel>
 
-            <Button Content="Gem film"  Command="{Binding CreateMovieCMD}" CommandParameter="{Binding}" Click="Button_Click"/>
+            <Button Content="Gem film"  Command="{Binding CreateMovieCMD}" CommandParameter="{Binding}" Click="Button_Click" FontWeight="Bold">
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="Black"/>
+                        <GradientStop Color="#FF198AEE" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+            </Button>
 
         </StackPanel>
     </Grid>
