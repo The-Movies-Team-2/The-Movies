@@ -1,4 +1,5 @@
 ﻿using ApplicationLayer.DataHandlers.DomainDataHandlers;
+using ApplicationLayer.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,6 +15,7 @@ namespace ApplicationLayer.DataHandlers
         private GenreDataHandler _genreDataHandler = new GenreDataHandler();
 
         internal MovieRepository MovieRepository { get; set; }
+        internal CinemaRepository CinemaRepository { get; set; }//**
 
         public MasterDataHandler()
         {
