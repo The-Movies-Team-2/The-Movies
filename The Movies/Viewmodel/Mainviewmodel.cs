@@ -1,9 +1,10 @@
 ﻿using System.Collections.ObjectModel;
 using System.Windows.Input;
-
+using System.Linq;
 using The_Movies.DomainModel;
 using The_Movies.Commands;
 using The_Movies.ApplicationLayer.Controllers;
+using System.Collections.Specialized;
 
 namespace The_Movies.Viewmodel
 {
@@ -40,13 +41,14 @@ namespace The_Movies.Viewmodel
                 AvailableGenres.Add(genre);
             }
         }
+       
 
         public ICommand CreateMovieCMD { get; set; } = new CreateMovieCommand();
         public void AddMovie(Movie movie)
         {
             movie.Title = Title;
             movie.PlayingTime = Duration;
-            movie.Genres =SelectedGenres.ToList();
+            movie.Genres = SelectedGenres.Distinct().ToList();
             MovieController.Add(movie);
         }
 

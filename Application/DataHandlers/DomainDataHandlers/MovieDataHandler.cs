@@ -30,11 +30,11 @@ namespace ApplicationLayer.DataHandlers.DomainDataHandlers
             foreach (string line in lines)
             {
                 string[] values = line.Split(';');
-                var id = int.Parse(values[0]);
-                var title = values[1];
-                var playingTime = int.Parse(values[2]);
+                int id = int.Parse(values[0]);
+                string title = values[1];
+                int playingTime = int.Parse(values[2]);
 
-                var genres = GetGenresForMovie(id);
+                List<Genre> genres = GetGenresForMovie(id);
                 Movie movie = new Movie(id, title, playingTime, genres);
                 _repository.Add(movie);
             }
@@ -45,12 +45,12 @@ namespace ApplicationLayer.DataHandlers.DomainDataHandlers
         {
             List<string> lines = File.ReadLines(_genreRelationPath).ToList();
             List<Genre> genres = [];
-            foreach (var line in lines)
+            foreach (string line in lines)
             {
                 string[] values = line.Split(';');
                 if (int.Parse(values[0]) == movieId)
                 {
-                    var genre = _genreRepository.GetAll().FirstOrDefault(g => g.Id == int.Parse(values[1]));
+                    Genre genre = _genreRepository.GetAll().FirstOrDefault(g => g.Id == int.Parse(values[1]));
                     if (genre != null)
                     {
                         genres.Add(genre);
@@ -71,7 +71,7 @@ namespace ApplicationLayer.DataHandlers.DomainDataHandlers
             {
                 var createText = $"{movie.Id};{movie.Title};{movie.PlayingTime}";
                 File.AppendAllText(_filePath, createText + Environment.NewLine);
-                foreach (var genre in movie.Genres)
+                foreach (Genre genre in movie.Genres)
                 {
                     File.AppendAllText(_genreRelationPath, $"{movie.Id};{genre.Id}" + Environment.NewLine);
                 }
