@@ -16,7 +16,11 @@ namespace ApplicationLayer.DataHandlers
         private ShowingDataHandler showingDataHandler = new ShowingDataHandler();
 
         internal MovieRepository MovieRepository { get; set; }
+
         internal ShowingRepository ShowingRepository { get; set; }
+
+        internal CinemaRepository CinemaRepository { get; set; }//**
+
 
         public MasterDataHandler()
         {
