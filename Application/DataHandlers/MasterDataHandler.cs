@@ -15,7 +15,7 @@ namespace ApplicationLayer.DataHandlers
         private GenreDataHandler _genreDataHandler = new GenreDataHandler();
 
         internal MovieRepository MovieRepository { get; set; }
-        internal CinemaRepository CinemaRepository { get; set; }//**
+        
 
         public MasterDataHandler()
         {
