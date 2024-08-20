@@ -6,11 +6,17 @@
         xmlns:local="clr-namespace:The_Movies"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid Margin="0,3,0,-3" OpacityMask="#FFDFEBCA">
+    <Grid Margin="0,3,0,-3">
+        <Grid.OpacityMask>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="Black"/>
+                <GradientStop Color="White" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.OpacityMask>
         <Grid.Background>
             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                 <GradientStop Color="Black" Offset="0"/>
-                <GradientStop Color="#FF494BA6" Offset="0.489"/>
+                <GradientStop Color="#FF972445" Offset="0.489"/>
             </LinearGradientBrush>
         </Grid.Background>
         <Grid.RowDefinitions>
@@ -19,37 +25,47 @@
             <RowDefinition Height="50"></RowDefinition>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition MinWidth="100"></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition Width="57*"></ColumnDefinition>
+            <ColumnDefinition Width="52*"/>
+            <ColumnDefinition Width="158*"/>
+            <ColumnDefinition MinWidth="100" Width="267*"></ColumnDefinition>
+            <ColumnDefinition Width="267*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
 
-        <Label Content="The Movies" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30" FontWeight="Bold" Grid.Column="1" BorderBrush="#FFDD1919" FontFamily="Algerian">
+        <Label Content="The Movies" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30" FontWeight="Bold" Grid.Column="3" FontFamily="Algerian" Cursor="IBeam" Foreground="#FFBD9A2C">
+            <Label.OpacityMask>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black"/>
+                    <GradientStop Color="White" Offset="1"/>
+                </LinearGradientBrush>
+            </Label.OpacityMask>
             <Label.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="Black"/>
-                    <GradientStop Color="#FFE93F3F" Offset="1"/>
+                    <GradientStop Color="#FF3F0E1C" Offset="1"/>
                 </LinearGradientBrush>
             </Label.Background>
         </Label>
-        <Button Content="Vis Filmoversigt" HorizontalAlignment="Center" VerticalAlignment="Top" Height="54" Width="136" Grid.Column="1" Grid.Row="1" Click="ShowOverview_Button_Click" FontFamily="Bernard MT Condensed">
+        <Button Content="Vis Filmoversigt" HorizontalAlignment="Center" VerticalAlignment="Top" Height="54" Width="136" Grid.Column="3" Grid.Row="1" Click="ShowOverview_Button_Click" FontFamily="Bernard MT Condensed">
             <Button.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="Black"/>
-                    <GradientStop Color="#FFD41D1D" Offset="1"/>
+                    <GradientStop Color="#FF198AEE" Offset="1"/>
                 </LinearGradientBrush>
             </Button.Background>
         </Button>
-        <Button Content="Tilføj Film" HorizontalAlignment="Center" Margin="0,72,0,0" VerticalAlignment="Top" Height="54" Width="136" Grid.Column="1" Grid.Row="1" Click="CreateMovie_Button_Click" FontFamily="Bernard MT Condensed">
+        <Button Content="Tilføj Film" HorizontalAlignment="Center" Margin="0,72,0,0" VerticalAlignment="Top" Height="54" Width="136" Grid.Column="3" Grid.Row="1" Click="CreateMovie_Button_Click" FontFamily="Bernard MT Condensed">
             <Button.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="Black"/>
-                    <GradientStop Color="#FFCC2A2A" Offset="1"/>
+                    <GradientStop Color="#FF198AEE" Offset="1"/>
                 </LinearGradientBrush>
             </Button.Background>
         </Button>
-        <Image HorizontalAlignment="Left" Height="70" Margin="112,25,0,0" VerticalAlignment="Top" Width="71" Source="/Popcorn.png"/>
-        <Image HorizontalAlignment="Left" Height="70" Margin="91,25,0,0" VerticalAlignment="Top" Width="71" Source="/Popcorn.png" Grid.Column="2"/>
+        <Image x:Name="Popcorn" HorizontalAlignment="Left" Height="70" Margin="3,25,0,0" VerticalAlignment="Top" Width="71" Source="/Popcorn.png" Grid.Column="2"/>
+        <Image HorizontalAlignment="Left" Height="70" Margin="91,25,0,0" VerticalAlignment="Top" Width="71" Source="/Popcorn.png" Grid.Column="4"/>
+        <Image x:Name="Popcorn_Copy" HorizontalAlignment="Left" Height="70" Margin="3,142,0,0" VerticalAlignment="Top" Width="71" Source="/Popcorn.png" Grid.Column="2" Grid.Row="1"/>
+        <Image x:Name="Popcorn_Copy1" HorizontalAlignment="Left" Height="70" Margin="91,142,0,0" VerticalAlignment="Top" Width="71" Source="/Popcorn.png" Grid.Column="4" Grid.Row="1"/>
 
 
     </Grid>
