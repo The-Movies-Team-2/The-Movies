@@ -4,10 +4,10 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using The_Movies.Applikation.Repositories;
-using The_Movies.Model;
+using The_Movies.ApplicationLayer.Repositories;
+using The_Movies.DomainModel;
 
-namespace The_Movies.Applikation.DataHandlers
+namespace ApplicationLayer.DataHandlers.DomainDataHandlers
 {
     internal class GenreDataHandler
     {
@@ -51,6 +51,14 @@ namespace The_Movies.Applikation.DataHandlers
         //tjek om fil eksisterer 
         public void CheckIfFileExists(string fullPath)
         {
+            string directory = Path.GetDirectoryName(fullPath);
+
+            // Tjek og opret mappen hvis den ikke findes
+            if (!Directory.Exists(directory))
+            {
+                Directory.CreateDirectory(directory);
+            }
+
             if (!File.Exists(fullPath))
             {
                 FileStream fs = File.Create(fullPath);

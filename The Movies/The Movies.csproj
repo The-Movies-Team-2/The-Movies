@@ -10,18 +10,27 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Application\Movie\**" />
-    <EmbeddedResource Remove="Application\Movie\**" />
-    <None Remove="Application\Movie\**" />
-    <Page Remove="Application\Movie\**" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Compile Remove="Application\Controller.cs" />
+    <Compile Remove="Controllers\**" />
+    <Compile Remove="DataHandlers\**" />
+    <Compile Remove="Repositories\**" />
+    <EmbeddedResource Remove="Controllers\**" />
+    <EmbeddedResource Remove="DataHandlers\**" />
+    <EmbeddedResource Remove="Repositories\**" />
+    <None Remove="Controllers\**" />
+    <None Remove="DataHandlers\**" />
+    <None Remove="Repositories\**" />
+    <Page Remove="Controllers\**" />
+    <Page Remove="DataHandlers\**" />
+    <Page Remove="Repositories\**" />
   </ItemGroup>
 
   <ItemGroup>
     <Page Include="App.xaml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Application\ApplicationLayer.csproj" />
+    <ProjectReference Include="..\DomainModel\DomainModel.csproj" />
   </ItemGroup>
 
 </Project>

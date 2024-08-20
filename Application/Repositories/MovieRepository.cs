@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using The_Movies.Model;
+using The_Movies.DomainModel;
 
-namespace The_Movies.Applikation.Repositories
+namespace The_Movies.ApplicationLayer.Repositories
 {
     internal class MovieRepository
     {

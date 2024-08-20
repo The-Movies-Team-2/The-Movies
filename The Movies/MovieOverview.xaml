@@ -1,0 +1,29 @@
+﻿<Window x:Class="The_Movies.MovieOverviewWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:The_Movies"
+        mc:Ignorable="d"
+        Title="Movie overview" Height="450" Width="800">
+    <Grid>
+        <DataGrid ItemsSource="{Binding Movies}" AutoGenerateColumns="False" Margin="50,90,50,100">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Titel" Binding="{Binding Title}" Width="200" />
+                <DataGridTextColumn Header="Varighed" Binding="{Binding PlayingTime, StringFormat='{}{0} min'}" Width="60">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="HorizontalAlignment" Value="Center" />
+                            <Setter Property="TextAlignment" Value="Center" />
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="Genre" Binding="{Binding GenreString}" />
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <Label Content="Filmoversigt" FontWeight="Bold" FontSize="25" HorizontalAlignment="Center" Margin="0,34,0,0" VerticalAlignment="Top"/>
+        <Button Content="Luk filmoversigt" HorizontalAlignment="Left" Margin="488,369,0,0" VerticalAlignment="Top" Click="Button_Click"/>
+
+    </Grid>
+</Window>

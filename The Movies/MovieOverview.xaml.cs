@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using The_Movies.Viewmodel;
 
 namespace The_Movies
 {
@@ -19,9 +20,16 @@ namespace The_Movies
     /// </summary>
     public partial class MovieOverviewWindow : Window
     {
+        MovieViewModel movieViewModel = new MovieViewModel();
         public MovieOverviewWindow()
         {
             InitializeComponent();
+            DataContext = movieViewModel;
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }
