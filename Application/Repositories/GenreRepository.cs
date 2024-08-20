@@ -39,7 +39,7 @@ namespace The_Movies.ApplicationLayer.Repositories
 
         public List<Genre> GetAll()
         {
-            return genres;
+            return genres.OrderBy(g => g.Name).ToList();
         }
     }
 }

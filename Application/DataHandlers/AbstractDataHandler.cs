@@ -12,6 +12,14 @@ namespace ApplicationLayer.DataHandlers
         internal abstract void Write(TRepository repository);
         protected void CheckIfFileExists(string fullPath)
         {
+            string directory = Path.GetDirectoryName(fullPath);
+
+            // Tjek og opret mappen hvis den ikke findes
+            if (!Directory.Exists(directory))
+            {
+                Directory.CreateDirectory(directory);
+            }
+
             if (!File.Exists(fullPath))
             {
                 FileStream fs = File.Create(fullPath);

@@ -9,22 +9,22 @@ namespace The_Movies.Viewmodel
 {
     internal class MainViewModel
     {
-        public ObservableCollection<Genre> Genres { get; set; }
+        public ObservableCollection<Genre> AvailableGenres { get; set; }
+        public ObservableCollection<Genre> SelectedGenres { get; set; }
 
         public MovieController MovieController { get; set; }
         public GenreController GenreController { get; set; }
 
         public string Title {  get; set; }
         public int Duration { get; set; }
-        //TODO
-        public Genre SelectedGenre { get; set; }
 
 
         public MainViewModel()
         {
             MovieController = new MovieController();
             GenreController = new GenreController();
-            Genres = new ObservableCollection<Genre>();
+            AvailableGenres = new ObservableCollection<Genre>();
+            SelectedGenres = new ObservableCollection<Genre>();
 
             LoadGenres();
 
@@ -34,11 +34,10 @@ namespace The_Movies.Viewmodel
 
         private void LoadGenres()
         {
-            //Genres.Clear();
             List<Genre> TempGenres = GenreController.GetAll();
             foreach (Genre genre in TempGenres)
             {
-                Genres.Add(genre);
+                AvailableGenres.Add(genre);
             }
         }
 
@@ -47,7 +46,7 @@ namespace The_Movies.Viewmodel
         {
             movie.Title = Title;
             movie.PlayingTime = Duration;
-            movie.Genres.Add(SelectedGenre);
+            movie.Genres =SelectedGenres.ToList();
             MovieController.Add(movie);
         }
 
