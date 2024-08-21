@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using The_Movies.ApplicationLayer.Repositories;
+using The_Movies.Model;
 
 namespace ApplicationLayer.Controllers
 {
@@ -18,6 +19,11 @@ namespace ApplicationLayer.Controllers
         {
             dataHandler = new MasterDataHandler();//**
             repository = dataHandler.CinemaRepository;
+        }
+
+        public void Add(Cinema cinema)
+        {
+            repository.Add
         }
     }
 }
