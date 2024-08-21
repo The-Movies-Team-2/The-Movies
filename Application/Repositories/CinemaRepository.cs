@@ -8,6 +8,8 @@ namespace ApplicationLayer.Repositories
 {
     internal class CinemaRepository
     {
+
+
         public enum Halls
         {
 

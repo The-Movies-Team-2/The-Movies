@@ -10,7 +10,7 @@ namespace The_Movies.DomainModel
     {
         public int Id { get; set; }
         public string Title { get; set; }
-        public int PlayingTime { get; set; }
+        public int PlayTime { get; set; }
         public string Director { get; set; }
 
         public List<Genre> Genres = new List<Genre>();
@@ -26,7 +26,7 @@ namespace The_Movies.DomainModel
         public Movie(int id, string title, int time, List<Genre> genres)
         {
             Title = title;
-            PlayingTime = time;
+            PlayTime = time;
             Id = id;
             Genres = genres;
         }
@@ -35,7 +35,7 @@ namespace The_Movies.DomainModel
 
         {
             Title = title;
-            PlayingTime = time;
+            PlayTime = time;
             Genres = genres;
         }
 

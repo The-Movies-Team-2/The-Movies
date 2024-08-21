@@ -13,6 +13,7 @@ namespace The_Movies.Viewmodel
     {
         public ObservableCollection<Movie> Movies { get; set; }
         public MovieController MovieController = new MovieController();
+        // public Movie SelectedMovie;
 
         public MovieViewModel()
         {
