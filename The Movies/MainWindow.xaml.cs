@@ -35,5 +35,11 @@ namespace The_Movies
             MovieOverviewWindow m = new MovieOverviewWindow();
             m.Show();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            ScreeningsOverview s = new ScreeningsOverview();
+            s.Show();
+        }
     }
 }

@@ -11,6 +11,7 @@ namespace The_Movies.DomainModel
         public int Id { get; set; }
         public string Title { get; set; }
         public int PlayingTime { get; set; }
+        public string Director { get; set; }
 
         public List<Genre> Genres = new List<Genre>();
 
