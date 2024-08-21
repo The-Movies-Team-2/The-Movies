@@ -11,8 +11,8 @@ namespace ApplicationLayer.DataHandlers.DomainDataHandlers
 {
     internal class GenreDataHandler
     {
-        private string _filePath = @"C:\\TheMovies\\Genres.txt";
-        private GenreRepository _repository = new GenreRepository();
+        private readonly string _filePath = @"C:\\TheMovies\\Genres.txt";
+        private readonly GenreRepository _repository = new GenreRepository();
 
         //læser fra tekstfiler
         public void Read()

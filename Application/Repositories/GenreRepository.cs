@@ -4,7 +4,7 @@ namespace The_Movies.ApplicationLayer.Repositories
 {
     internal class GenreRepository
     {
-        private readonly List<Genre> genres = new List<Genre>();
+        private readonly List<Genre> _genres = new List<Genre>();
 
         public GenreRepository()
         {
@@ -27,25 +27,25 @@ namespace The_Movies.ApplicationLayer.Repositories
             //maxId = genres.Max(h => h.Id);
             //genre.Id = maxId + 1;
 
-            if(!genres.Contains(genre))
-            genres.Add(genre);
+            if(!_genres.Contains(genre))
+            _genres.Add(genre);
         }
 
         public void Remove(Genre genre)
         {
-            if (genres.Contains(genre))
-                genres.Remove(genre);
+            if (_genres.Contains(genre))
+                _genres.Remove(genre);
         }
 
 
         public Genre GetById(int id)
         {
-            return genres.FirstOrDefault(g => g.Id == id);
+            return _genres.FirstOrDefault(g => g.Id == id);
         }
 
         public List<Genre> GetAll()
         {
-            return genres.OrderBy(g => g.Name).ToList();
+            return _genres.OrderBy(g => g.Name).ToList();
         }
 
         public void Update(Genre genre)

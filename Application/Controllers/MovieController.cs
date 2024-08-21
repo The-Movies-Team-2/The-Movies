@@ -12,24 +12,24 @@ namespace The_Movies.ApplicationLayer.Controllers
 {
     public class MovieController
     {
-        private readonly MovieRepository repository;
-        private readonly MasterDataHandler dataHandler;
+        private readonly MovieRepository _repository;
+        private readonly MasterDataHandler _dataHandler;
         public MovieController()
         {
-            dataHandler = new MasterDataHandler();
-            repository = dataHandler.MovieRepository;
+            _dataHandler = new MasterDataHandler();
+            _repository = _dataHandler.MovieRepository;
         }
 
 
         public void Add(Movie movie)
         {
-            repository.Add(movie);
-            dataHandler.Write();
+            _repository.Add(movie);
+            _dataHandler.Write();
         }
 
         public List<Movie> GetAll()
         {
-            return repository.GetAll();
+            return _repository.GetAll();
         }
     }
 }

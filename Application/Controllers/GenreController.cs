@@ -12,17 +12,17 @@ namespace The_Movies.ApplicationLayer.Controllers
 {
     public class GenreController
     {
-        private readonly GenreRepository repository;
-        private readonly GenreDataHandler dataHandler;
+        private readonly GenreRepository _repository;
+        private readonly GenreDataHandler _dataHandler;
         public GenreController()
         {
-            repository = new GenreRepository();
-            dataHandler = new GenreDataHandler();
+            _repository = new GenreRepository();
+            _dataHandler = new GenreDataHandler();
         }
 
         public virtual List<Genre> GetAll()
         {
-            return repository.GetAll().ToList();
+            return _repository.GetAll().ToList();
         }
     }
 }

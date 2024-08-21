@@ -15,10 +15,10 @@ namespace ApplicationLayer.DataHandlers.DomainDataHandlers
         private static string _filePath = @"C:\\TheMovies\\Movies.txt";
         private static string _genreRelationPath = @"C:\\TheMovies\\MovieGenre.txt";
 
-        private List<Movie> _movies = new List<Movie>();
+        private readonly List<Movie> _movies = new List<Movie>();
 
-        private MovieRepository _repository = new MovieRepository();
-        private GenreRepository _genreRepository = new GenreRepository();
+        private readonly MovieRepository _repository = new MovieRepository();
+        private readonly GenreRepository _genreRepository = new GenreRepository();
 
 
         internal override MovieRepository Read()
@@ -69,7 +69,7 @@ namespace ApplicationLayer.DataHandlers.DomainDataHandlers
             List<Movie> lines = _repository.GetAll().ToList();
             foreach (Movie movie in lines)
             {
-                var createText = $"{movie.Id};{movie.Title};{movie.PlayingTime}";
+                var createText = $"{movie.Id};{movie.Title};{movie.PlayTime}";
                 File.AppendAllText(_filePath, createText + Environment.NewLine);
                 foreach (Genre genre in movie.Genres)
                 {
