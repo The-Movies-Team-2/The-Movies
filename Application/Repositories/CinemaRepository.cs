@@ -26,5 +26,7 @@ namespace ApplicationLayer.Repositories
             cinema.Id = maxId + 1;
             cinemas.Add(cinema);            
         }
+
+        public List<Cinema> GetALL() { return cinemas; }        
     }
 }
