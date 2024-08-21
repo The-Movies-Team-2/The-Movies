@@ -15,7 +15,7 @@ namespace The_Movies.Viewmodel
         public MovieController MovieController { get; set; }
         public GenreController GenreController { get; set; }
 
-        public string Title {  get; set; }
+        public string Title { get; set; }
         public int Duration { get; set; }
 
 
@@ -46,7 +46,7 @@ namespace The_Movies.Viewmodel
         {
             movie.Title = Title;
             movie.PlayingTime = Duration;
-            movie.Genres =SelectedGenres.ToList();
+            movie.Genres = SelectedGenres.ToList();
             MovieController.Add(movie);
         }
 

@@ -9,8 +9,8 @@ namespace The_Movies.DomainModel
     public class Genre
     {
         public int Id;
-        public string Name {  get; set; }
-        
+        public string Name { get; set; }
+
         public Genre(string name)
 
         {

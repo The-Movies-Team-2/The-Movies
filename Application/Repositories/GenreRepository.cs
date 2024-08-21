@@ -1,17 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using The_Movies.DomainModel;
+﻿using The_Movies.DomainModel;
 
 namespace The_Movies.ApplicationLayer.Repositories
 {
     internal class GenreRepository
     {
-        private List<Genre> genres = new List<Genre>();
+        private readonly List<Genre> genres = new List<Genre>();
 
-        public GenreRepository() {
+        public GenreRepository()
+        {
             Add(new Genre(1, "Drama"));
             Add(new Genre(2, "Gys"));
             Add(new Genre(3, "Action"));
@@ -27,12 +23,22 @@ namespace The_Movies.ApplicationLayer.Repositories
         public void Add(Genre genre)
         {
             //int maxId = 0;
-            //if (genres.Count > 0) maxId = genres.Max(h => h.Id);
+            //if (genres.Count > 0) 
+            //maxId = genres.Max(h => h.Id);
             //genre.Id = maxId + 1;
+
+            if(!genres.Contains(genre))
             genres.Add(genre);
         }
 
-        public Genre Get(int id)
+        public void Remove(Genre genre)
+        {
+            if (genres.Contains(genre))
+                genres.Remove(genre);
+        }
+
+
+        public Genre GetById(int id)
         {
             return genres.FirstOrDefault(g => g.Id == id);
         }
@@ -40,6 +46,10 @@ namespace The_Movies.ApplicationLayer.Repositories
         public List<Genre> GetAll()
         {
             return genres.OrderBy(g => g.Name).ToList();
+        }
+
+        public void Update(Genre genre)
+        {
         }
     }
 }

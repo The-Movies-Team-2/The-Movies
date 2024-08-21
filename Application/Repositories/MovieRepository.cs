@@ -9,7 +9,7 @@ namespace The_Movies.ApplicationLayer.Repositories
 {
     internal class MovieRepository
     {
-        private List<Movie> movies = new List<Movie>();
+        private readonly List<Movie> movies = new List<Movie>();
 
         public void Add(Movie movie)
         {
@@ -18,9 +18,27 @@ namespace The_Movies.ApplicationLayer.Repositories
             movie.Id = maxId + 1;
             movies.Add(movie);
         }
+
+        public void Remove(Movie movie)
+        {
+            if (movies.Contains(movie))
+                movies.Remove(movie);
+        }
+
+
+        public Movie GetById(int id)
+        {
+            return movies.FirstOrDefault(g => g.Id == id);
+        }
+
+
         public List<Movie> GetAll()
         {
             return movies;
+        }
+
+        public void Update(Movie movie)
+        {
         }
     }
 }

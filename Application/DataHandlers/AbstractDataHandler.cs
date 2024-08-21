@@ -10,6 +10,7 @@ namespace ApplicationLayer.DataHandlers
     {
         internal abstract TRepository Read();
         internal abstract void Write(TRepository repository);
+
         protected void CheckIfFileExists(string fullPath)
         {
             string directory = Path.GetDirectoryName(fullPath);

@@ -1,9 +1,4 @@
 ﻿using ApplicationLayer.DataHandlers.DomainDataHandlers;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using The_Movies.ApplicationLayer.Repositories;
 
 namespace ApplicationLayer.DataHandlers
@@ -23,7 +18,7 @@ namespace ApplicationLayer.DataHandlers
         public void Read()
         {
             MovieRepository = _movieDataHandler.Read();
-            
+
         }
 
         public void Write()

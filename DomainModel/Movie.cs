@@ -17,7 +17,7 @@ namespace The_Movies.DomainModel
         public string GenreString
         {
             get
-            { 
+            {
                 return string.Join(", ", Genres.Select(p => p.Name));
             }
         }
@@ -31,11 +31,11 @@ namespace The_Movies.DomainModel
         }
 
         public Movie(string title, int time, List<Genre> genres)
-        
+
         {
-            Title = title; 
+            Title = title;
             PlayingTime = time;
-            Genres = genres; 
+            Genres = genres;
         }
 
     }

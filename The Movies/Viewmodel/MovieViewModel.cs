@@ -11,10 +11,10 @@ namespace The_Movies.Viewmodel
 {
     class MovieViewModel
     {
-        public ObservableCollection<Movie> Movies {  get; set; }
+        public ObservableCollection<Movie> Movies { get; set; }
         public MovieController MovieController = new MovieController();
 
-        public MovieViewModel() 
+        public MovieViewModel()
         {
             Movies = new ObservableCollection<Movie>();
             LoadMovies();

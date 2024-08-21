@@ -14,8 +14,8 @@ namespace The_Movies.ApplicationLayer.Controllers
     {
         private readonly MovieRepository repository;
         private readonly MasterDataHandler dataHandler;
-        public MovieController() 
-        { 
+        public MovieController()
+        {
             dataHandler = new MasterDataHandler();
             repository = dataHandler.MovieRepository;
         }
