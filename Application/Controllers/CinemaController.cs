@@ -23,13 +23,13 @@ namespace ApplicationLayer.Controllers
 
         public void Add(Cinema cinema)
         {
-            repository.Add(cinema);
-            dataHandler.Write(); //**
+            _repository.Add(cinema);
+            _dataHandler.Write(); //**
         }
 
         public List<Cinema> GetAll()
         {
-            return repository.GetALL();
+            return _repository.GetALL();
         }
     }
 }
