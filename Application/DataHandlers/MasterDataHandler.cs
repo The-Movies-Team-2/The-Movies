@@ -1,4 +1,5 @@
 ﻿using ApplicationLayer.DataHandlers.DomainDataHandlers;
+using ApplicationLayer.Repositories;
 using The_Movies.ApplicationLayer.Repositories;
 
 namespace ApplicationLayer.DataHandlers
