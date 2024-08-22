@@ -22,7 +22,7 @@ namespace ApplicationLayer.DataHandlers.DomainDataHandlers
         private List<Cinema> _cinemas = new List<Cinema>();
 
         private CinemaRepository _repository = new CinemaRepository();
-        private CinemaHallsReps _cinemaHallsReps = new CinemaHallsReps();
+        private TheaterRepository _cinemaHallsReps = new TheaterRepository();
 
         internal override CinemaRepository Read()
         {
