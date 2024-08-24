@@ -22,7 +22,7 @@ namespace DomainModel
             set
             {
                 startTime = value;
-                EndTime = startTime.AddMinutes(Movie.PlayTime + 30); // Beregn EndTime
+                EndTime = startTime.AddMinutes(Movie.Duration + 30); // Beregn EndTime
             }
         }
         private DateTime EndTime { get; set; }

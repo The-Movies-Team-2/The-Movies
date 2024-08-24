@@ -22,7 +22,6 @@ namespace The_Movies.Viewmodel
         }
         private void LoadMovies()
         {
-
             List<Movie> TempMovies = MovieController.GetAll();
             foreach (Movie movie in TempMovies)
             {
@@ -31,6 +30,12 @@ namespace The_Movies.Viewmodel
             }
             //Movies.Add(new Movie(1, "test", 0, new List<Genre>()));
         }
+        public void ReloadMovies()
+        {
+            Movies.Clear();
+            LoadMovies();
+        }
+
 
 
     }

@@ -14,12 +14,12 @@ namespace The_Movies.ApplicationLayer.Controllers
     {
         private readonly MovieRepository _repository;
         private readonly MasterDataHandler _dataHandler;
+
         public MovieController()
         {
             _dataHandler = new MasterDataHandler();
             _repository = _dataHandler.MovieRepository;
         }
-
 
         public void Add(Movie movie)
         {
@@ -31,5 +31,7 @@ namespace The_Movies.ApplicationLayer.Controllers
         {
             return _repository.GetAll();
         }
+
+      
     }
 }

@@ -27,14 +27,20 @@ namespace The_Movies
             DataContext = movieViewModel;
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Close_overview(object sender, RoutedEventArgs e)
         {
             this.Close();
         }
 
-        private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void CreateMovie_Button_Click(object sender, RoutedEventArgs e)
         {
+            CreateMovieWindow c = new CreateMovieWindow();
+            c.Show();
+        }
 
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            movieViewModel.ReloadMovies();
         }
     }
 }

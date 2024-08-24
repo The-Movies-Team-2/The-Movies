@@ -49,7 +49,7 @@ namespace The_Movies.Viewmodel
         {
             movie.Title = Title;
             movie.Director = Director;
-            movie.PlayTime = Duration;
+            movie.Duration = Duration;
             movie.Genres = SelectedGenres.ToList();
             movie.Genres = SelectedGenres.Distinct().ToList();
             MovieController.Add(movie);

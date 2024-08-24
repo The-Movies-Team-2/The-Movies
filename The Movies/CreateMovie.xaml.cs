@@ -26,9 +26,9 @@ namespace The_Movies
         {
             InitializeComponent();
             DataContext = dvm;
-            int NumberOfGenres = 0;
         }
-        private void NumericTextBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
+
+        private void AllowOnlyNumbersInTextBox(object sender, TextCompositionEventArgs e)
         {
             //regular expression(regex) genkender mønstrer og sørger for der kun kan indtastes tal i textboksen
             Regex regex = new Regex("[^0-9]+");

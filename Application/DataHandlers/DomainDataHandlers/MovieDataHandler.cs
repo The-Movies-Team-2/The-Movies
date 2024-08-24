@@ -33,9 +33,10 @@ namespace ApplicationLayer.DataHandlers.DomainDataHandlers
                 int id = int.Parse(values[0]);
                 string title = values[1];
                 int playingTime = int.Parse(values[2]);
+                string director = values[3];
 
                 List<Genre> genres = GetGenresForMovie(id);
-                Movie movie = new Movie(id, title, playingTime, genres);
+                Movie movie = new Movie(id, title, playingTime, genres, director);
                 _repository.Add(movie);
             }
             return _repository;
@@ -69,7 +70,7 @@ namespace ApplicationLayer.DataHandlers.DomainDataHandlers
             List<Movie> lines = _repository.GetAll().ToList();
             foreach (Movie movie in lines)
             {
-                var createText = $"{movie.Id};{movie.Title};{movie.PlayTime}";
+                var createText = $"{movie.Id};{movie.Title};{movie.Duration};{movie.Director}";
                 File.AppendAllText(_filePath, createText + Environment.NewLine);
                 foreach (Genre genre in movie.Genres)
                 {

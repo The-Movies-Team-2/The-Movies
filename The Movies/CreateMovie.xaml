@@ -24,7 +24,7 @@
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
 
-        <Label Grid.Column="1" Content="Tilføj film" FontSize="30" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Label Grid.Column="1" Content="Tilføj film" FontSize="30" FontWeight="Bold" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 
         <StackPanel Grid.Column="1" Grid.Row="1">
             <!-- Titel stackpanel -->
@@ -41,7 +41,7 @@
             <!-- spilletid stackpanel -->
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right"  Margin="0,0,0,0">
                 <Label Content="Spilletid" FontWeight="Bold" Margin="5,5,20,5" VerticalAlignment="Bottom" Foreground="#FFE5D8D8"/>
-                <TextBox Text="{Binding Duration, Mode=TwoWay}" VerticalAlignment="Bottom" Margin="5" Width="100" PreviewTextInput="NumericTextBox_PreviewTextInput"/>
+                <TextBox Text="{Binding Duration, Mode=TwoWay}" VerticalAlignment="Bottom" Margin="5" Width="100" PreviewTextInput="AllowOnlyNumbersInTextBox"/>
                 <Label Content="min" VerticalAlignment="Bottom" Foreground="#FFE5D8D8" FontWeight="Bold"></Label>
             </StackPanel>
 
