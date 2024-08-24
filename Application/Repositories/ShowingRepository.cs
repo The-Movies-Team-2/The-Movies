@@ -8,7 +8,7 @@ using The_Movies.DomainModel;
 
 namespace The_Movies.ApplicationLayer.Repositories
 {
-    internal class ShowingRepository
+    public class ShowingRepository
     {
         private List<Showing> Showings = new List<Showing>();
 

@@ -25,19 +25,19 @@ namespace The_Movies
         private void CreateMovie_Button_Click(object sender, RoutedEventArgs e)
         {
             CreateMovieWindow c = new CreateMovieWindow();
-            c.Show();
+            c.ShowDialog();
         }
 
         private void Show_MoviesOverview(object sender, RoutedEventArgs e)
         {
             MovieOverviewWindow m = new MovieOverviewWindow();
-            m.Show();
+            m.ShowDialog();
         }
 
         private void Show_Showings(object sender, RoutedEventArgs e)
         {
             ShowingsOverview s = new ShowingsOverview();
-            s.Show();
+            s.ShowDialog();
         }
     }
 }

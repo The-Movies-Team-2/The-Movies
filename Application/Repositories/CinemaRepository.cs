@@ -8,7 +8,7 @@ using The_Movies.Model;
 
 namespace ApplicationLayer.Repositories
 {
-    internal class CinemaRepository
+    public class CinemaRepository
     {
 
         private readonly List<Cinema> cinemas = new List<Cinema>();

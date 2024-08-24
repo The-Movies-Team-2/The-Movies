@@ -20,9 +20,18 @@ namespace The_Movies.Commands
 
         public void Execute(object? parameter)
         {
-            if (parameter is MainViewModel mvm)
+            if (parameter is CreateMovieCommandParameters commandParams)
             {
-                mvm.AddMovie(new Movie("Unknown", 0, new List<Genre>()));
+                MovieCreateViewModel mvm = commandParams.MovieCreateViewModel;
+                mvm.AddMovie();
+                var createWindow = commandParams.Window;
+                var ownerWindow = createWindow?.Owner as MovieOverviewWindow;
+                if (ownerWindow != null)
+                {
+                   ownerWindow.RefreshOwner();
+                   createWindow?.Close();
+                }
+
             }
         }
     }

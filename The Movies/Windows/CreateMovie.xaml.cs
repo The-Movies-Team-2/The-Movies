@@ -12,6 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using The_Movies.Commands;
 using The_Movies.Viewmodel;
 
 namespace The_Movies
@@ -21,11 +22,21 @@ namespace The_Movies
     /// </summary>
     public partial class CreateMovieWindow : Window
     {
-        MainViewModel dvm = new MainViewModel();
+        MovieCreateViewModel _viewModel = new MovieCreateViewModel();
         public CreateMovieWindow()
         {
             InitializeComponent();
-            DataContext = dvm;
+            _viewModel = new MovieCreateViewModel();
+            DataContext = _viewModel;
+
+            // Set up the command parameter in code-behind
+            var commandParameters = new CreateMovieCommandParameters
+            {
+                MovieCreateViewModel = _viewModel,
+                Window = this
+            };
+
+            SaveButton.CommandParameter = commandParameters;
         }
 
         private void AllowOnlyNumbersInTextBox(object sender, TextCompositionEventArgs e)
@@ -33,17 +44,6 @@ namespace The_Movies
             //regular expression(regex) genkender mønstrer og sørger for der kun kan indtastes tal i textboksen
             Regex regex = new Regex("[^0-9]+");
             e.Handled = regex.IsMatch(e.Text);
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            var ownerWindow = this.Owner as MovieOverviewWindow;
-            if(ownerWindow != null)
-            {
-                ownerWindow.RefreshOwner();
-                this.Close();
-            }
-           
         }
 
         private void AddGenreComboBoX(object sender, RoutedEventArgs e)
@@ -59,12 +59,12 @@ namespace The_Movies
             genreComboBox.DisplayMemberPath = "Name";
 
             // Find indekset for den nye ComboBox
-            int index = dvm.SelectedGenres.Count;
+            int index = _viewModel.SelectedGenres.Count;
 
             // Sørg for, at listen er lang nok
-            if (index >= dvm.SelectedGenres.Count)
+            if (index >= _viewModel.SelectedGenres.Count)
             {
-                dvm.SelectedGenres.Add(null);  // Tilføj en ny post til listen
+                _viewModel.SelectedGenres.Add(null);  // Tilføj en ny post til listen
             }
 
             // Opret SelectedItem binding til den korrekte indeks i SelectedGenres

@@ -54,15 +54,7 @@
                 </LinearGradientBrush>
             </Button.Background>
         </Button>
-        <Button Content="Tilføj Film" HorizontalAlignment="Center" Margin="0,72,0,0" VerticalAlignment="Top" Height="54" Width="136" Grid.Column="3" Grid.Row="1" Click="CreateMovie_Button_Click" FontFamily="Bernard MT Condensed">
-            <Button.Background>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="Black"/>
-                    <GradientStop Color="#FF198AEE" Offset="1"/>
-                </LinearGradientBrush>
-            </Button.Background>
-        </Button>
-        <Button Content="Forestillinger" HorizontalAlignment="Center" Margin="0,145,0,0" VerticalAlignment="Top" Height="54" Width="136" Grid.Column="3" Grid.Row="1"  FontFamily="Bernard MT Condensed" Click="Show_Showings">
+        <Button Content="Forestillinger" HorizontalAlignment="Center" Margin="0,86,0,0" VerticalAlignment="Top" Height="54" Width="136" Grid.Column="3" Grid.Row="1"  FontFamily="Bernard MT Condensed" Click="Show_Showings">
             <Button.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="Black"/>

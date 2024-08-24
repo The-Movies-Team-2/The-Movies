@@ -9,13 +9,13 @@ using The_Movies.DomainModel;
 
 namespace The_Movies.Viewmodel
 {
-    class MovieViewModel
+    class MovieListViewModel
     {
         public ObservableCollection<Movie> Movies { get; set; }
         public MovieController MovieController = new MovieController();
         // public Movie SelectedMovie;
 
-        public MovieViewModel()
+        public MovieListViewModel()
         {
             Movies = new ObservableCollection<Movie>();
             LoadMovies();

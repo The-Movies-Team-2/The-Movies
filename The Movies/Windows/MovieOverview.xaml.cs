@@ -20,7 +20,7 @@ namespace The_Movies
     /// </summary>
     public partial class MovieOverviewWindow : Window
     {
-        MovieViewModel movieViewModel = new MovieViewModel();
+        MovieListViewModel movieViewModel = new MovieListViewModel();
         public MovieOverviewWindow()
         {
             InitializeComponent();
@@ -36,13 +36,13 @@ namespace The_Movies
         {
             CreateMovieWindow c = new CreateMovieWindow();
             c.Owner = this;
-            c.Show();
+            c.ShowDialog();
         }
 
         public void RefreshOwner()
         {
             InitializeComponent();
-            MovieViewModel movieViewModel = new MovieViewModel();
+            MovieListViewModel movieViewModel = new MovieListViewModel();
             DataContext = movieViewModel;
 
 

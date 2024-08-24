@@ -13,11 +13,9 @@ namespace The_Movies.ApplicationLayer.Controllers
     public class GenreController
     {
         private readonly GenreRepository _repository;
-        private readonly GenreDataHandler _dataHandler;
         public GenreController()
         {
             _repository = new GenreRepository();
-            _dataHandler = new GenreDataHandler();
         }
 
         public virtual List<Genre> GetAll()

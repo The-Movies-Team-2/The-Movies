@@ -23,6 +23,8 @@ namespace The_Movies.DomainModel
             }
         }
 
+
+
         public Movie(int id, string title, int time, List<Genre> genres,string director)
         {
             Title = title;

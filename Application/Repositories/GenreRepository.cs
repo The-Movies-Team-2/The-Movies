@@ -2,7 +2,7 @@
 
 namespace The_Movies.ApplicationLayer.Repositories
 {
-    internal class GenreRepository
+    public class GenreRepository
     {
         private readonly List<Genre> _genres = new List<Genre>();
 

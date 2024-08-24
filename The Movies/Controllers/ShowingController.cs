@@ -1,31 +1,17 @@
 ﻿using ApplicationLayer.DataHandlers;
 using DomainModel;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using The_Movies.ApplicationLayer.Repositories;
-using The_Movies.DomainModel;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using ApplicationLayer.DataHandlers;
-using ApplicationLayer.DataHandlers.DomainDataHandlers;
-using The_Movies.ApplicationLayer.Repositories;
-using The_Movies.DomainModel;
+using ApplicationLayer.Interfaces;
 
 namespace ApplicationLayer.Controllers
 {
     public class ShowingController
     {
         private readonly ShowingRepository repository;
-        private readonly MasterDataHandler dataHandler;
+        private readonly IMasterDataHandler dataHandler;
         public ShowingController()
         {
-            dataHandler = new MasterDataHandler();
+            dataHandler = DataHandlerManager.GetMasterDataHandler();
             repository = dataHandler.ShowingRepository;
         }
 

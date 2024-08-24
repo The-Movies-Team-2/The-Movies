@@ -8,7 +8,7 @@ using System.Collections.Specialized;
 
 namespace The_Movies.Viewmodel
 {
-    internal class MainViewModel
+    public class MovieCreateViewModel
     {
         public ObservableCollection<Genre> AvailableGenres { get; set; }
         public ObservableCollection<Genre> SelectedGenres { get; set; }
@@ -21,7 +21,7 @@ namespace The_Movies.Viewmodel
         public string Director { get; set; }
 
 
-        public MainViewModel()
+        public MovieCreateViewModel()
         {
             MovieController = new MovieController();
             GenreController = new GenreController();
@@ -45,14 +45,14 @@ namespace The_Movies.Viewmodel
        
 
         public ICommand CreateMovieCMD { get; set; } = new CreateMovieCommand();
-        public void AddMovie(Movie movie)
+        public void AddMovie()
         {
-            movie.Title = Title;
+            var genres = SelectedGenres.Distinct().ToList();
+            Movie movie = new Movie(Title, Duration, genres);
             movie.Director = Director;
-            movie.Duration = Duration;
-            movie.Genres = SelectedGenres.ToList();
-            movie.Genres = SelectedGenres.Distinct().ToList();
             MovieController.Add(movie);
+            //Close window and update parent window
+
         }
 
     }
