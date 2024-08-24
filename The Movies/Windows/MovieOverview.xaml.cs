@@ -35,12 +35,18 @@ namespace The_Movies
         private void CreateMovie_Button_Click(object sender, RoutedEventArgs e)
         {
             CreateMovieWindow c = new CreateMovieWindow();
+            c.Owner = this;
             c.Show();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        public void RefreshOwner()
         {
-            movieViewModel.ReloadMovies();
+            InitializeComponent();
+            MovieViewModel movieViewModel = new MovieViewModel();
+            DataContext = movieViewModel;
+
+
         }
+
     }
 }

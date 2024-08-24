@@ -15,11 +15,11 @@ using System.Windows.Shapes;
 namespace The_Movies
 {
     /// <summary>
-    /// Interaction logic for ScreeningsOverview.xaml
+    /// Interaction logic for ShowingsOverview.xaml
     /// </summary>
-    public partial class ScreeningsOverview : Window
+    public partial class ShowingsOverview : Window
     {
-        public ScreeningsOverview()
+        public ShowingsOverview()
         {
             InitializeComponent();
         }

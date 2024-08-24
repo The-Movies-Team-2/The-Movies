@@ -15,7 +15,7 @@
             </LinearGradientBrush>
         </Grid.Background>
         <Label Content="Filmoversigt" FontWeight="Bold" FontSize="25" HorizontalAlignment="Center" Margin="0,34,0,0" VerticalAlignment="Top" Foreground="#FFD21B1B" FontFamily="Bernard MT Condensed"/>
-        <DataGrid ItemsSource="{Binding Movies}" AutoGenerateColumns="False" Margin="50,90,50,100">
+        <DataGrid x:Name="MovieOverviewDataGrid" ItemsSource="{Binding Movies}" AutoGenerateColumns="False" Margin="50,90,50,100">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Titel" Binding="{Binding Title}" Width="200" />
                 <DataGridTextColumn Header="Instruktør" Binding="{Binding Director}" Width="200"/>
@@ -31,7 +31,7 @@
             </DataGrid.Columns>
         </DataGrid>
 
-        <Button Content="Opdater filmliste" HorizontalAlignment="Left" Margin="458,369,0,0" VerticalAlignment="Top" Click="Button_Click"> </Button>
+       
         <Button Content="Tilføj film" HorizontalAlignment="Left" Margin="573,369,0,0" VerticalAlignment="Top" Click="CreateMovie_Button_Click"></Button>
         <Button Content="Luk filmoversigt" HorizontalAlignment="Left" Margin="662,369,0,0" VerticalAlignment="Top" Click="Close_overview"/>
    

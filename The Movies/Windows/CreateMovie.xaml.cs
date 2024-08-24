@@ -37,7 +37,13 @@ namespace The_Movies
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            this.Close();
+            var ownerWindow = this.Owner as MovieOverviewWindow;
+            if(ownerWindow != null)
+            {
+                ownerWindow.RefreshOwner();
+                this.Close();
+            }
+           
         }
 
         private void AddGenreComboBoX(object sender, RoutedEventArgs e)

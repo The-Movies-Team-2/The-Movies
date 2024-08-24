@@ -17,11 +17,9 @@ namespace The_Movies
     /// </summary>
     public partial class MainWindow : Window
     {
-        MainViewModel dvm = new MainViewModel();
         public MainWindow()
         {
             InitializeComponent();
-            DataContext = dvm;
         }
 
         private void CreateMovie_Button_Click(object sender, RoutedEventArgs e)
@@ -30,15 +28,15 @@ namespace The_Movies
             c.Show();
         }
 
-        private void ShowOverview_Button_Click(object sender, RoutedEventArgs e)
+        private void Show_MoviesOverview(object sender, RoutedEventArgs e)
         {
             MovieOverviewWindow m = new MovieOverviewWindow();
             m.Show();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Show_Showings(object sender, RoutedEventArgs e)
         {
-            ScreeningsOverview s = new ScreeningsOverview();
+            ShowingsOverview s = new ShowingsOverview();
             s.Show();
         }
     }
