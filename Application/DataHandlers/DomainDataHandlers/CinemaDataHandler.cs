@@ -72,7 +72,7 @@ namespace ApplicationLayer.DataHandlers.DomainDataHandlers
             List<Cinema> lines = _repository.GetALL().ToList();
             foreach (Cinema cinema in lines)
             {
-                string createText = $"{cinema.Name};{cinema.Id};{cinema.NumberOfHalls}";
+                string createText = $"{cinema.Name};{cinema.Id};";
                 File.AppendAllText(_filePath, createText + Environment.NewLine);
                 foreach (Theater theater in cinema.Theaters)
                 {

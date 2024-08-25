@@ -11,9 +11,9 @@ namespace DomainModel
         public int Id {  get; set; }
         public string Name { get; set; }
         public int CinemaId {  get; set; }
+        public int NumberOfSeats { get; set; }
 
         public Theater(string name)
-
         {
             Name = name;
         }

@@ -34,9 +34,9 @@ namespace The_Movies
 
         private void CreateMovie_Button_Click(object sender, RoutedEventArgs e)
         {
-            CreateMovieWindow c = new CreateMovieWindow();
-            c.Owner = this;
-            c.ShowDialog();
+            CreateMovieWindow createMovieWindow = new CreateMovieWindow();
+            createMovieWindow.Owner = this;
+            createMovieWindow.ShowDialog();
         }
 
         public void RefreshOwner()
@@ -44,8 +44,6 @@ namespace The_Movies
             InitializeComponent();
             MovieListViewModel movieViewModel = new MovieListViewModel();
             DataContext = movieViewModel;
-
-
         }
 
     }

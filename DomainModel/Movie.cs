@@ -23,8 +23,6 @@ namespace The_Movies.DomainModel
             }
         }
 
-
-
         public Movie(int id, string title, int time, List<Genre> genres,string director)
         {
             Title = title;
@@ -34,12 +32,12 @@ namespace The_Movies.DomainModel
             Director = director;
         }
 
-        public Movie(string title, int time, List<Genre> genres)
-
+        public Movie(string title, int time, List<Genre> genres, string director)
         {
             Title = title;
             Duration = time;
             Genres = genres;
+            Director = director;
         }
 
     }

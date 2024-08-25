@@ -8,7 +8,6 @@ namespace ApplicationLayer.DataHandlers
     internal class MasterDataHandler: IMasterDataHandler
     {
         private MovieDataHandler _movieDataHandler = new MovieDataHandler();
-        private GenreDataHandler _genreDataHandler = new GenreDataHandler();
         private ShowingDataHandler showingDataHandler = new ShowingDataHandler();
 
         public MovieRepository MovieRepository { get; set; }

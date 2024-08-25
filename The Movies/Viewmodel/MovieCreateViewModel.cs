@@ -30,7 +30,8 @@ namespace The_Movies.Viewmodel
 
             LoadGenres();
 
-            Title = "Filmens titel her";
+            Title = "Filmens titel";
+            Director = "instruktør";
             Duration = 0;
         }
 
@@ -42,16 +43,14 @@ namespace The_Movies.Viewmodel
                 AvailableGenres.Add(genre);
             }
         }
-       
 
         public ICommand CreateMovieCMD { get; set; } = new CreateMovieCommand();
         public void AddMovie()
         {
             var genres = SelectedGenres.Distinct().ToList();
-            Movie movie = new Movie(Title, Duration, genres);
-            movie.Director = Director;
+            Movie movie = new Movie(Title, Duration, genres,Director);
             MovieController.Add(movie);
-            //Close window and update parent window
+           
 
         }
 

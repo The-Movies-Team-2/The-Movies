@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
 using The_Movies.DomainModel;
 using The_Movies.Viewmodel;
@@ -22,14 +23,14 @@ namespace The_Movies.Commands
         {
             if (parameter is CreateMovieCommandParameters commandParams)
             {
-                MovieCreateViewModel mvm = commandParams.MovieCreateViewModel;
-                mvm.AddMovie();
-                var createWindow = commandParams.Window;
-                var ownerWindow = createWindow?.Owner as MovieOverviewWindow;
+                MovieCreateViewModel MCVM = commandParams.MovieCreateViewModel;
+                MCVM.AddMovie();
+                Window createMovieWindow = commandParams.Window;
+                MovieOverviewWindow ownerWindow = createMovieWindow?.Owner as MovieOverviewWindow;
                 if (ownerWindow != null)
                 {
                    ownerWindow.RefreshOwner();
-                   createWindow?.Close();
+                   createMovieWindow?.Close();
                 }
 
             }

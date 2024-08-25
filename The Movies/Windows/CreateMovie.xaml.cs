@@ -30,12 +30,11 @@ namespace The_Movies
             DataContext = _viewModel;
 
             // Set up the command parameter in code-behind
-            var commandParameters = new CreateMovieCommandParameters
+            CreateMovieCommandParameters commandParameters = new CreateMovieCommandParameters
             {
                 MovieCreateViewModel = _viewModel,
                 Window = this
             };
-
             SaveButton.CommandParameter = commandParameters;
         }
 
@@ -54,26 +53,22 @@ namespace The_Movies
             // Opret ItemsSource binding til Genres
             Binding itemsSourceBinding = new Binding("AvailableGenres");
             genreComboBox.SetBinding(ComboBox.ItemsSourceProperty, itemsSourceBinding);
-
             // Sæt DisplayMemberPath
             genreComboBox.DisplayMemberPath = "Name";
 
             // Find indekset for den nye ComboBox
             int index = _viewModel.SelectedGenres.Count;
-
             // Sørg for, at listen er lang nok
             if (index >= _viewModel.SelectedGenres.Count)
             {
                 _viewModel.SelectedGenres.Add(null);  // Tilføj en ny post til listen
             }
-
             // Opret SelectedItem binding til den korrekte indeks i SelectedGenres
             Binding selectedItemBinding = new Binding($"SelectedGenres[{index}]")
             {
                 Mode = BindingMode.TwoWay
             };
             genreComboBox.SetBinding(ComboBox.SelectedItemProperty, selectedItemBinding);
-
             // Tilføj ComboBox til StackPanel
             GenreComboboxes.Children.Add(genreComboBox);
         }
