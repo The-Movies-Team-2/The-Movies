@@ -12,6 +12,13 @@ namespace The_Movies.ApplicationLayer.Repositories
     {
         private List<Showing> Showings = new List<Showing>();
 
+        //midlertidig
+        public ShowingRepository() 
+        {
+            Add(new Showing("TestForestilling"));
+            Add(new Showing("TestForestilling2"));
+        }
+
         public void Add(Showing Showing)
         {
             int maxId = 0;

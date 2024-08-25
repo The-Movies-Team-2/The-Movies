@@ -9,7 +9,7 @@ using The_Movies.DomainModel;
 
 
 namespace The_Movies.ApplicationLayer.Controllers
-{
+{ 
     public class GenreController
     {
         private readonly GenreRepository _repository;

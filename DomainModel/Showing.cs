@@ -11,6 +11,7 @@ namespace DomainModel
     public class Showing
     {
         public int Id { get; set; }
+        public string Name { get; set; }// midlertidg
         public Movie Movie { get; set; }
         public Theater Theater { get; set; }
         private int CleaningTime = 15;
@@ -27,7 +28,11 @@ namespace DomainModel
                 EndTime = startTime.AddMinutes(Movie.Duration + CleaningTime + AdvertisingTime); // Beregn EndTime
             }
         }
-       
+       //midlertidig
+        public Showing(string name) 
+        {
+            Name = name;
+        }
 
         // Ny egenskab, der kombinerer start- og sluttidspunkt
         public string TimeRange => $"{StartTime:HH:mm} - {EndTime:HH:mm}";

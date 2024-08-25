@@ -4,8 +4,6 @@ namespace ApplicationLayer.Repositories
 {
     public class TheaterRepository
     {
-        private readonly List<Movie> Movies = new List<Movie>();
-        //Add time slots: list<slots>?
         private readonly List<Theater> _theaters = new List<Theater>();
 
 
@@ -26,6 +24,10 @@ namespace ApplicationLayer.Repositories
         public Theater GetById(int id)
         {
             return _theaters.FirstOrDefault(g => g.Id == id);
+        }
+        public List<Theater> GetByCinemaId(int id)
+        {
+            return _theaters.FindAll(ci => ci.CinemaId == id);
         }
         public List<Theater> GetAll()
         {

@@ -9,7 +9,7 @@ namespace The_Movies.Model
         public string Name { get; set; }
         public List<Theater> Theaters = new List<Theater>();
         
-        public Cinema(int id, string name, int numberOfHalls, List<Theater> theaters)
+        public Cinema(int id, string name, List<Theater> theaters)
         {
             Id = id;
             Name = name;

@@ -13,24 +13,24 @@ namespace ApplicationLayer.Controllers
 {
     internal class CinemaController
     {
-        private readonly CinemaRepository _repository;
+        //private readonly CinemaRepository _repository;
         private readonly IMasterDataHandler _dataHandler;//**KORREKT?
 
         public CinemaController()
         {
             _dataHandler = DataHandlerManager.GetMasterDataHandler();
-            _repository = _dataHandler.CinemaRepository;
+            //_repository = _dataHandler.CinemaRepository;
         }
 
         public void Add(Cinema cinema)
         {
-            _repository.Add(cinema);
+            _dataHandler.CinemaRepository.Add(cinema);
             _dataHandler.Write(); //**
         }
 
         public List<Cinema> GetAll()
         {
-            return _repository.GetALL();
+            return _dataHandler.CinemaRepository.GetALL();
         }
     }
 }

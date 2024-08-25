@@ -7,8 +7,7 @@ namespace The_Movies.Viewmodel
 {
     internal class ShowingsViewmodel
     {
-        ObservableCollection<Showing> Showings {  get; set; }
-   
+        public ObservableCollection<Showing> Showings {  get; set; }
         public ShowingController showingsController = new ShowingController();
 
         public ShowingsViewmodel() 
@@ -19,7 +18,6 @@ namespace The_Movies.Viewmodel
 
         private void LoadShowings()
         {
-
             List<Showing> TempShowings = showingsController.GetAll(); //TODO 
 
             foreach (Showing showing in TempShowings)

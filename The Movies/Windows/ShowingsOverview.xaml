@@ -9,6 +9,7 @@
     <Grid Margin="50,95,50,111">
         <DataGrid ItemsSource="{Binding Showings}" AutoGenerateColumns="False">
             <DataGrid.Columns>
+                <DataGridTextColumn Header="Film" Binding="{Binding Name}" Width="150"/>
                 <DataGridTextColumn Header="Film" Binding="{Binding MovieTitle}" Width="150"/>
                 <DataGridTextColumn Header="biograf" Binding="{Binding CinemaName}" Width="150" />
                 <DataGridTextColumn Header="Sal" Binding="{Binding Auditorium}" />

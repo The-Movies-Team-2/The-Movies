@@ -11,21 +11,25 @@ namespace ApplicationLayer.DataHandlers
         private ShowingDataHandler showingDataHandler = new ShowingDataHandler();
 
         public MovieRepository MovieRepository { get; set; }
-
         public ShowingRepository ShowingRepository { get; set; }
 
-        public CinemaRepository CinemaRepository { get; set; }//**
+        public CinemaRepository CinemaRepository { get; set; }
+        public TheaterRepository TheaterRepository { get; set; }
 
 
         internal MasterDataHandler()
         {
             Read();
+            TheaterRepository = new TheaterRepository();
+            CinemaRepository = new CinemaRepository(this);
+            
         }
 
         internal void Read()
         {
             MovieRepository = _movieDataHandler.Read();
-            
+            ShowingRepository = showingDataHandler.Read();
+            //ShowingRepository = showingDataHandler.Read(); //TODO 
         }
 
         public void Write()

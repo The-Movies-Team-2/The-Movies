@@ -5,6 +5,7 @@ using The_Movies.DomainModel;
 using The_Movies.Commands;
 using The_Movies.ApplicationLayer.Controllers;
 using System.Collections.Specialized;
+using ApplicationLayer.Interfaces;
 
 namespace The_Movies.Viewmodel
 {

@@ -16,6 +16,7 @@ namespace ApplicationLayer.Interfaces
         public ShowingRepository ShowingRepository { get; set; }
 
         public CinemaRepository CinemaRepository { get; set; }
+        public TheaterRepository TheaterRepository { get; set; }
         public void Write();
 
     }
