@@ -28,7 +28,10 @@ namespace ApplicationLayer.Repositories
         {
             cinemas.Add(cinema);
         }
-
+        public Cinema GetById(int id)
+        {
+            return cinemas.FirstOrDefault(g => g.Id == id);
+        }
         public List<Cinema> GetALL() { return cinemas; }        
     }
 }

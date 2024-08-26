@@ -28,6 +28,11 @@ namespace The_Movies.ApplicationLayer.Controllers
             _dataHandler.Write();
         }
 
+        public Movie GetById(int id)
+        {
+            return _repository.GetById(id);
+        }
+
         public List<Movie> GetAll()
         {
             return _repository.GetAll();

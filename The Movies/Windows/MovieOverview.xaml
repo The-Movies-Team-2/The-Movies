@@ -17,6 +17,7 @@
         <Label Content="Filmoversigt" FontWeight="Bold" FontSize="25" HorizontalAlignment="Center" Margin="0,34,0,0" VerticalAlignment="Top" Foreground="#FFD21B1B" FontFamily="Bernard MT Condensed"/>
         <DataGrid x:Name="MovieOverviewDataGrid" ItemsSource="{Binding Movies}" AutoGenerateColumns="False" Margin="50,90,50,100">
             <DataGrid.Columns>
+                <DataGridTextColumn Header="Id" Binding="{Binding Id}"/>
                 <DataGridTextColumn Header="Titel" Binding="{Binding Title}" Width="200" />
                 <DataGridTextColumn Header="Instruktør" Binding="{Binding Director}" Width="200"/>
                 <DataGridTextColumn Header="Varighed" Binding="{Binding Duration, StringFormat='{}{0} min'}" Width="60">
@@ -28,6 +29,7 @@
                     </DataGridTextColumn.ElementStyle>
                 </DataGridTextColumn>
                 <DataGridTextColumn Header="Genre" Binding="{Binding GenreString}" />
+               
             </DataGrid.Columns>
         </DataGrid>
 

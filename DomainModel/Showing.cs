@@ -29,9 +29,17 @@ namespace DomainModel
             }
         }
        //midlertidig
-        public Showing(string name) 
+       public Showing(string name)
         {
             Name = name;
+        }
+        public Showing(int id,string name, Movie movie,Theater theater,DateTime start) 
+        {
+            Id = id;
+            Name = name;
+            Movie = movie;
+            Theater = theater;
+            StartTime = start;
         }
 
         // Ny egenskab, der kombinerer start- og sluttidspunkt

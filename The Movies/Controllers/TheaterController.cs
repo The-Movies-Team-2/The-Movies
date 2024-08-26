@@ -25,6 +25,10 @@ namespace ApplicationLayer.Controllers
             return _repository.GetAll().ToList();
         }
 
+        public Theater GetById(int id)
+        {
+            return _repository.GetById(id);
+        }
 
 
     }

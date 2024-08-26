@@ -22,14 +22,12 @@ namespace ApplicationLayer.DataHandlers
             Read();
             TheaterRepository = new TheaterRepository();
             CinemaRepository = new CinemaRepository(this);
-            
         }
 
         internal void Read()
         {
             MovieRepository = _movieDataHandler.Read();
             ShowingRepository = showingDataHandler.Read();
-            //ShowingRepository = showingDataHandler.Read(); //TODO 
         }
 
         public void Write()

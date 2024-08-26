@@ -15,8 +15,8 @@ namespace The_Movies.ApplicationLayer.Repositories
         //midlertidig
         public ShowingRepository() 
         {
-            Add(new Showing("TestForestilling"));
-            Add(new Showing("TestForestilling2"));
+            Add(new Showing(1,"TestForestilling",new Movie("NOT A MOVIE",0,new List<Genre>(),"instruktør"),new Theater("ukendt"),DateTime.Now));
+            Add(new Showing(2,"TestForestilling2",new Movie("NOT A MOVIE", 0, new List<Genre>(), "instruktør"), new Theater(40,"ukendt",1), DateTime.Now));
         }
 
         public void Add(Showing Showing)

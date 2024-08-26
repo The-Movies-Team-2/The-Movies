@@ -51,8 +51,6 @@ namespace The_Movies.Viewmodel
             var genres = SelectedGenres.Distinct().ToList();
             Movie movie = new Movie(Title, Duration, genres,Director);
             MovieController.Add(movie);
-           
-
         }
 
     }

@@ -7,14 +7,13 @@
         mc:Ignorable="d"
         Title="ScreeningsOverview" Height="450" Width="800">
     <Grid Margin="50,95,50,111">
-        <DataGrid ItemsSource="{Binding Showings}" AutoGenerateColumns="False">
+        <DataGrid ItemsSource="{Binding Showings}" AutoGenerateColumns="False" HeadersVisibility="Column">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Film" Binding="{Binding Name}" Width="150"/>
-                <DataGridTextColumn Header="Film" Binding="{Binding MovieTitle}" Width="150"/>
-                <DataGridTextColumn Header="biograf" Binding="{Binding CinemaName}" Width="150" />
-                <DataGridTextColumn Header="Sal" Binding="{Binding Auditorium}" />
-                <DataGridTextColumn Header="Dato" Binding="{Binding Date}" />
-                <DataGridTextColumn Header="tid" Binding="{Binding TimeRange}" />
+                <DataGridTextColumn Header="Film" Binding="{Binding MovieTitle}" Width="3*"/>
+                <DataGridTextColumn Header="biograf" Binding="{Binding CinemaName}" Width="3*" />
+                <DataGridTextColumn Header="Sal" Binding="{Binding TheaterName}" />
+                <DataGridTextColumn Header="Dato" Binding="{Binding StartDate, StringFormat=dd-MM-yyyy}" />
+                <DataGridTextColumn Header="Starttid" Binding="{Binding StartDate, StringFormat=HH:mm}" />
             </DataGrid.Columns>
         </DataGrid>
     </Grid>
