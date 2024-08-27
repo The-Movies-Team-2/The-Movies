@@ -1,4 +1,4 @@
-﻿<Window x:Class="The_Movies.CreateShowingWindow"
+﻿<Window x:Class="The_Movies.Windows.CreateShowingWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -55,16 +55,17 @@
 
             <!-- starttidspunkt stackpanel -->
             <StackPanel Orientation="Horizontal" Height="30">
-                <Label Content="Startidspunkt" FontWeight="Bold" Foreground="#FFE5D8D8"/>
-                <TextBox Text="{Binding StartTime, Mode=TwoWay}" VerticalAlignment="Bottom" Margin="5" Width="98" PreviewTextInput="AllowOnlyNumbersInTextBox" Height="20"/>
+                <Label Content="Dato" FontWeight="Bold" Foreground="#FFE5D8D8"/>
+                <TextBox Text="{Binding StartTime, Mode=TwoWay}" VerticalAlignment="Bottom" Margin="5" Width="98" Height="20"/>
             </StackPanel>
             <!--sluttidspunkt stackpanel-->
             <StackPanel Orientation="Horizontal" Height="30">
                 <Label Content="Sluttidspunkt" FontWeight="Bold" Foreground="#FFE5D8D8" Width="85"/>
                 <TextBox
-                    Width="99" VerticalAlignment="Bottom" Text="{Binding Endtime, Mode=TwoWay}" PreviewTextInput="AllowOnlyNumbersInTextBox" Margin="5"/>
+                    Width="99" VerticalAlignment="Bottom" Text="{Binding Endtime, Mode=TwoWay}"  Margin="5"/>
             </StackPanel>
             <Button Content="Gem forestilling" Command="{Binding CreateShowingCMD}" x:Name="SaveButton1" Height="25"/>
         </StackPanel>
+        <DatePicker Grid.Column="1" HorizontalAlignment="Left" Margin="198,117,0,0" Grid.Row="1" VerticalAlignment="Top"/>
     </Grid>
 </Window>

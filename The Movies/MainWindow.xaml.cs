@@ -9,6 +9,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using The_Movies.Viewmodel;
+using The_Movies.Windows;
 
 namespace The_Movies
 {
@@ -45,6 +46,12 @@ namespace The_Movies
             CreateReservationWindow CRVM = new CreateReservationWindow();
             CRVM.ShowDialog();
 
+        }
+
+        private void Open_Create_Showing(object sender, RoutedEventArgs e)
+        {
+            CreateShowingWindow c = new CreateShowingWindow();
+            c.ShowDialog();
         }
     }
 }

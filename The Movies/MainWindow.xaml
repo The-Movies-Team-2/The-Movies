@@ -54,7 +54,7 @@
                 </LinearGradientBrush>
             </Button.Background>
         </Button>
-        <Button Content="Forestillinger" HorizontalAlignment="Center" Margin="0,86,0,0" VerticalAlignment="Top" Height="54" Width="136" Grid.Column="3" Grid.Row="1"  FontFamily="Bernard MT Condensed" Click="Show_Showings">
+        <Button Content="Forestillinger" HorizontalAlignment="Center" Margin="0,63,0,0" VerticalAlignment="Top" Height="54" Width="136" Grid.Column="3" Grid.Row="1"  FontFamily="Bernard MT Condensed" Click="Show_Showings">
             <Button.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="Black"/>
@@ -62,7 +62,15 @@
                 </LinearGradientBrush>
             </Button.Background>
         </Button>
-        <Button Content="Opret reservation" HorizontalAlignment="Center" Margin="0,158,0,0" VerticalAlignment="Top" Height="54" Width="136" Grid.Column="3" Grid.Row="1"  FontFamily="Bernard MT Condensed" Click="Open_Create_Reservation">
+        <Button Content="Opret forestilling" HorizontalAlignment="Center" Margin="0,123,0,0" VerticalAlignment="Top" Height="54" Width="136" Grid.Column="3" Grid.Row="1"  FontFamily="Bernard MT Condensed" Click="Open_Create_Showing" >
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black"/>
+                    <GradientStop Color="#FF198AEE" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+        <Button Content="Opret reservation" HorizontalAlignment="Center" Margin="0,188,0,0" VerticalAlignment="Top" Height="54" Width="136" Grid.Column="3" Grid.Row="1"  FontFamily="Bernard MT Condensed" Click="Open_Create_Reservation">
             <Button.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="Black"/>
