@@ -34,6 +34,11 @@ namespace The_Movies
             ShowingsOverview SSW = new ShowingsOverview();
             SSW.ShowDialog();
         }
+        private void Show_ReservationsOverview(object sender, RoutedEventArgs e)
+        {
+            ReservationOverviewWindow SRW = new ReservationOverviewWindow();
+            SRW.ShowDialog();
+        }
 
         private void Open_Create_Reservation(object sender, RoutedEventArgs e)
         {
