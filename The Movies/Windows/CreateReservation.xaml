@@ -29,27 +29,27 @@
         <StackPanel Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center" Width="300">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                 <Label Content="Forestilling: " Margin="5,5,20,5" Foreground="White"/>
-                <ComboBox Width="150"  Margin="5"></ComboBox>
+                <ComboBox Width="150"  Margin="5" ItemsSource="{Binding Showings}" SelectedItem="{Binding SelectedShowing}"></ComboBox>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                 <Label Content="Antal billetter: " Margin="5,5,20,5" Foreground="White"></Label>
-                <TextBox Width="150"  Margin="5"></TextBox>
+                <TextBox Width="150"  Margin="5" PreviewTextInput="AllowOnlyNumbersInTextBox" Text="{Binding WantedTickets}"></TextBox>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                 <Label Content="telefon" Margin="5,5,20,5" Foreground="White"></Label>
-                <TextBox Text="+45 ??????" Width="150"  Margin="5"/>
+                <TextBox  Width="150"  Margin="5" PreviewTextInput="AllowOnlyNumbersInTextBox" Text="{Binding Phone}"/>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                 <Label Content="E-mail" Margin="5,5,20,5" Foreground="White"></Label>
-                <TextBox Width="150" Margin="5"></TextBox >
+                <TextBox Width="150" Margin="5" Text="{Binding Email}"></TextBox >
             </StackPanel>
             
         </StackPanel>
 
-        <Button Content="Gem reservation" Grid.Column="1" Grid.Row="1" Height="30" VerticalAlignment="Bottom"/>
+        <Button Content="Gem reservation" Grid.Column="1" Grid.Row="1" Height="30" VerticalAlignment="Bottom" Command="{Binding CreateReservationCMD}" CommandParameter="{Binding}" Click="Button_Click"/>
 
 
 

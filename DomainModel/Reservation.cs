@@ -11,7 +11,16 @@ namespace DomainModel
         public int Id { get; set; }
         public int NumberOfTickets { get; set; }
         public int ShowingId { get; set; }
-        public string CustomerMail { get; set; }
         public string CustomerPhone { get; set; }
+        public string CustomerMail { get; set; }
+        
+
+        public Reservation(int numberOfTickets, Showing showing, string phone,string mail)
+        {
+            NumberOfTickets = numberOfTickets;
+            ShowingId = showing.Id;
+            CustomerPhone = phone;
+            CustomerMail = mail;
+        }
     }
 }

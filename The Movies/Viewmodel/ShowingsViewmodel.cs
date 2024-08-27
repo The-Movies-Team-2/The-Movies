@@ -29,7 +29,8 @@ namespace The_Movies.Viewmodel
                 NewShowing.MovieTitle = movieController.GetById(1).Title; //showing.Movie.Id istedet for 1 på sigt
                 NewShowing.CinemaName = cinemaController.GetById(1).Name;
                 NewShowing.TheaterName = theaterController.GetById(1).Name;
-                NewShowing.StartDate = showing.StartTime;
+                NewShowing.Date = showing.Date;
+                NewShowing.StartTime = showing.StartTime;
                 Showings.Add(NewShowing);
             }
             
@@ -40,7 +41,8 @@ namespace The_Movies.Viewmodel
             public string MovieTitle { get; set; }
             public string CinemaName { get; set; }
             public string TheaterName { get; set; }
-            public DateTime StartDate { get; set; }
+            public DateOnly Date {  get; set; }
+            public TimeOnly StartTime { get; set; }
 
         }
     }

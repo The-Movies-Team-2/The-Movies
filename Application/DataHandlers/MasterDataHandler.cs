@@ -15,6 +15,7 @@ namespace ApplicationLayer.DataHandlers
 
         public CinemaRepository CinemaRepository { get; set; }
         public TheaterRepository TheaterRepository { get; set; }
+        public ReservationRepository ReservationRepository { get; set; }
 
 
         internal MasterDataHandler()
@@ -22,6 +23,7 @@ namespace ApplicationLayer.DataHandlers
             Read();
             TheaterRepository = new TheaterRepository();
             CinemaRepository = new CinemaRepository(this);
+            ReservationRepository= new ReservationRepository();
         }
 
         internal void Read()

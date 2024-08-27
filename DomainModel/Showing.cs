@@ -11,15 +11,24 @@ namespace DomainModel
     public class Showing
     {
         public int Id { get; set; }
-        public string Name { get; set; }// midlertidg
         public Movie Movie { get; set; }
         public Theater Theater { get; set; }
+        public DateOnly Date { get; set; }
+        private TimeOnly startTime { get; set; }
+        private TimeOnly EndTime { get; set; }
+
         private int CleaningTime = 15;
         private int AdvertisingTime = 15;
-        private DateTime startTime;
-        private DateTime EndTime { get; set; }
+  
+      
         public List<Reservation> Reservations {get; set; } = new List<Reservation>();
-        public DateTime StartTime
+
+
+        public override string ToString()
+        {
+            return $"{Movie.Title}, {Theater.Name}, {Date} , {StartTime}";
+        }
+        public TimeOnly StartTime
         {
             get { return startTime; }
             set
@@ -28,17 +37,13 @@ namespace DomainModel
                 EndTime = startTime.AddMinutes(Movie.Duration + CleaningTime + AdvertisingTime); // Beregn EndTime
             }
         }
-       //midlertidig
-       public Showing(string name)
-        {
-            Name = name;
-        }
-        public Showing(int id,string name, Movie movie,Theater theater,DateTime start) 
+
+        public Showing(int id, Movie movie,Theater theater,DateOnly date,TimeOnly start) 
         {
             Id = id;
-            Name = name;
             Movie = movie;
             Theater = theater;
+            Date = date;
             StartTime = start;
         }
 

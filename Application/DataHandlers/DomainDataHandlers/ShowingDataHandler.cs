@@ -1,4 +1,5 @@
-﻿using DomainModel;
+﻿using ApplicationLayer.Repositories;
+using DomainModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,6 +17,8 @@ namespace ApplicationLayer.DataHandlers.DomainDataHandlers
         private readonly List<Showing> _movies = new List<Showing>();
 
         private readonly ShowingRepository _repository = new ShowingRepository();
+        private readonly TheaterRepository _theaterRepository = new TheaterRepository();
+        private readonly MovieRepository _movieRepository = new MovieRepository();
      
         internal override ShowingRepository Read()
         {
@@ -25,13 +28,27 @@ namespace ApplicationLayer.DataHandlers.DomainDataHandlers
             foreach (string line in lines)
             {
                 string[] values = line.Split(';');
-                string title = values[0];
+                int id = int.Parse(values[0]);
+                Movie movie = GetMovieForShowing(int.Parse(values[1]));
+                Theater theater = GetTheaterForShowing(int.Parse(values[2]));
+                DateOnly theaterDate = DateOnly.Parse(values[3]);
+                TimeOnly theaterTime = TimeOnly.Parse(values[4]);
                
-                Showing showing = new Showing(title);
+                Showing showing = new Showing(id,movie,theater,theaterDate,theaterTime);
                 _repository.Add(showing);
             }
             return _repository;
         }
+
+        private Movie GetMovieForShowing(int id)
+        {
+            return _movieRepository.GetById(id);
+        }
+        private Theater GetTheaterForShowing(int id)
+        {
+            return _theaterRepository.GetById(id);
+        }
+
 
         internal override void Write(ShowingRepository repository)
         {
@@ -40,7 +57,7 @@ namespace ApplicationLayer.DataHandlers.DomainDataHandlers
             List<Showing> lines = _repository.GetAll().ToList();
             foreach (Showing showing in lines)
             {
-                var createText = $"{showing.Name}";
+                var createText = $"{showing.Id},{showing.Movie.Id},{showing.Theater.Id},{showing.Date},{showing.StartTime}";
                 File.AppendAllText(_filePath, createText + Environment.NewLine);
             }
         }
