@@ -31,7 +31,8 @@
 
             <!-- Titel stackpanel -->
             <StackPanel Orientation="Horizontal">
-                <Label Content="Film" FontWeight="Bold"  Margin="5,5,20,5" Foreground="#FFE5D8D8" Width="60"/>
+                <!-- Film stackpanel -->
+                <Label Content="Film" FontWeight="Bold" Foreground="#FFE5D8D8" Width="85" Height="24"/>
                 <!-- Film stackpanel -->
                 <StackPanel Margin="5">
                     <!-- Filmbox generes her-->
@@ -41,7 +42,7 @@
                 </StackPanel>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Height="42" >
-                <Label Content="Biograf" FontWeight="Bold" Margin="5,5,20,5" Foreground="#FFE5D8D8" Width="65"/>
+                <Label Content="Biograf" FontWeight="Bold" Foreground="#FFE5D8D8" Width="90" Height="26"/>
                 <StackPanel x:Name="CinemaBox" Height="22">
                     <ComboBox  ItemsSource="{Binding Cinema}" DisplayMemberPath="Name" SelectedItem="{Binding SelectedMovies[0], Mode=TwoWay}" Width="100" />
                 </StackPanel>
@@ -55,13 +56,13 @@
             <!-- starttidspunkt stackpanel -->
             <StackPanel Orientation="Horizontal" Height="30">
                 <Label Content="Startidspunkt" FontWeight="Bold" Foreground="#FFE5D8D8"/>
-                <TextBox Text="{Binding StartTime, Mode=TwoWay}" VerticalAlignment="Bottom" Margin="5" Width="100" PreviewTextInput="AllowOnlyNumbersInTextBox" Height="20"/>
+                <TextBox Text="{Binding StartTime, Mode=TwoWay}" VerticalAlignment="Bottom" Margin="5" Width="98" PreviewTextInput="AllowOnlyNumbersInTextBox" Height="20"/>
             </StackPanel>
             <!--sluttidspunkt stackpanel-->
             <StackPanel Orientation="Horizontal" Height="30">
-                <Label Content="Sluttidspunkt" FontWeight="Bold" Foreground="#FFE5D8D8"/>
+                <Label Content="Sluttidspunkt" FontWeight="Bold" Foreground="#FFE5D8D8" Width="85"/>
                 <TextBox
-                    Width="100" VerticalAlignment="Bottom" Text="{Binding Endtime, Mode=TwoWay}" PreviewTextInput="AllowOnlyNumbersInTextBox" Margin="5"/>
+                    Width="99" VerticalAlignment="Bottom" Text="{Binding Endtime, Mode=TwoWay}" PreviewTextInput="AllowOnlyNumbersInTextBox" Margin="5"/>
             </StackPanel>
             <Button Content="Gem forestilling" Command="{Binding CreateShowingCMD}" x:Name="SaveButton1" Height="25"/>
         </StackPanel>
