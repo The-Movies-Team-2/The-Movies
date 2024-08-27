@@ -39,5 +39,12 @@ namespace The_Movies
             ShowingsOverview s = new ShowingsOverview();
             s.ShowDialog();
         }
+
+        private void Open_Create_Reservation(object sender, RoutedEventArgs e)
+        {
+            CreateReservationWindow CRVM = new CreateReservationWindow();
+            CRVM.ShowDialog();
+
+        }
     }
 }

@@ -1,0 +1,58 @@
+﻿<Window x:Class="The_Movies.CreateReservationWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:The_Movies"
+        mc:Ignorable="d"
+        Title="Opret reservation" Height="450" Width="800">
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="Black"/>
+                <GradientStop Color="#FF972445" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100" ></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="30"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition MinWidth="300"></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <Label Content="Opret Reservation" FontSize="30" FontWeight="Bold" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Top" Grid.Column="1"/>
+       
+        <StackPanel Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center" Width="300">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <Label Content="Forestilling: " Margin="5,5,20,5" Foreground="White"/>
+                <ComboBox Width="150"  Margin="5"></ComboBox>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <Label Content="Antal billetter: " Margin="5,5,20,5" Foreground="White"></Label>
+                <TextBox Width="150"  Margin="5"></TextBox>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <Label Content="telefon" Margin="5,5,20,5" Foreground="White"></Label>
+                <TextBox Text="+45 ??????" Width="150"  Margin="5"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <Label Content="E-mail" Margin="5,5,20,5" Foreground="White"></Label>
+                <TextBox Width="150" Margin="5"></TextBox >
+            </StackPanel>
+            
+        </StackPanel>
+
+        <Button Content="Gem reservation" Grid.Column="1" Grid.Row="1" Height="30" VerticalAlignment="Bottom"/>
+
+
+
+
+    </Grid>
+</Window>
