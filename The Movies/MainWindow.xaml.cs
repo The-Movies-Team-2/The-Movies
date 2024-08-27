@@ -23,35 +23,28 @@ namespace The_Movies
             InitializeComponent();
         }
 
-        private void CreateMovie_Button_Click(object sender, RoutedEventArgs e)
-        {
-            CreateMovieWindow c = new CreateMovieWindow();
-            c.ShowDialog();
-        }
-
         private void Show_MoviesOverview(object sender, RoutedEventArgs e)
         {
-            MovieOverviewWindow m = new MovieOverviewWindow();
-            m.ShowDialog();
+            MovieOverviewWindow SMW = new MovieOverviewWindow();
+            SMW.ShowDialog();
         }
 
-        private void Show_Showings(object sender, RoutedEventArgs e)
+        private void Show_ShowingsOverview(object sender, RoutedEventArgs e)
         {
-            ShowingsOverview s = new ShowingsOverview();
-            s.ShowDialog();
+            ShowingsOverview SSW = new ShowingsOverview();
+            SSW.ShowDialog();
         }
 
         private void Open_Create_Reservation(object sender, RoutedEventArgs e)
         {
-            CreateReservationWindow CRVM = new CreateReservationWindow();
-            CRVM.ShowDialog();
-
+            CreateReservationWindow CRW = new CreateReservationWindow();
+            CRW.ShowDialog();
         }
 
         private void Open_Create_Showing(object sender, RoutedEventArgs e)
         {
-            CreateShowingWindow c = new CreateShowingWindow();
-            c.ShowDialog();
+            CreateShowingWindow CSW = new CreateShowingWindow();
+            CSW.ShowDialog();
         }
     }
 }

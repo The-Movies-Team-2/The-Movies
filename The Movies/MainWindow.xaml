@@ -54,7 +54,7 @@
                 </LinearGradientBrush>
             </Button.Background>
         </Button>
-        <Button Content="Forestillinger" HorizontalAlignment="Center" Margin="0,63,0,0" VerticalAlignment="Top" Height="54" Width="136" Grid.Column="3" Grid.Row="1"  FontFamily="Bernard MT Condensed" Click="Show_Showings">
+        <Button Content="Forestillinger" HorizontalAlignment="Center" Margin="0,63,0,0" VerticalAlignment="Top" Height="54" Width="136" Grid.Column="3" Grid.Row="1"  FontFamily="Bernard MT Condensed" Click="Show_ShowingsOverview">
             <Button.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="Black"/>

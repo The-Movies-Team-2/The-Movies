@@ -11,6 +11,9 @@ namespace ApplicationLayer.DataHandlers
         internal abstract TRepository Read();
         internal abstract void Write(TRepository repository);
 
+        private readonly string Alphabeat = "ABCDEFGHIJKLMNOPQRSTUVWXYZÆØÅ";
+        private readonly string Key = "NQXPOMAFTRHLZGECYJIUWSKDVBÆØÅ";
+
         protected void CheckIfFileExists(string fullPath)
         {
             string directory = Path.GetDirectoryName(fullPath);
@@ -27,5 +30,50 @@ namespace ApplicationLayer.DataHandlers
                 fs.Close();
             }
         }
+        protected string EncryptString(string str)
+        {
+            StringBuilder sb = new StringBuilder();
+            foreach (char c in str)
+            {
+                if (Char.IsUpper(c))
+                {
+                    int IndexInAlphabeat = Alphabeat.IndexOf(c);
+                    sb.Append(Key[IndexInAlphabeat]);
+                }
+                else if (Char.IsLower(c))
+                {
+                    int IndexInAlphabeat = Alphabeat.IndexOf(Char.ToUpper(c));
+                    sb.Append(Char.ToLower((Key[IndexInAlphabeat])));
+                }
+                else
+                {
+                    sb.Append(c);
+                }
+            }
+            return sb.ToString();
+        }
+        protected string DecryptString(string str)
+        {
+            StringBuilder sb = new StringBuilder();
+            foreach (char c in str)
+            {
+                if (Char.IsUpper(c))
+                {
+                    int IndexInKey = Key.IndexOf(c);
+                    sb.Append(Alphabeat[IndexInKey]);
+                }
+                else if (Char.IsLower(c))
+                {
+                    int IndexInKey = Key.IndexOf(Char.ToUpper(c));
+                    sb.Append(Char.ToLower((Alphabeat[IndexInKey])));
+                }
+                else
+                {
+                    sb.Append(c);
+                }
+            }
+            return sb.ToString();
+        }
+
     }
 }
