@@ -10,7 +10,7 @@ namespace The_Movies.ApplicationLayer.Repositories
 {
     public class ShowingRepository
     {
-        private List<Showing> Showings = new List<Showing>();
+        private List<Showing> showings = new List<Showing>();
 
         //midlertidig
         public ShowingRepository() 
@@ -22,13 +22,17 @@ namespace The_Movies.ApplicationLayer.Repositories
         public void Add(Showing Showing)
         {
             int maxId = 0;
-            if (Showings.Count > 0) maxId = Showings.Max(h => h.Id);
+            if (showings.Count > 0) maxId = showings.Max(h => h.Id);
             Showing.Id = maxId + 1;
-            Showings.Add(Showing);
+            showings.Add(Showing);
+        }
+        public Showing GetById(int id)
+        {
+            return showings.FirstOrDefault(g => g.Id == id);
         }
         public List<Showing> GetAll()
         {
-            return Showings;
+            return showings;
         }
     }
 }

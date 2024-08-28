@@ -12,7 +12,7 @@ using The_Movies.Model;
 
 namespace ApplicationLayer.Controllers
 {
-    internal class CinemaController
+    public class CinemaController
     {
         //private readonly CinemaRepository _repository;
         private readonly IMasterDataHandler _dataHandler;//**KORREKT?

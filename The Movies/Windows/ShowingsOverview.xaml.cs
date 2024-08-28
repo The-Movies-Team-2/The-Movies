@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using The_Movies.Viewmodel;
+using The_Movies.Windows;
 
 namespace The_Movies
 {
@@ -25,6 +26,15 @@ namespace The_Movies
         {
             InitializeComponent();
             DataContext = SVM;
+        }
+        private void Close_overview(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+        private void Open_Create_Showing(object sender, RoutedEventArgs e)
+        {
+            CreateShowingWindow CSW = new CreateShowingWindow();
+            CSW.ShowDialog();
         }
     }
 }

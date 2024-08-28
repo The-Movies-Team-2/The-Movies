@@ -20,7 +20,10 @@ namespace ApplicationLayer.Controllers
             repository.Add(showing);
             dataHandler.Write();
         }
-
+        public Showing GetById(int id) 
+        { 
+           return repository.GetById(id);
+        }
         public List<Showing> GetAll()
         {
             return repository.GetAll();

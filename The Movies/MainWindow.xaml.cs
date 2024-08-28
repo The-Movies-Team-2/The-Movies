@@ -46,10 +46,6 @@ namespace The_Movies
             CRW.ShowDialog();
         }
 
-        private void Open_Create_Showing(object sender, RoutedEventArgs e)
-        {
-            CreateShowingWindow CSW = new CreateShowingWindow();
-            CSW.ShowDialog();
-        }
+       
     }
 }

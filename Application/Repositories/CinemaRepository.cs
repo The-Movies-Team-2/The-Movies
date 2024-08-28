@@ -18,6 +18,7 @@ namespace ApplicationLayer.Repositories
 
        public CinemaRepository(IMasterDataHandler dataHandler)
         {
+            Add(new Cinema(0, "TestBiograf", dataHandler.TheaterRepository.GetByCinemaId(0)));
             Add(new Cinema(1, "Hjerm Biograf",dataHandler.TheaterRepository.GetByCinemaId(1)));
             Add(new Cinema(2, "Videbæk Biograf", dataHandler.TheaterRepository.GetByCinemaId(2)));
             Add(new Cinema(3, "Thorsminde Biograf", dataHandler.TheaterRepository.GetByCinemaId(3)));
