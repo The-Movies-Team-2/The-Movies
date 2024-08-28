@@ -56,7 +56,6 @@
             <!-- starttidspunkt stackpanel -->
             <StackPanel Orientation="Horizontal" Height="30">
                 <Label Content="Dato" FontWeight="Bold" Foreground="#FFE5D8D8"/>
-                <TextBox Text="{Binding StartTime, Mode=TwoWay}" VerticalAlignment="Bottom" Margin="5" Width="98" Height="20"/>
             </StackPanel>
             <!--sluttidspunkt stackpanel-->
             <StackPanel Orientation="Horizontal" Height="30">
@@ -66,6 +65,6 @@
             </StackPanel>
             <Button Content="Gem forestilling" Command="{Binding CreateShowingCMD}" x:Name="SaveButton1" Height="25"/>
         </StackPanel>
-        <DatePicker Grid.Column="1" HorizontalAlignment="Left" Margin="198,117,0,0" Grid.Row="1" VerticalAlignment="Top"/>
+        <DatePicker Grid.Column="1" HorizontalAlignment="Left" Margin="88,113,0,0" Grid.Row="1" VerticalAlignment="Top" Height="27"/>
     </Grid>
 </Window>

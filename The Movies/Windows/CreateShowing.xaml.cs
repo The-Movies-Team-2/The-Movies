@@ -22,9 +22,11 @@ namespace The_Movies.Windows
     /// </summary>
     public partial class CreateShowingWindow : Window
     {
+        CreateShowingViewModel viewModel = new CreateShowingViewModel();
         public CreateShowingWindow()
         {
             InitializeComponent();
+            DataContext = viewModel;
         }
     }
 }
