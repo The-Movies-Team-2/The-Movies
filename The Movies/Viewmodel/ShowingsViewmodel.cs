@@ -30,7 +30,7 @@ namespace The_Movies.Viewmodel
                 NewShowing.CinemaName = cinemaController.GetById(1).Name;
                 NewShowing.TheaterName = theaterController.GetById(1).Name;
                 NewShowing.Date = showing.Date;
-                NewShowing.StartTime = showing.StartTime;
+                NewShowing.TimeRange = showing.TimeRange;
                 Showings.Add(NewShowing);
             }
             
@@ -42,7 +42,7 @@ namespace The_Movies.Viewmodel
             public string CinemaName { get; set; }
             public string TheaterName { get; set; }
             public DateOnly Date {  get; set; }
-            public TimeOnly StartTime { get; set; }
+            public string TimeRange { get; set; }
 
         }
     }

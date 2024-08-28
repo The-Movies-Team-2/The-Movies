@@ -19,8 +19,9 @@ namespace DomainModel
 
         private int CleaningTime = 15;
         private int AdvertisingTime = 15;
-  
-      
+
+        public string TimeRange => $"{StartTime:HH:mm} - {EndTime:HH:mm}";
+
         public List<Reservation> Reservations {get; set; } = new List<Reservation>();
 
 
@@ -46,8 +47,5 @@ namespace DomainModel
             Date = date;
             StartTime = start;
         }
-
-        // Ny egenskab, der kombinerer start- og sluttidspunkt
-        public string TimeRange => $"{StartTime:HH:mm} - {EndTime:HH:mm}";
     }
 }
