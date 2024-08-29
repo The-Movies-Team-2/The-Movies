@@ -33,7 +33,7 @@ namespace ApplicationLayer.DataHandlers.DomainDataHandlers
                 int id = int.Parse(values[0]);
                 string title = DecryptString(values[1]);
                 int playingTime = int.Parse(values[2]);
-                string director = values[3];
+                string director = values[4];
 
                 List<Genre> genres = GetGenresForMovie(id);
                 Movie movie = new Movie(id, title, playingTime, genres, director);

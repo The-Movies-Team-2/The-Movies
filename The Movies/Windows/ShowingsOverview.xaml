@@ -7,24 +7,36 @@
         mc:Ignorable="d"
         Title="ScreeningsOverview" Height="450" Width="800">
     <Grid>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="Black"/>
+                <GradientStop Color="#FF972445" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
         <Grid.RowDefinitions>
             <RowDefinition Height="50"></RowDefinition>
             <RowDefinition Height="30"></RowDefinition>
             <RowDefinition></RowDefinition>
             <RowDefinition Height="30"></RowDefinition>
         </Grid.RowDefinitions>
-       
-        <Label Content="Forestillingsoversigt" FontSize="30" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Top" Grid.Row="0"></Label>
-        
+
+        <Label Content="Forestillingsoversigt" FontSize="30" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Top" Grid.Row="0" Foreground="White" FontFamily="Bernard MT Condensed"></Label>
+
         <StackPanel Orientation="Horizontal" Grid.Row="1" HorizontalAlignment="Center">
-            <Button Content="Hjerm" x:Name="HjermButton" Margin="5" Command="{Binding SortByBioCMD}"></Button>
-            <Button Content="Videbæk" x:Name="VidebaekButton" Margin="5" Command="{Binding SortByBioCMD}" ></Button>
-            <Button Content="Thorsminde" x:Name="ThorsmindeButton" Margin="5" Command="{Binding SortByBioCMD}"></Button>
-            <Button Content="Ræhr" x:Name="RaehrButton" Margin="5" Command="{Binding SortByBioCMD}"></Button>
-            <Button Content="Vis alle" x:Name="AlleButton" Margin="5" Command="{Binding SortByBioCMD}" ></Button>
+            <Button Content="Hjerm" x:Name="HjermButton" Margin="5" Command="{Binding SortByBioCMD}" FontFamily="Bernard MT Condensed"></Button>
+            <Button Content="Videbæk" x:Name="VidebaekButton" Margin="5" Command="{Binding SortByBioCMD}" FontFamily="Bernard MT Condensed" ></Button>
+            <Button Content="Thorsminde" x:Name="ThorsmindeButton" Margin="5" Command="{Binding SortByBioCMD}" FontFamily="Bernard MT Condensed"></Button>
+            <Button Content="Ræhr" x:Name="RaehrButton" Margin="5" Command="{Binding SortByBioCMD}" FontFamily="Bernard MT Condensed"></Button>
+            <Button Content="Vis alle" x:Name="AlleButton" Margin="5" Command="{Binding SortByBioCMD}" FontFamily="Bernard MT Condensed" ></Button>
         </StackPanel>
-        
-        <DataGrid ItemsSource="{Binding Showings}" AutoGenerateColumns="False" HeadersVisibility="Column" Grid.Row="2" CanUserAddRows="False" IsReadOnly="True">
+
+        <DataGrid ItemsSource="{Binding Showings}" AutoGenerateColumns="False" HeadersVisibility="Column" Grid.Row="2" CanUserAddRows="False" IsReadOnly="True" FontFamily="Bernard MT Condensed" Foreground="Black">
+            <DataGrid.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black"/>
+                    <GradientStop Color="#FF972445" Offset="1"/>
+                </LinearGradientBrush>
+            </DataGrid.Background>
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Film" Binding="{Binding MovieTitle}" Width="25*"/>
                 <DataGridTextColumn Header="biograf" Binding="{Binding CinemaName}" Width="25*" />
@@ -34,8 +46,8 @@
             </DataGrid.Columns>
         </DataGrid>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Grid.Row="3">
-            <Button Content="Luk Forestillingliste" Margin="5" Click="Close_overview"></Button>
-            <Button Content="Opret Forestilling" Margin="5" Click="Open_Create_Showing"></Button>
+            <Button Content="Opret Forestilling" Click="Open_Create_Showing" FontFamily="Bernard MT Condensed" Height="20"/>
+            <Button Content="Luk Forestillingliste" Margin="5" Click="Close_overview" FontFamily="Bernard MT Condensed"/>
         </StackPanel>
     </Grid>
 </Window>
