@@ -27,12 +27,6 @@ namespace ApplicationLayer.Repositories
         {
             _theaters.Add(theater);
         }
-          
-        public Showing CreateShowing(int id, Movie movie, Cinema cinema, Theater theater, DateTime startTime, DateTime endTime) {
-            Showing showing = new Showing(id, movie, cinema, theater, startTime, endTime);
-            Showings.Add(showing);
-            return showing;
-        }
 
         public Theater GetById(int id)
         {

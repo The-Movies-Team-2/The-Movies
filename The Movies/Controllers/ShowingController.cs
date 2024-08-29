@@ -17,7 +17,7 @@ namespace ApplicationLayer.Controllers
 
         public void Add(Showing showing)
         {
-            repository.Add(showing);
+            repository.AddShowing(showing);
             dataHandler.Write();
         }
         public Showing GetById(int id) 

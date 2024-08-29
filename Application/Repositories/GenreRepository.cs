@@ -38,7 +38,7 @@ namespace The_Movies.ApplicationLayer.Repositories
             return _genres.FirstOrDefault(g => g.Id == id);
         }
 
-        public List<Genre> GetGenres()
+        public List<Genre> GetAll()
         {
             return _genres.OrderBy(g => g.Name).ToList();
         }

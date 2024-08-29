@@ -40,7 +40,7 @@ namespace DomainModel
             }
         }
 
-        public Showing(int id, Movie movie,Theater theater,DateOnly date,TimeOnly start) 
+        public Showing(int id, Movie movie, Theater theater, DateOnly date, TimeOnly start)
         {
             Id = id;
             Movie = movie;
@@ -49,28 +49,12 @@ namespace DomainModel
             StartTime = start;
         }
 
-        public Showing( Movie movie, Theater theater, DateOnly date, TimeOnly start)
+        public Showing(Movie movie, Theater theater, DateOnly date, TimeOnly start)
         {
             Movie = movie;
             Theater = theater;
             Date = date;
             StartTime = start;
         }
-      
-
-        public Showing(int id, Movie movie, Cinema cinema, Theater theater, DateTime startTime, DateTime endTime)
-        {
-            this.Id = id;
-            this.Movie = movie;
-            this.Cinema = cinema;
-            this.Theater = theater;
-            this.StartTime = startTimeV;
-            this.EndTime = endTime;
-        }
-
-
-
-        // Ny egenskab, der kombinerer start- og sluttidspunkt
-        public string TimeRange => $"{StartTime:HH:mm} - {EndTime:HH:mm}";
     }
 }

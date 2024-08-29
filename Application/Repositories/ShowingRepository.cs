@@ -22,17 +22,17 @@ namespace The_Movies.ApplicationLayer.Repositories
         public void AddShowing(Showing Showing)
         {
             int maxId = 0;
-            if (showings.Count > 0) maxId = showings.Max(h => h.Id);
+            if (Showings.Count > 0) maxId = Showings.Max(h => h.Id);
             Showing.Id = maxId + 1;
-            showings.Add(Showing);
+            Showings.Add(Showing);
         }
         public Showing GetById(int id)
         {
-            return showings.FirstOrDefault(g => g.Id == id);
+            return Showings.FirstOrDefault(g => g.Id == id);
         }
-        public List<Showing> GetShowings()
+        public List<Showing> GetAll()
         {
-            return showings;
+            return Showings;
         }
 
 

@@ -35,7 +35,7 @@ namespace ApplicationLayer.DataHandlers.DomainDataHandlers
 
 
                 Showing showing = new Showing(id, movie, theater, theaterDate, theaterTime);
-                _repository.Add(showing);
+                _repository.AddShowing(showing);
             }
             return _repository;
         }
