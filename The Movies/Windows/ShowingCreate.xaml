@@ -30,37 +30,37 @@
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
 
-        <Label Grid.Column="1" Content="Tilføj forestilling" FontSize="30" FontWeight="Bold" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Label Grid.Column="1" Content="Tilføj forestilling" FontSize="30" FontWeight="Bold" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Bernard MT Condensed"/>
 
         <StackPanel Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center">
-            
+
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,30,0" >
-                <Label Content="Film" FontWeight="Bold" Foreground="#FFE5D8D8" Margin="5,5,20,5"/>
+                <Label Content="Film" FontWeight="Bold" Foreground="#FFE5D8D8" Margin="5,5,20,5" FontFamily="Bernard MT Condensed"/>
                 <ComboBox  ItemsSource="{Binding movies}"  DisplayMemberPath="Title" SelectedItem="{Binding selectedMovie, Mode=TwoWay}" Width="100" Margin="5"/>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,30,0" >
-                <Label Content="Biograf" FontWeight="Bold" Foreground="#FFE5D8D8" Margin="5,5,20,5"/>
+                <Label Content="Biograf" FontWeight="Bold" Foreground="#FFE5D8D8" Margin="5,5,20,5" FontFamily="Bernard MT Condensed"/>
                 <ComboBox  ItemsSource="{Binding cinemas}" DisplayMemberPath="Name" SelectedItem="{Binding SelectedCinema, Mode=TwoWay}" Width="100" Margin="5"/>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,30,0" >
-                <Label Content="Sal" FontWeight="Bold"  Foreground="#FFE5D8D8" Margin="5,5,20,5" />
+                <Label Content="Sal" FontWeight="Bold"  Foreground="#FFE5D8D8" Margin="5,5,20,5" FontFamily="Bernard MT Condensed" />
                 <ComboBox  ItemsSource="{Binding theatersInCinema}" DisplayMemberPath="Name" SelectedItem="{Binding selectedTheater, Mode=TwoWay}" IsEnabled="{Binding IsTheaterComboBoxEnabled}" Width="100" Margin="5" />
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,30,0" >
-                <Label Content="Dato" FontWeight="Bold"  Foreground="#FFE5D8D8" Margin="5,5,20,5"/>
-                <DatePicker SelectedDate="{Binding SelectedDate, Converter={StaticResource DateOnlyToDateTimeConverter}, Mode =TwoWay}" Width="100" Margin="5"></DatePicker>
+                <Label Content="Dato" FontWeight="Bold"  Foreground="#FFE5D8D8" Margin="5,5,20,5" FontFamily="Bernard MT Condensed"/>
+                <DatePicker SelectedDate="{Binding SelectedDate, Converter={StaticResource DateOnlyToDateTimeConverter}, Mode =TwoWay}" Width="100" Margin="5" FontFamily="Bernard MT Condensed"></DatePicker>
 
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,30,0" >
-                <Label Content="Starttid" FontWeight="Bold"  Foreground="#FFE5D8D8" Margin="5,5,20,5"></Label>
+                <Label Content="Starttid" FontWeight="Bold"  Foreground="#FFE5D8D8" Margin="5,5,20,5" FontFamily="Bernard MT Condensed"></Label>
                 <TextBox Text="{Binding SelectedTime, Converter={StaticResource TimeOnlyToStringConverter}, UpdateSourceTrigger=LostFocus}" Width="100" Margin="5"></TextBox>
             </StackPanel>
 
-            <Button Content="Opret forestilling" Command="{Binding CreateShowingCMD}" CommandParameter="{Binding}" Grid.Column="1" Grid.Row="1" Click="Button_Click"></Button>
+            <Button Content="Opret forestilling" Command="{Binding CreateShowingCMD}" CommandParameter="{Binding}" Grid.Column="1" Grid.Row="1" Click="Button_Click" FontFamily="Bernard MT Condensed"></Button>
         </StackPanel>
 
     </Grid>

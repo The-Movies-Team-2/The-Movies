@@ -36,5 +36,10 @@ namespace The_Movies.Windows
         {
             this.Close();
         }
+
+        private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }

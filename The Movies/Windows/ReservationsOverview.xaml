@@ -7,21 +7,33 @@
         mc:Ignorable="d"
         Title="Reservationsoversigt" Height="450" Width="800">
     <Grid>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="Black"/>
+                <GradientStop Color="#FF972445" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
         <Grid.RowDefinitions>
             <RowDefinition Height="50"></RowDefinition>
             <RowDefinition Height="30"></RowDefinition>
             <RowDefinition></RowDefinition>
             <RowDefinition Height="30"></RowDefinition>
-         </Grid.RowDefinitions>
+        </Grid.RowDefinitions>
 
-        <Label Content="Reservationsoversigt" Grid.Row="0" FontSize="30" FontWeight="Bold" HorizontalAlignment="Center"></Label>
+        <Label Content="Reservationsoversigt" Grid.Row="0" FontSize="30" FontWeight="Bold" HorizontalAlignment="Center" Foreground="White" FontFamily="Bernard MT Condensed"/>
 
         <StackPanel Orientation="Horizontal" Grid.Row="1">
             <Label Content="Sorter efter forestilling" HorizontalAlignment="Left" VerticalAlignment="Center"/>
             <ComboBox HorizontalAlignment="Center" VerticalAlignment="Center" Width="576" ItemsSource="{Binding  Showings}" />
         </StackPanel>
 
-        <DataGrid ItemsSource="{Binding Reservations}" Grid.Row="2" AutoGenerateColumns="False" HeadersVisibility="Column" CanUserAddRows="False" IsReadOnly="True">
+        <DataGrid ItemsSource="{Binding Reservations}" Grid.Row="2" AutoGenerateColumns="False" HeadersVisibility="Column" CanUserAddRows="False" IsReadOnly="True" SelectionChanged="DataGrid_SelectionChanged" FontFamily="Bernard MT Condensed">
+            <DataGrid.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black"/>
+                    <GradientStop Color="#FF972445" Offset="1"/>
+                </LinearGradientBrush>
+            </DataGrid.Background>
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Id" Binding="{Binding Id}"/>
                 <DataGridTextColumn Header="film" Binding="{Binding MovieTitle}"/>
@@ -35,8 +47,8 @@
         </DataGrid>
 
         <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Right">
-            <Button Content="Luk reservationsliste" Margin="5" Click="Close_Overview"></Button>
-            <Button Content="Opret Reservation" Margin="5" Click="Open_Create_Reservation"></Button>
+            <Button Content="Opret Reservation" Click="Open_Create_Reservation" FontFamily="Bernard MT Condensed" Height="20"/>
+            <Button Content="Luk reservationsliste" Margin="5" Click="Close_Overview" FontFamily="Bernard MT Condensed"/>
         </StackPanel>
 
     </Grid>

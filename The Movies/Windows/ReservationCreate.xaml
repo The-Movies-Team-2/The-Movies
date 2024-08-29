@@ -24,32 +24,32 @@
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
 
-        <Label Content="Opret Reservation" FontSize="30" FontWeight="Bold" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Top" Grid.Column="1"/>
-       
+        <Label Content="Opret Reservation" FontSize="30" FontWeight="Bold" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Top" Grid.Column="1" FontFamily="Bernard MT Condensed"/>
+
         <StackPanel Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center" Width="300">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                <Label Content="Forestilling: " Margin="5,5,20,5" Foreground="White"/>
+                <Label Content="Forestilling: " Margin="5,5,20,5" Foreground="White" FontFamily="Bernard MT Condensed"/>
                 <ComboBox Width="150"  Margin="5" ItemsSource="{Binding Showings}" SelectedItem="{Binding SelectedShowing}"></ComboBox>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                <Label Content="Antal billetter: " Margin="5,5,20,5" Foreground="White"></Label>
+                <Label Content="Antal billetter: " Margin="5,5,20,5" Foreground="White" FontFamily="Bernard MT Condensed"></Label>
                 <TextBox Width="150"  Margin="5" PreviewTextInput="AllowOnlyNumbersInTextBox" Text="{Binding WantedTickets}"></TextBox>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                <Label Content="telefon" Margin="5,5,20,5" Foreground="White"></Label>
+                <Label Content="telefon" Margin="5,5,20,5" Foreground="White" FontFamily="Bernard MT Condensed"></Label>
                 <TextBox  Width="150"  Margin="5" PreviewTextInput="AllowOnlyNumbersInTextBox" Text="{Binding Phone}"/>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                <Label Content="E-mail" Margin="5,5,20,5" Foreground="White"></Label>
+                <Label Content="E-mail" Margin="5,5,20,5" Foreground="White" FontFamily="Bernard MT Condensed"></Label>
                 <TextBox Width="150" Margin="5" Text="{Binding Email}"></TextBox >
             </StackPanel>
-            
+
         </StackPanel>
 
-        <Button Content="Gem reservation" Grid.Column="1" Grid.Row="1" Height="30" VerticalAlignment="Bottom" Command="{Binding CreateReservationCMD}" CommandParameter="{Binding}" Click="Button_Click"/>
+        <Button Content="Gem reservation" Grid.Column="1" Grid.Row="1" Height="30" VerticalAlignment="Bottom" Command="{Binding CreateReservationCMD}" CommandParameter="{Binding}" Click="Button_Click" FontFamily="Bernard MT Condensed"/>
 
 
 
