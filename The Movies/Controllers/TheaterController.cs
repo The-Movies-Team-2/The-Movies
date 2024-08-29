@@ -29,6 +29,10 @@ namespace ApplicationLayer.Controllers
         {
             return _repository.GetById(id);
         }
+        public List<Theater> GetByCinemaId(int cinemaid)
+        {
+           return _repository.GetByCinemaId(cinemaid);
+        }
 
 
     }

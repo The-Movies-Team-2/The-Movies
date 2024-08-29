@@ -8,7 +8,7 @@ using The_Movies.Viewmodel;
 
 namespace The_Movies.Commands
 {
-    internal class CreateReservationCommand : ICommand
+    internal class CreateShowingCommand : ICommand
     {
         public event EventHandler? CanExecuteChanged;
 
@@ -19,9 +19,9 @@ namespace The_Movies.Commands
 
         public void Execute(object? parameter)
         {
-            if (parameter is ReservationCreateViewModel viewModel) 
+            if (parameter is ShowingCreateViewModel viewModel)
             {
-                viewModel.Add();
+                viewModel.AddShowing();
             }
         }
     }

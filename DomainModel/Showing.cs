@@ -47,6 +47,15 @@ namespace DomainModel
             StartTime = start;
         }
 
+        public Showing( Movie movie, Theater theater, DateOnly date, TimeOnly start)
+        {
+            Movie = movie;
+            Theater = theater;
+            Date = date;
+            StartTime = start;
+        }
+
+
         // Ny egenskab, der kombinerer start- og sluttidspunkt
         public string TimeRange => $"{StartTime:HH:mm} - {EndTime:HH:mm}";
     }
