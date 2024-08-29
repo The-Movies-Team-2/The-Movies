@@ -9,6 +9,7 @@ namespace ApplicationLayer.DataHandlers
     {
         private MovieDataHandler _movieDataHandler = new MovieDataHandler();
         private ShowingDataHandler showingDataHandler = new ShowingDataHandler();
+        private ReservationDataHandler ReservationDataHandler = new ReservationDataHandler();
 
         public MovieRepository MovieRepository { get; set; }
         public ShowingRepository ShowingRepository { get; set; }
@@ -33,6 +34,7 @@ namespace ApplicationLayer.DataHandlers
         {
             MovieRepository = _movieDataHandler.Read();
             ShowingRepository = showingDataHandler.Read(MovieRepository);
+            ReservationRepository = ReservationDataHandler.Read(ShowingRepository);
         }
 
         public void Write()
@@ -45,6 +47,8 @@ namespace ApplicationLayer.DataHandlers
             }
             _movieDataHandler.Write(MovieRepository);
             showingDataHandler.Write(ShowingRepository);
+            ReservationDataHandler.Write(ReservationRepository);
+            
 
         }
 

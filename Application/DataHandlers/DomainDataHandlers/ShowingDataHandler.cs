@@ -14,12 +14,11 @@ namespace ApplicationLayer.DataHandlers.DomainDataHandlers
     {
         private static string _filePath = @"C:\\TheMovies\\Showings.txt";
 
-        private readonly List<Showing> _movies = new List<Showing>();
+        //private readonly List<Showing> _movies = new List<Showing>();
 
         private readonly ShowingRepository _repository = new ShowingRepository();
         private readonly TheaterRepository _theaterRepository = new TheaterRepository();
 
-     
         internal ShowingRepository Read(MovieRepository movieRepository)
         {
             CheckIfFileExists(_filePath);
@@ -34,18 +33,13 @@ namespace ApplicationLayer.DataHandlers.DomainDataHandlers
                 DateOnly theaterDate = DateOnly.Parse(values[3]);
                 TimeOnly theaterTime = TimeOnly.Parse(values[4]);
 
-               
-                Showing showing = new Showing(id,movie,theater,theaterDate,theaterTime);
+
+                Showing showing = new Showing(id, movie, theater, theaterDate, theaterTime);
                 _repository.Add(showing);
             }
             return _repository;
         }
-
-        //private Movie GetMovieForShowing(int id)
-        //{
-        //    Movie movie = _moviecontroller.GetById(id);
-        //    return movie != null ? movie : new Movie("ukendt", 100, new List<Genre>(), "ukendt");
-        //}
+      
         private Theater GetTheaterForShowing(int id)
         {
             return _theaterRepository.GetById(id);

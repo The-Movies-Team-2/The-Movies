@@ -22,8 +22,9 @@ namespace DomainModel
             CustomerPhone = phone;
             CustomerMail = mail;
         }
-        public Reservation(int numberOfTickets, int showId, string phone, string mail) 
+        public Reservation( int id,int showId, string phone, string mail , int numberOfTickets) 
         {
+            Id = id;
             NumberOfTickets = numberOfTickets;
             ShowingId = showId;
             CustomerPhone = phone;
