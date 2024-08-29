@@ -12,13 +12,13 @@ namespace ApplicationLayer.Controllers
 {
     internal class CinemaController
     {
-        private readonly CinemaRepository _repository;
-        private readonly MasterDataHandler _dataHandler;//**KORREKT?
+        private readonly CinemaRepository repository;
+        private readonly MasterDataHandler dataHandler;//**KORREKT?
 
         public CinemaController()
         {
-            _dataHandler = new MasterDataHandler();//**
-            _repository = _dataHandler.CinemaRepository;
+            dataHandler = new MasterDataHandler();//**
+            repository = dataHandler.CinemaRepository;
         }
 
         public void Add(Cinema cinema)

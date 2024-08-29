@@ -10,7 +10,13 @@ namespace The_Movies.ApplicationLayer.Repositories
 {
     internal class ShowingRepository
     {
-        private List<Showing> Showings = new List<Showing>();
+        private readonly List<Showing> Showings = new List<Showing>();
+        private readonly List<Booking> Bookings = new List<Booking>();
+//        public readonly List<Movie> Movies = new List<Movie>();
+
+
+        public Booking CreateBooking() { 
+        }
 
         public void Add(Showing Showing)
         {
