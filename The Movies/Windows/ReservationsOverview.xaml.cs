@@ -26,5 +26,15 @@ namespace The_Movies.Windows
             ReservationOverviewViewModel viewModel = new ReservationOverviewViewModel();
             DataContext = viewModel;
         }
+        private void Open_Create_Reservation(object sender, RoutedEventArgs e)
+        {
+            CreateReservationWindow CRW = new CreateReservationWindow();
+            CRW.ShowDialog();
+        }
+
+        private void Close_Overview(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
     }
 }

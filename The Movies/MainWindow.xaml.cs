@@ -40,11 +40,7 @@ namespace The_Movies
             SRW.ShowDialog();
         }
 
-        private void Open_Create_Reservation(object sender, RoutedEventArgs e)
-        {
-            CreateReservationWindow CRW = new CreateReservationWindow();
-            CRW.ShowDialog();
-        }
+       
 
        
     }
