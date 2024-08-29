@@ -29,6 +29,7 @@ namespace The_Movies.Windows
         private void Open_Create_Reservation(object sender, RoutedEventArgs e)
         {
             CreateReservationWindow CRW = new CreateReservationWindow();
+            CRW.Owner = this;
             CRW.ShowDialog();
         }
 

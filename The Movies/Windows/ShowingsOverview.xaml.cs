@@ -58,6 +58,7 @@ namespace The_Movies
         private void Open_Create_Showing(object sender, RoutedEventArgs e)
         {
             CreateShowingWindow CSW = new CreateShowingWindow();
+            CSW.Owner = this;
             CSW.ShowDialog();
         }
 

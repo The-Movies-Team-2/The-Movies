@@ -7,6 +7,11 @@
         mc:Ignorable="d"
         Title="Movie overview" Height="450" Width="800">
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="30"></RowDefinition>
+        </Grid.RowDefinitions>
 
         <Grid.Background>
             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -14,8 +19,10 @@
                 <GradientStop Color="#FF972445" Offset="1"/>
             </LinearGradientBrush>
         </Grid.Background>
-        <Label Content="Filmoversigt" FontWeight="Bold" FontSize="25" HorizontalAlignment="Center" Margin="0,34,0,0" VerticalAlignment="Top" Foreground="White" FontFamily="Bernard MT Condensed"/>
-        <DataGrid x:Name="MovieOverviewDataGrid" ItemsSource="{Binding Movies}" AutoGenerateColumns="False" Margin="50,90,50,100" FontFamily="Bernard MT Condensed">
+        
+        <Label Content="Filmoversigt" FontWeight="Bold" FontSize="25" HorizontalAlignment="Center" VerticalAlignment="Top" Foreground="White" FontFamily="Bernard MT Condensed" Grid.Row="0"/>
+        
+        <DataGrid x:Name="MovieOverviewDataGrid" ItemsSource="{Binding Movies}" AutoGenerateColumns="False"  FontFamily="Bernard MT Condensed" Grid.Row="1">
             <DataGrid.BorderBrush>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="Black"/>
@@ -30,7 +37,7 @@
             </DataGrid.Background>
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Id" Binding="{Binding Id}"/>
-                <DataGridTextColumn Header="Titel" Binding="{Binding Title}" Width="200" />
+                <DataGridTextColumn Header="Titel" Binding="{Binding Title}" Width="250" />
                 <DataGridTextColumn Header="Instruktør" Binding="{Binding Director}" Width="200"/>
                 <DataGridTextColumn Header="Varighed" Binding="{Binding Duration, StringFormat='{}{0} min'}" Width="60">
                     <DataGridTextColumn.ElementStyle>
@@ -40,15 +47,15 @@
                         </Style>
                     </DataGridTextColumn.ElementStyle>
                 </DataGridTextColumn>
-                <DataGridTextColumn Header="Genre" Binding="{Binding GenreString}" />
+                <DataGridTextColumn Header="Genre" Binding="{Binding GenreString}" Width="1*" />
 
             </DataGrid.Columns>
         </DataGrid>
 
-
-        <Button Content="Tilføj film" HorizontalAlignment="Left" Margin="573,369,0,0" VerticalAlignment="Top" Click="CreateMovie_Button_Click" FontFamily="Bernard MT Condensed"></Button>
-        <Button Content="Luk filmoversigt" HorizontalAlignment="Left" Margin="662,369,0,0" VerticalAlignment="Top" Click="Close_overview" FontFamily="Bernard MT Condensed"/>
-
+        <StackPanel Orientation="Horizontal" Grid.Row="2" HorizontalAlignment="Right">
+        <Button Content="Tilføj film" HorizontalAlignment="Left" VerticalAlignment="Top" Click="CreateMovie_Button_Click" FontFamily="Bernard MT Condensed" Margin="5"></Button>
+        <Button Content="Luk filmoversigt" HorizontalAlignment="Left"  VerticalAlignment="Top" Click="Close_overview" FontFamily="Bernard MT Condensed" Margin="5"/>
+        </StackPanel>
         <Image HorizontalAlignment="Left" Height="100" Margin="78,54,0,0" VerticalAlignment="Top" Width="100"/>
 
     </Grid>

@@ -31,7 +31,7 @@ namespace ApplicationLayer.DataHandlers.DomainDataHandlers
             {
                 string[] values = line.Split(';');
                 int id = int.Parse(values[0]);
-                string title = DecryptString(values[1]);
+                string title = values[1];
                 int playingTime = int.Parse(values[2]);
                 string director = values[3];
 
@@ -70,9 +70,8 @@ namespace ApplicationLayer.DataHandlers.DomainDataHandlers
             List<Movie> lines = _repository.GetAll().ToList();
             foreach (Movie movie in lines)
             {
-                string encryptedTitle = EncryptString(movie.Title);
-
-                string createText = $"{movie.Id};{encryptedTitle};{movie.Duration};{movie.Director}";
+    
+                string createText = $"{movie.Id};{movie.Title};{movie.Duration};{movie.Director}";
                 File.AppendAllText(_filePath, createText + Environment.NewLine);
                 foreach (Genre genre in movie.Genres)
                 {

@@ -1,11 +1,13 @@
-﻿using The_Movies.DomainModel;
+﻿using System.Diagnostics.Metrics;
+using System.Runtime.ConstrainedExecution;
+using System;
+using The_Movies.DomainModel;
 
 namespace The_Movies.ApplicationLayer.Repositories
 {
     public class GenreRepository
     {
         private readonly List<Genre> _genres = new List<Genre>();
-
         public GenreRepository()
         {
             Add(new Genre(1, "Drama"));
@@ -18,6 +20,9 @@ namespace The_Movies.ApplicationLayer.Repositories
             Add(new Genre(8, "Krimi"));
             Add(new Genre(9, "Animation"));
             Add(new Genre(10, "Thriller"));
+            Add(new Genre(11, "Western"));
+            Add(new Genre(12, "Fantasy"));
+            Add(new Genre(13, "Historisk"));
         }
 
         public void Add(Genre genre)
