@@ -24,8 +24,8 @@ namespace The_Movies
                 Window = this
             };
             SaveButton.CommandParameter = commandParameters;
-
         }
+
         private void AllowOnlyNumbersInTextBox(object sender, TextCompositionEventArgs e)
         {
             //regular expression(regex) genkender mønstrer og sørger for der kun kan indtastes tal i textboksen
@@ -33,9 +33,5 @@ namespace The_Movies
             e.Handled = regex.IsMatch(e.Text);
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            this.Close();
-        }
     }
 }

@@ -19,6 +19,7 @@ namespace The_Movies.Viewmodel
         {
             Showings = new ObservableCollection<ShowingForView>();
             LoadShowings();
+            SortByBio("Alle");
         }
 
         private void LoadShowings()

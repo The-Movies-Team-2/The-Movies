@@ -28,11 +28,14 @@ namespace The_Movies.Windows
             ShowingCreateViewModel _viewModel = new ShowingCreateViewModel();
             DataContext = _viewModel;
 
+            // Set up the command parameter in code-behind
+            CreateShowingCommandParameter commandParameters = new CreateShowingCommandParameter
+            {
+                ShowingCreateViewModel = _viewModel,
+                Window = this
+            };
+            SaveButton.CommandParameter = commandParameters;
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            this.Close();
-        }
     }
 }

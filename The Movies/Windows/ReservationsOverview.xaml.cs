@@ -36,5 +36,12 @@ namespace The_Movies.Windows
         {
             this.Close();
         }
+        public void RefreshOwner()
+        {
+            InitializeComponent();
+            ReservationOverviewViewModel reservationOverviewViewModel = new ReservationOverviewViewModel();
+
+            DataContext = reservationOverviewViewModel;
+        }
     }
 }

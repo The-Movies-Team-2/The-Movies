@@ -27,7 +27,7 @@
             <ComboBox HorizontalAlignment="Center" VerticalAlignment="Center" Width="576" ItemsSource="{Binding  Showings}" />
         </StackPanel>
 
-        <DataGrid ItemsSource="{Binding Reservations}" Grid.Row="2" AutoGenerateColumns="False" HeadersVisibility="Column" CanUserAddRows="False" IsReadOnly="True" SelectionChanged="DataGrid_SelectionChanged" FontFamily="Bernard MT Condensed">
+        <DataGrid ItemsSource="{Binding Reservations}" Grid.Row="2" AutoGenerateColumns="False" HeadersVisibility="Column" CanUserAddRows="False" IsReadOnly="True" FontFamily="Bernard MT Condensed">
             <DataGrid.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="Black"/>

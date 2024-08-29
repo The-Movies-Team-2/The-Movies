@@ -34,10 +34,9 @@ namespace The_Movies.Commands
                 }
 
             }
-            if (parameter is ReservationCreateViewModel viewModel) 
-            {
-                viewModel.Add();
-            }
+          
         }
+            
+        
     }
 }
