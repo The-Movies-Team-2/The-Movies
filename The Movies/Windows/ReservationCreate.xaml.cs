@@ -1,6 +1,7 @@
 ﻿using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Input;
+using The_Movies.Commands;
 using The_Movies.Viewmodel;
 
 namespace The_Movies
@@ -15,6 +16,14 @@ namespace The_Movies
         {
             InitializeComponent(); 
             DataContext = viewModel;
+
+            // Set up the command parameter in code-behind
+            CreateReservationCommandParameter commandParameters = new CreateReservationCommandParameter
+            {
+                ReservationCreateViewModel = viewModel,
+                Window = this
+            };
+            SaveButton.CommandParameter = commandParameters;
 
         }
         private void AllowOnlyNumbersInTextBox(object sender, TextCompositionEventArgs e)

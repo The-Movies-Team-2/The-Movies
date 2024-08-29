@@ -49,7 +49,7 @@
             
         </StackPanel>
 
-        <Button Content="Gem reservation" Grid.Column="1" Grid.Row="1" Height="30" VerticalAlignment="Bottom" Command="{Binding CreateReservationCMD}" CommandParameter="{Binding}" Click="Button_Click"/>
+        <Button Content="Gem reservation" Grid.Column="1" Grid.Row="1" Height="30" VerticalAlignment="Bottom" Command="{Binding CreateReservationCMD}" Click="Button_Click" x:Name="SaveButton"/>
 
 
 

@@ -60,5 +60,13 @@ namespace The_Movies
             CreateShowingWindow CSW = new CreateShowingWindow();
             CSW.ShowDialog();
         }
+
+        public void RefreshOwner()
+        {
+            InitializeComponent();
+            ShowingsViewmodel showingsViewmodel = new ShowingsViewmodel();
+            DataContext = showingsViewmodel;
+        }
+
     }
 }
