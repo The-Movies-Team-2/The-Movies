@@ -70,22 +70,6 @@
                 </LinearGradientBrush>
             </Button.Background>
         </Button>
-        <Button Content="Opret forestilling" HorizontalAlignment="Center" Margin="0,182,0,0" VerticalAlignment="Top" Height="54" Width="136" Grid.Column="3" Grid.Row="1"  FontFamily="Bernard MT Condensed" Click="Open_Create_Showing" >
-            <Button.Background>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="Black"/>
-                    <GradientStop Color="#FF198AEE" Offset="1"/>
-                </LinearGradientBrush>
-            </Button.Background>
-        </Button>
-        <Button Content="Opret reservation" HorizontalAlignment="Center" Margin="0,241,0,0" VerticalAlignment="Top" Height="54" Width="136" Grid.Column="3" Grid.Row="1"  FontFamily="Bernard MT Condensed" Click="Open_Create_Reservation" Grid.RowSpan="2">
-            <Button.Background>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="Black"/>
-                    <GradientStop Color="#FF198AEE" Offset="1"/>
-                </LinearGradientBrush>
-            </Button.Background>
-        </Button>
         <Image x:Name="Popcorn" HorizontalAlignment="Left" Height="70" Margin="3,25,0,0" VerticalAlignment="Top" Width="71" Source="/Popcorn.png" Grid.Column="2"/>
         <Image HorizontalAlignment="Left" Height="70" Margin="91,25,0,0" VerticalAlignment="Top" Width="71" Source="/Popcorn.png" Grid.Column="4"/>
         <Image x:Name="Popcorn_Copy" HorizontalAlignment="Left" Height="70" Margin="3,142,0,0" VerticalAlignment="Top" Width="71" Source="/Popcorn.png" Grid.Column="2" Grid.Row="1"/>

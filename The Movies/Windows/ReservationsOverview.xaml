@@ -7,20 +7,37 @@
         mc:Ignorable="d"
         Title="Reservationsoversigt" Height="450" Width="800">
     <Grid>
-        <ComboBox HorizontalAlignment="Left" Margin="171,63,0,0" VerticalAlignment="Top" Width="576" ItemsSource="{Binding  Showings}"/>
-        <Label Content="Sorter efter forestilling" HorizontalAlignment="Left" Margin="37,62,0,0" VerticalAlignment="Top"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="30"></RowDefinition>
+         </Grid.RowDefinitions>
 
-        <DataGrid ItemsSource="{Binding Reservations}" Margin="37,93,53,68">
+        <Label Content="Reservationsoversigt" Grid.Row="0" FontSize="30" FontWeight="Bold" HorizontalAlignment="Center"></Label>
+
+        <StackPanel Orientation="Horizontal" Grid.Row="1">
+            <Label Content="Sorter efter forestilling" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+            <ComboBox HorizontalAlignment="Center" VerticalAlignment="Center" Width="576" ItemsSource="{Binding  Showings}" />
+        </StackPanel>
+
+        <DataGrid ItemsSource="{Binding Reservations}" Grid.Row="2" AutoGenerateColumns="False" HeadersVisibility="Column" CanUserAddRows="False" IsReadOnly="True">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Id" Binding="{Binding Id}"/>
-                <!--noget med hvilken film
-                noget med hvornår
-                noget med hvor-->
+                <DataGridTextColumn Header="film" Binding="{Binding MovieTitle}"/>
+                <DataGridTextColumn Header="Sted" Binding="{Binding Place}"/>
+                <DataGridTextColumn Header="Dato" Binding="{Binding Date}"/>
+                <DataGridTextColumn Header="Tid" Binding="{Binding TimeRange}"/>
                 <DataGridTextColumn Header="tlf" Binding="{Binding CustomerPhone}" Width="200" />
                 <DataGridTextColumn Header="mail" Binding="{Binding CustomerMail}" Width="200"/>
-                <DataGridTextColumn Header="antal" Binding="{Binding NumberOfTickets}" Width="60"></DataGridTextColumn>
-
+                <DataGridTextColumn Header="antal" Binding="{Binding NumberOfTickets}" Width="60"/>
             </DataGrid.Columns>
         </DataGrid>
+
+        <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button Content="Luk reservationsliste" Margin="5" Click="Close_Overview"></Button>
+            <Button Content="Opret Reservation" Margin="5" Click="Open_Create_Reservation"></Button>
+        </StackPanel>
+
     </Grid>
 </Window>

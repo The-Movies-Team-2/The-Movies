@@ -52,6 +52,7 @@
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,30,0" >
                 <Label Content="Dato" FontWeight="Bold"  Foreground="#FFE5D8D8" Margin="5,5,20,5"/>
                 <DatePicker SelectedDate="{Binding SelectedDate, Converter={StaticResource DateOnlyToDateTimeConverter}, Mode =TwoWay}" Width="100" Margin="5"></DatePicker>
+
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,30,0" >
@@ -61,8 +62,6 @@
 
             <Button Content="Opret forestilling" Command="{Binding CreateShowingCMD}" Grid.Column="1" Grid.Row="1"></Button>
         </StackPanel>
-
-       
 
     </Grid>
 </Window>

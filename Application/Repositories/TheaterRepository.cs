@@ -9,6 +9,7 @@ namespace ApplicationLayer.Repositories
 
         public TheaterRepository()
         {
+            Add(new Theater(0, "Testsal", 0));
             Add(new Theater(1, "Sal 1",1));
             Add(new Theater(2, "Sal 2", 1));
             Add(new Theater(3, "Sal 3", 1));

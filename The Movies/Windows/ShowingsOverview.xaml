@@ -6,15 +6,29 @@
         xmlns:local="clr-namespace:The_Movies"
         mc:Ignorable="d"
         Title="ScreeningsOverview" Height="450" Width="800">
-    <Grid Margin="50,95,50,111">
-        <DataGrid ItemsSource="{Binding Showings}" AutoGenerateColumns="False" HeadersVisibility="Column">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="30"></RowDefinition>
+        </Grid.RowDefinitions>
+        
+        
+        
+        
+        <Label Content="Forestillingsoversigt" FontSize="30" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Top" Grid.Row="0"></Label>
+        <DataGrid ItemsSource="{Binding Showings}" AutoGenerateColumns="False" HeadersVisibility="Column" Grid.Row="1" CanUserAddRows="False" IsReadOnly="True">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Film" Binding="{Binding MovieTitle}" Width="3*"/>
-                <DataGridTextColumn Header="biograf" Binding="{Binding CinemaName}" Width="3*" />
-                <DataGridTextColumn Header="Sal" Binding="{Binding TheaterName}" />
-                <DataGridTextColumn Header="Dato" Binding="{Binding StartDate, StringFormat=dd-MM-yyyy}" />
-                <DataGridTextColumn Header="Starttid" Binding="{Binding StartDate, StringFormat=HH:mm}" />
+                <DataGridTextColumn Header="Film" Binding="{Binding MovieTitle}" Width="25*"/>
+                <DataGridTextColumn Header="biograf" Binding="{Binding CinemaName}" Width="25*" />
+                <DataGridTextColumn Header="Sal" Binding="{Binding TheaterName}" Width="20*"/>
+                <DataGridTextColumn Header="Dato" Binding="{Binding Date, StringFormat=dd-MM-yyyy}" Width="10*" />
+                <DataGridTextColumn Header="Tid" Binding="{Binding TimeRange}" Width="10*" />
             </DataGrid.Columns>
         </DataGrid>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Grid.Row="2">
+            <Button Content="Luk Forestillingliste" Margin="5" Click="Close_overview"></Button>
+            <Button Content="Opret Forestilling" Margin="5" Click="Open_Create_Showing"></Button>
+        </StackPanel>
     </Grid>
 </Window>
