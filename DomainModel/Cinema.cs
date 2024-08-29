@@ -4,5 +4,10 @@
     {
         public int Id { get; set; }
         public string Name { get; set; }
+
+        public Cinema(int Id, string Name) { 
+            this.Id = Id;
+            this.Name = Name;
+        }
     }
 }

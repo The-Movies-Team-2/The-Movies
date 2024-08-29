@@ -27,6 +27,18 @@ namespace DomainModel
         }
         private DateTime EndTime { get; set; }
 
+        public Showing(int id, Movie movie, Cinema cinema, Theater theater, DateTime startTime, DateTime endTime)
+        {
+            this.Id = id;
+            this.Movie = movie;
+            this.Cinema = cinema;
+            this.Theater = theater;
+            this.StartTime = startTimeV;
+            this.EndTime = endTime;
+        }
+
+
+
         // Ny egenskab, der kombinerer start- og sluttidspunkt
         public string TimeRange => $"{StartTime:HH:mm} - {EndTime:HH:mm}";
     }

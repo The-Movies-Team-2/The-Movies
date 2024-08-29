@@ -15,7 +15,7 @@ namespace DomainModel
         public int NumberOfTickets;
 
 
-        Booking(int BookingId,DateOnly BookingDate, string Email,
+        public Booking(int BookingId,DateOnly BookingDate, string Email,
             int PhoneNumber, int NumberOfTickets, Showing showing) {
 
             this.BookingId = BookingId;

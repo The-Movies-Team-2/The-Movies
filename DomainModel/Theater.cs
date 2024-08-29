@@ -11,5 +11,16 @@ namespace DomainModel
         public int Id {  get; set; }
         public string Name { get; set; }
         public int CinemaId {  get; set; } 
+
+        public Theater(int Id, string Name, int CinemaId)
+        {
+            this.Id = Id;
+            this.Name = Name;
+            this.CinemaId = CinemaId;
+        }
+
+
+       
+
     }
 }

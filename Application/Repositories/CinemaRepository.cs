@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DomainModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,14 +13,9 @@ namespace ApplicationLayer.Repositories
     {
 
         private readonly List<Cinema> cinemas = new List<Cinema>();
-        public enum Halls
-        {
+        private readonly List<Theater> theaters = new List<Theater>();  
 
-        }
-
-        //Get enum halls method 
-
-        public void Add(Cinema cinema)
+        public void AddCinema(Cinema cinema)
         {
             int maxId = 0;
             if (cinemas.Count > 0) maxId = cinemas.Max(h => h.Id);
@@ -27,6 +23,15 @@ namespace ApplicationLayer.Repositories
             cinemas.Add(cinema);            
         }
 
-        public List<Cinema> GetALL() { return cinemas; }        
+        public List<Cinema> GetCinema() { return cinemas; }
+
+
+        //create theater & remove? 
+
+        public List<Theater> GetTheater()
+        {
+            return theaters;
+        }
+
     }
 }
