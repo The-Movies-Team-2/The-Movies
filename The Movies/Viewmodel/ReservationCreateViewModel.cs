@@ -15,7 +15,7 @@ using The_Movies.ApplicationLayer.Repositories;
 
 namespace The_Movies.Viewmodel
 {
-    class CreateReservationViewModel
+    class ReservationCreateViewModel
     {
         public ObservableCollection<Showing> Showings { get; set; }
         public Showing SelectedShowing { get; set; }
@@ -27,7 +27,7 @@ namespace The_Movies.Viewmodel
         public ShowingController showingController { get; set; }
         public ReservationController reservationController { get; set; }
 
-        public CreateReservationViewModel()
+        public ReservationCreateViewModel()
         {
             showingController = new ShowingController();
             reservationController = new ReservationController();

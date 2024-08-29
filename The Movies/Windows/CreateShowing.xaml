@@ -4,8 +4,14 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:commands="clr-namespace:The_Movies.Commands"
+        xmlns:local="clr-namespace:The_Movies.Converter"
         mc:Ignorable="d"
         Title="Create showing" Height="450" Width="800" MinWidth="100">
+    <Window.Resources>
+        <local:DateOnlyToDateTimeConverter x:Key="DateOnlyToDateTimeConverter" />
+        <local:TimeOnlyToStringConverter x:Key="TimeOnlyToStringConverter" />
+    </Window.Resources>
+
     <Grid Margin="0,1,0,-1">
         <Grid.Background>
             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -14,7 +20,7 @@
             </LinearGradientBrush>
         </Grid.Background>
         <Grid.RowDefinitions>
-            <RowDefinition Height="100" ></RowDefinition>
+            <RowDefinition Height="50" ></RowDefinition>
             <RowDefinition></RowDefinition>
             <RowDefinition Height="30"></RowDefinition>
         </Grid.RowDefinitions>
@@ -26,45 +32,36 @@
 
         <Label Grid.Column="1" Content="Tilføj forestilling" FontSize="30" FontWeight="Bold" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 
-        <StackPanel Grid.Column="1" Grid.Row="1">
-            <!-- Titel stackpanel -->
-
-            <!-- Titel stackpanel -->
-            <StackPanel Orientation="Horizontal">
-                <!-- Film stackpanel -->
-                <Label Content="Film" FontWeight="Bold" Foreground="#FFE5D8D8" Width="85" Height="24"/>
-                <!-- Film stackpanel -->
-                <StackPanel Margin="5">
-                    <!-- Filmbox generes her-->
-                    <StackPanel x:Name="FilmBox">
-                        <ComboBox  ItemsSource="{Binding AvailableMovies}" DisplayMemberPath="Name" SelectedItem="{Binding SelectedMovies[0], Mode=TwoWay}" Width="100" />
-                    </StackPanel>
-                </StackPanel>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal" Height="42" >
-                <Label Content="Biograf" FontWeight="Bold" Foreground="#FFE5D8D8" Width="90" Height="26"/>
-                <StackPanel x:Name="CinemaBox" Height="22">
-                    <ComboBox  ItemsSource="{Binding Cinema}" DisplayMemberPath="Name" SelectedItem="{Binding SelectedMovies[0], Mode=TwoWay}" Width="100" />
-                </StackPanel>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal" Width="300" Height="35" >
-                <Label Content="Sal                        " FontWeight="Bold" Margin="0,0,20,0" Foreground="#FFE5D8D8" Width="70"/>
-                <StackPanel x:Name="TheaterBox" HorizontalAlignment="Left"/>
-                <ComboBox  ItemsSource="{Binding Theater}" DisplayMemberPath="Name" SelectedItem="{Binding SelectedTheater[0], Mode=TwoWay}" Width="100" Height="18" />
+        <StackPanel Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center">
+            
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,30,0" >
+                <Label Content="Film" FontWeight="Bold" Foreground="#FFE5D8D8" Margin="5,5,20,5"/>
+                <ComboBox  ItemsSource="{Binding movies}"  DisplayMemberPath="Title" SelectedItem="{Binding selectedMovie, Mode=TwoWay}" Width="100" Margin="5"/>
             </StackPanel>
 
-            <!-- starttidspunkt stackpanel -->
-            <StackPanel Orientation="Horizontal" Height="30">
-                <Label Content="Dato" FontWeight="Bold" Foreground="#FFE5D8D8"/>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,30,0" >
+                <Label Content="Biograf" FontWeight="Bold" Foreground="#FFE5D8D8" Margin="5,5,20,5"/>
+                <ComboBox  ItemsSource="{Binding cinemas}" DisplayMemberPath="Name" SelectedItem="{Binding SelectedCinema, Mode=TwoWay}" Width="100" Margin="5"/>
             </StackPanel>
-            <!--sluttidspunkt stackpanel-->
-            <StackPanel Orientation="Horizontal" Height="30">
-                <Label Content="Sluttidspunkt" FontWeight="Bold" Foreground="#FFE5D8D8" Width="85"/>
-                <TextBox
-                    Width="99" VerticalAlignment="Bottom" Text="{Binding Endtime, Mode=TwoWay}"  Margin="5"/>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,30,0" >
+                <Label Content="Sal" FontWeight="Bold"  Foreground="#FFE5D8D8" Margin="5,5,20,5" />
+                <ComboBox  ItemsSource="{Binding theatersInCinema}" DisplayMemberPath="Name" SelectedItem="{Binding selectedTheater, Mode=TwoWay}" IsEnabled="{Binding IsTheaterComboBoxEnabled}" Width="100" Margin="5" />
             </StackPanel>
-            <Button Content="Gem forestilling" Command="{Binding CreateShowingCMD}" x:Name="SaveButton1" Height="25"/>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,30,0" >
+                <Label Content="Dato" FontWeight="Bold"  Foreground="#FFE5D8D8" Margin="5,5,20,5"/>
+                <DatePicker SelectedDate="{Binding SelectedDate, Converter={StaticResource DateOnlyToDateTimeConverter}, Mode =TwoWay}" Width="100" Margin="5"></DatePicker>
+
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,30,0" >
+                <Label Content="Starttid" FontWeight="Bold"  Foreground="#FFE5D8D8" Margin="5,5,20,5"></Label>
+                <TextBox Text="{Binding SelectedTime, Converter={StaticResource TimeOnlyToStringConverter}, UpdateSourceTrigger=LostFocus}" Width="100" Margin="5"></TextBox>
+            </StackPanel>
+
+            <Button Content="Opret forestilling" Command="{Binding CreateShowingCMD}" Grid.Column="1" Grid.Row="1"></Button>
         </StackPanel>
-        <DatePicker Grid.Column="1" HorizontalAlignment="Left" Margin="88,113,0,0" Grid.Row="1" VerticalAlignment="Top" Height="27"/>
+
     </Grid>
 </Window>

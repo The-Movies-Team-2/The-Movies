@@ -10,7 +10,7 @@ namespace The_Movies
     /// </summary>
     public partial class CreateReservationWindow: Window
     {
-        CreateReservationViewModel viewModel = new CreateReservationViewModel();
+        ReservationCreateViewModel viewModel = new ReservationCreateViewModel();
         public CreateReservationWindow()
         {
             InitializeComponent(); 
