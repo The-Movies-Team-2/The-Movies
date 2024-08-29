@@ -109,5 +109,7 @@ namespace The_Movies.Viewmodel
             Showing showing = new Showing(selectedMovie, selectedTheater, SelectedDate, SelectedTime);
             showingController.Add(showing);
         }
+
+       
     }
 }

@@ -11,7 +11,7 @@ using The_Movies.DomainModel;
 
 namespace ApplicationLayer.Controllers
 {
-    internal class TheaterController
+    public class TheaterController
     {
         private readonly TheaterRepository _repository;
 
