@@ -15,12 +15,12 @@ namespace DomainModel
         public Theater Theater { get; set; }
         public DateOnly Date { get; set; }
         private TimeOnly startTime { get; set; }
-        private TimeOnly EndTime { get; set; }
+        private TimeOnly endTime { get; set; }
 
         private int CleaningTime = 15;
         private int AdvertisingTime = 15;
 
-        public string TimeRange => $"{StartTime:HH:mm} - {EndTime:HH:mm}";
+        public string TimeRange => $"{StartTime:HH:mm} - {endTime:HH:mm}";
 
         public List<Reservation> Reservations {get; set; } = new List<Reservation>();
 
@@ -35,7 +35,7 @@ namespace DomainModel
             set
             {
                 startTime = value;
-                EndTime = startTime.AddMinutes(Movie.Duration + CleaningTime + AdvertisingTime); // Beregn EndTime
+                endTime = startTime.AddMinutes(Movie.Duration + CleaningTime + AdvertisingTime); // Beregn endTime
             }
         }
 
@@ -55,8 +55,7 @@ namespace DomainModel
             Date = date;
             StartTime = start;
         }
-        // Ny egenskab, der kombinerer start- og sluttidspunkt
-        public string TimeRange => $"{StartTime:HH:mm} - {EndTime:HH:mm}";
+      
 
     }
 }

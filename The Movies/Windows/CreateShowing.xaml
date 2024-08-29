@@ -60,7 +60,7 @@
                 <TextBox Text="{Binding SelectedTime, Converter={StaticResource TimeOnlyToStringConverter}, UpdateSourceTrigger=LostFocus}" Width="100" Margin="5"></TextBox>
             </StackPanel>
 
-            <Button Content="Opret forestilling" Command="{Binding CreateShowingCMD}" Grid.Column="1" Grid.Row="1"></Button>
+            <Button Content="Opret forestilling" Command="{Binding CreateShowingCMD}" CommandParameter="{Binding}" Grid.Column="1" Grid.Row="1" Click="Button_Click"></Button>
         </StackPanel>
 
     </Grid>

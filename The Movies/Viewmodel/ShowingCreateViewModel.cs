@@ -102,7 +102,7 @@ namespace The_Movies.Viewmodel
             }
         }
 
-        public ICommand CreateShowingCMD { get; set; } = new CreateMovieCommand();
+        public ICommand CreateShowingCMD { get; set; } = new CreateShowingCommand();
         public void AddShowing()
         {
             ShowingController showingController = new ShowingController();

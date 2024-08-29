@@ -20,10 +20,13 @@ namespace ApplicationLayer.DataHandlers
 
         internal MasterDataHandler()
         {
-            Read();
+           
             TheaterRepository = new TheaterRepository();
             CinemaRepository = new CinemaRepository(this);
             ReservationRepository= new ReservationRepository();
+            ShowingRepository = new ShowingRepository();
+
+            Read();
         }
 
         internal void Read()
@@ -41,6 +44,8 @@ namespace ApplicationLayer.DataHandlers
                 file.Delete();
             }
             _movieDataHandler.Write(MovieRepository);
+            showingDataHandler.Write(ShowingRepository);
+
         }
 
     }

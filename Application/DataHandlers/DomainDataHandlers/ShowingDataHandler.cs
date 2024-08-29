@@ -42,22 +42,22 @@ namespace ApplicationLayer.DataHandlers.DomainDataHandlers
 
         private Movie GetMovieForShowing(int id)
         {
-            return _movieRepository.GetById(id);
+            Movie movie = _movieRepository.GetById(id);
+            return movie != null ? movie : new Movie("ukendt", 100, new List<Genre>(), "ukendt");
         }
         private Theater GetTheaterForShowing(int id)
         {
             return _theaterRepository.GetById(id);
         }
 
-
         internal override void Write(ShowingRepository repository)
         {
             CheckIfFileExists(_filePath);
 
-            List<Showing> lines = _repository.GetAll().ToList();
+            List<Showing> lines = repository.GetAll().ToList();
             foreach (Showing showing in lines)
             {
-                var createText = $"{showing.Id},{showing.Movie.Id},{showing.Theater.Id},{showing.Date},{showing.StartTime}";
+                var createText = $"{showing.Id};{showing.Movie.Id};{showing.Theater.Id};{showing.Date};{showing.StartTime}";
                 File.AppendAllText(_filePath, createText + Environment.NewLine);
             }
         }

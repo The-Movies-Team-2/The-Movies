@@ -12,10 +12,10 @@ namespace ApplicationLayer.Repositories
     {
         private readonly List<Reservation> reservations = new List<Reservation>();
 
-        public ReservationRepository() 
-        {
-            Add(new Reservation(4,1,"88 88 88 88","fake@email.com"));
-        }
+        //public ReservationRepository() 
+        //{
+        //    Add(new Reservation(4,1,"88 88 88 88","fake@email.com"));
+        //}
         public void Add(Reservation reservation)
         {
             int maxId = 0;

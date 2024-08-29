@@ -21,13 +21,18 @@ namespace The_Movies.Windows
     /// Interaction logic for CreateShowing.xaml
     /// </summary>
     public partial class CreateShowingWindow : Window
-    
-      public CreateShowingWindow()
-      {
-          InitializeComponent();
-          ShowingCreateViewModel _viewModel = new ShowingCreateViewModel();
-          DataContext = _viewModel;
+    {
+        public CreateShowingWindow()
+        {
+            InitializeComponent();
+            ShowingCreateViewModel _viewModel = new ShowingCreateViewModel();
+            DataContext = _viewModel;
 
-    
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
     }
 }

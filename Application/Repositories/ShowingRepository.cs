@@ -12,13 +12,6 @@ namespace The_Movies.ApplicationLayer.Repositories
     {
         private List<Showing> showings = new List<Showing>();
 
-        //midlertidig
-        public ShowingRepository() 
-        {
-            Add(new Showing(1,new Movie(70,"NOT A MOVIE",0,new List<Genre>(),"instruktør"),new Theater(30,"testsal2"), DateOnly.FromDateTime(DateTime.Now),TimeOnly.FromDateTime(DateTime.Now)));
-            Add(new Showing(2,new Movie(80,"NOT A MOVIE", 0, new List<Genre>(), "instruktør"), new Theater(40,"testsal3",1), DateOnly.FromDateTime(DateTime.Now), TimeOnly.FromDateTime(DateTime.Now)));
-        }
-
         public void Add(Showing Showing)
         {
             int maxId = 0;
