@@ -8,9 +8,6 @@ namespace ApplicationLayer.DataHandlers
 {
     public abstract class AbstractDataHandler<TRepository>
     {
-        internal abstract TRepository Read();
-        internal abstract void Write(TRepository repository);
-
         private readonly string Alphabeat = "ABCDEFGHIJKLMNOPQRSTUVWXYZÆØÅ";
         private readonly string Key = "NQXPOMAFTRHLZGECYJIUWSKDVBÆØÅ";
 

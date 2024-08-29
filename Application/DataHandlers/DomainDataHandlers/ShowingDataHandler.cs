@@ -18,9 +18,9 @@ namespace ApplicationLayer.DataHandlers.DomainDataHandlers
 
         private readonly ShowingRepository _repository = new ShowingRepository();
         private readonly TheaterRepository _theaterRepository = new TheaterRepository();
-        private readonly MovieRepository _movieRepository = new MovieRepository();
+
      
-        internal override ShowingRepository Read()
+        internal ShowingRepository Read(MovieRepository movieRepository)
         {
             CheckIfFileExists(_filePath);
             List<string> lines = File.ReadLines(_filePath).ToList();
@@ -29,10 +29,11 @@ namespace ApplicationLayer.DataHandlers.DomainDataHandlers
             {
                 string[] values = line.Split(';');
                 int id = int.Parse(values[0]);
-                Movie movie = GetMovieForShowing(int.Parse(values[1]));
+                Movie movie = movieRepository.GetById(int.Parse(values[1]));
                 Theater theater = GetTheaterForShowing(int.Parse(values[2]));
                 DateOnly theaterDate = DateOnly.Parse(values[3]);
                 TimeOnly theaterTime = TimeOnly.Parse(values[4]);
+
                
                 Showing showing = new Showing(id,movie,theater,theaterDate,theaterTime);
                 _repository.Add(showing);
@@ -40,17 +41,17 @@ namespace ApplicationLayer.DataHandlers.DomainDataHandlers
             return _repository;
         }
 
-        private Movie GetMovieForShowing(int id)
-        {
-            Movie movie = _movieRepository.GetById(id);
-            return movie != null ? movie : new Movie("ukendt", 100, new List<Genre>(), "ukendt");
-        }
+        //private Movie GetMovieForShowing(int id)
+        //{
+        //    Movie movie = _moviecontroller.GetById(id);
+        //    return movie != null ? movie : new Movie("ukendt", 100, new List<Genre>(), "ukendt");
+        //}
         private Theater GetTheaterForShowing(int id)
         {
             return _theaterRepository.GetById(id);
         }
 
-        internal override void Write(ShowingRepository repository)
+        internal void Write(ShowingRepository repository)
         {
             CheckIfFileExists(_filePath);
 

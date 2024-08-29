@@ -12,6 +12,7 @@ namespace DomainModel
     {
         public int Id { get; set; }
         public Movie Movie { get; set; }
+        public int MovieId { get; set; }
         public Theater Theater { get; set; }
         public DateOnly Date { get; set; }
         private TimeOnly startTime { get; set; }

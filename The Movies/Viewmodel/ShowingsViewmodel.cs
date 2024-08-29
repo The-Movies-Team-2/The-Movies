@@ -26,9 +26,9 @@ namespace The_Movies.Viewmodel
             foreach (Showing showing in TempShowings)
             {
                 ShowingForView NewShowing = new ShowingForView();
-                NewShowing.MovieTitle = movieController.GetById(1).Title; //showing.Movie.Id istedet for 1 på sigt
-                NewShowing.CinemaName = cinemaController.GetById(1).Name;
-                NewShowing.TheaterName = theaterController.GetById(1).Name;
+                NewShowing.MovieTitle = movieController.GetById(showing.Movie.Id).Title; //showing.Movie.Id istedet for 1 på sigt
+                NewShowing.CinemaName = cinemaController.GetById(showing.Theater.CinemaId).Name;
+                NewShowing.TheaterName = theaterController.GetById(showing.Theater.Id).Name;
                 NewShowing.Date = showing.Date;
                 NewShowing.TimeRange = showing.TimeRange;
                 Showings.Add(NewShowing);

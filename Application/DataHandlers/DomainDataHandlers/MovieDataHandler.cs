@@ -21,7 +21,7 @@ namespace ApplicationLayer.DataHandlers.DomainDataHandlers
         private readonly GenreRepository _genreRepository = new GenreRepository();
 
 
-        internal override MovieRepository Read()
+        internal MovieRepository Read()
         {
             CheckIfFileExists(_filePath);
             CheckIfFileExists(_genreRelationPath);
@@ -62,7 +62,7 @@ namespace ApplicationLayer.DataHandlers.DomainDataHandlers
             return genres;
         }
 
-        internal override void Write(MovieRepository repository)
+        internal void Write(MovieRepository repository)
         {
             CheckIfFileExists(_filePath);
             CheckIfFileExists(_genreRelationPath);

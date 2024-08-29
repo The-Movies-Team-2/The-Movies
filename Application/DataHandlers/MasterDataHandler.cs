@@ -32,7 +32,7 @@ namespace ApplicationLayer.DataHandlers
         internal void Read()
         {
             MovieRepository = _movieDataHandler.Read();
-            ShowingRepository = showingDataHandler.Read();
+            ShowingRepository = showingDataHandler.Read(MovieRepository);
         }
 
         public void Write()
