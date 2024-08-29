@@ -23,20 +23,32 @@ namespace The_Movies.Commands
         {
             if (parameter is CreateReservationCommandParameter commandParams)
             {
-                ReservationCreateViewModel MCVM = commandParams.ReservationCreateViewModel;
-                MCVM.Add();
-                Window createReservationWindow = commandParams.Window;
-                ReservationOverviewWindow ownerWindow = createReservationWindow?.Owner as ReservationOverviewWindow;
-                if (ownerWindow != null)
+                ReservationCreateViewModel viewModel = commandParams.ReservationCreateViewModel;
+                // Kontroller om der er tilstrækkelige pladser før oprettelse af reservation
+                if (viewModel.CheckIfThereIsEnoughSeats())
                 {
-                    ownerWindow.RefreshOwner();
-                    createReservationWindow?.Close();
-                }
+                    // Opret reservationen
+                    viewModel.Add();
 
+                    // Opdater ejerne af vinduet, hvis det er relevant
+                    Window createReservationWindow = commandParams.Window;
+                    ReservationOverviewWindow ownerWindow = createReservationWindow?.Owner as ReservationOverviewWindow;
+                    if (ownerWindow != null)
+                    {
+                        ownerWindow.RefreshOwner();
+                        createReservationWindow?.Close();
+                    }
+                }
+                else
+                {
+                    // Informer brugeren om, at der ikke er nok pladser
+                    MessageBox.Show("Der er ikke nok pladser til rådighed.");
+                }
             }
-          
         }
-            
-        
     }
+
+
+
 }
+
