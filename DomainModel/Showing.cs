@@ -12,20 +12,51 @@ namespace DomainModel
     {
         public int Id { get; set; }
         public Movie Movie { get; set; }
-        public Cinema Cinema { get; set; }
+        public int MovieId { get; set; }
         public Theater Theater { get; set; }
+        public DateOnly Date { get; set; }
+        private TimeOnly startTime { get; set; }
+        private TimeOnly endTime { get; set; }
 
-        private DateTime startTime; 
-        public DateTime StartTime
+        private int CleaningTime = 15;
+        private int AdvertisingTime = 15;
+
+        public string TimeRange => $"{StartTime:HH:mm} - {endTime:HH:mm}";
+
+        public List<Reservation> Reservations {get; set; } = new List<Reservation>();
+
+
+        public override string ToString()
+        {
+            return $"{Movie.Title}, {Theater.Name}, {Date} , {StartTime}";
+        }
+        public TimeOnly StartTime
         {
             get { return startTime; }
             set
             {
                 startTime = value;
-                EndTime = startTime.AddMinutes(Movie.PlayTime + 30); // Beregn EndTime
+                endTime = startTime.AddMinutes(Movie.Duration + CleaningTime + AdvertisingTime); // Beregn endTime
             }
         }
-        private DateTime EndTime { get; set; }
+
+        public Showing(int id, Movie movie,Theater theater,DateOnly date,TimeOnly start) 
+        {
+            Id = id;
+            Movie = movie;
+            Theater = theater;
+            Date = date;
+            StartTime = start;
+        }
+
+        public Showing( Movie movie, Theater theater, DateOnly date, TimeOnly start)
+        {
+            Movie = movie;
+            Theater = theater;
+            Date = date;
+            StartTime = start;
+        }
+      
 
         public Showing(int id, Movie movie, Cinema cinema, Theater theater, DateTime startTime, DateTime endTime)
         {

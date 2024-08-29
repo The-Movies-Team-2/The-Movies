@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Windows;
 using System.Windows.Input;
-using The_Movies.DomainModel;
 using The_Movies.Viewmodel;
 
 namespace The_Movies.Commands
@@ -20,9 +15,18 @@ namespace The_Movies.Commands
 
         public void Execute(object? parameter)
         {
-            if (parameter is MainViewModel mvm)
+            if (parameter is CreateMovieCommandParameters commandParams)
             {
-                mvm.AddMovie(new Movie("Unknown", 0, new List<Genre>()));
+                MovieCreateViewModel MCVM = commandParams.MovieCreateViewModel;
+                MCVM.AddMovie();
+                Window createMovieWindow = commandParams.Window;
+                MovieOverviewWindow ownerWindow = createMovieWindow?.Owner as MovieOverviewWindow;
+                if (ownerWindow != null)
+                {
+                   ownerWindow.RefreshOwner();
+                   createMovieWindow?.Close();
+                }
+
             }
         }
     }

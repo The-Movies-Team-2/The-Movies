@@ -5,10 +5,11 @@ using The_Movies.DomainModel;
 using The_Movies.Commands;
 using The_Movies.ApplicationLayer.Controllers;
 using System.Collections.Specialized;
+using ApplicationLayer.Interfaces;
 
 namespace The_Movies.Viewmodel
 {
-    internal class MainViewModel
+    public class MovieCreateViewModel
     {
         public ObservableCollection<Genre> AvailableGenres { get; set; }
         public ObservableCollection<Genre> SelectedGenres { get; set; }
@@ -21,7 +22,7 @@ namespace The_Movies.Viewmodel
         public string Director { get; set; }
 
 
-        public MainViewModel()
+        public MovieCreateViewModel()
         {
             MovieController = new MovieController();
             GenreController = new GenreController();
@@ -30,7 +31,8 @@ namespace The_Movies.Viewmodel
 
             LoadGenres();
 
-            Title = "Filmens titel her";
+            Title = "Filmens titel";
+            Director = "instruktør";
             Duration = 0;
         }
 
@@ -42,19 +44,12 @@ namespace The_Movies.Viewmodel
                 AvailableGenres.Add(genre);
             }
         }
-       
 
         public ICommand CreateMovieCMD { get; set; } = new CreateMovieCommand();
-        public void AddMovie(Movie movie)
+        public void AddMovie()
         {
-            movie.Title = Title;
-            movie.Director = Director;
-            movie.PlayTime = Duration;
-<<<<<<< HEAD
-            movie.Genres = SelectedGenres.ToList();
-=======
-            movie.Genres = SelectedGenres.Distinct().ToList();
->>>>>>> b628d541bd1654d20a433a7605f4db09b800c7b9
+            var genres = SelectedGenres.Distinct().ToList();
+            Movie movie = new Movie(Title, Duration, genres,Director);
             MovieController.Add(movie);
         }
 

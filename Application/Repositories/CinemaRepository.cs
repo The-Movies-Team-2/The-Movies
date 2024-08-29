@@ -1,4 +1,5 @@
-﻿using DomainModel;
+﻿using ApplicationLayer.DataHandlers;
+using ApplicationLayer.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,29 +10,29 @@ using The_Movies.Model;
 
 namespace ApplicationLayer.Repositories
 {
-    internal class CinemaRepository
+    public class CinemaRepository
     {
-
         private readonly List<Cinema> cinemas = new List<Cinema>();
-        private readonly List<Theater> theaters = new List<Theater>();  
+        private IMasterDataHandler dataHandler;
 
-        public void AddCinema(Cinema cinema)
+
+       public CinemaRepository(IMasterDataHandler dataHandler)
         {
-            int maxId = 0;
-            if (cinemas.Count > 0) maxId = cinemas.Max(h => h.Id);
-            cinema.Id = maxId + 1;
-            cinemas.Add(cinema);            
+            Add(new Cinema(0, "TestBiograf", dataHandler.TheaterRepository.GetByCinemaId(0)));
+            Add(new Cinema(1, "Hjerm Biograf",dataHandler.TheaterRepository.GetByCinemaId(1)));
+            Add(new Cinema(2, "Videbæk Biograf", dataHandler.TheaterRepository.GetByCinemaId(2)));
+            Add(new Cinema(3, "Thorsminde Biograf", dataHandler.TheaterRepository.GetByCinemaId(3)));
+            Add(new Cinema(4, "Ræhr Biograf", dataHandler.TheaterRepository.GetByCinemaId(4)));
         }
 
-        public List<Cinema> GetCinema() { return cinemas; }
-
-
-        //create theater & remove? 
-
-        public List<Theater> GetTheater()
+        public void Add(Cinema cinema)
         {
-            return theaters;
+            cinemas.Add(cinema);
         }
-
+        public Cinema GetById(int id)
+        {
+            return cinemas.FirstOrDefault(g => g.Id == id);
+        }
+        public List<Cinema> GetALL() { return cinemas; }        
     }
 }

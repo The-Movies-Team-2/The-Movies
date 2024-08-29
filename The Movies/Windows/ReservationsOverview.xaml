@@ -1,0 +1,55 @@
+﻿<Window x:Class="The_Movies.Windows.ReservationOverviewWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:The_Movies.Windows"
+        mc:Ignorable="d"
+        Title="Reservationsoversigt" Height="450" Width="800">
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="Black"/>
+                <GradientStop Color="#FF972445" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="30"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Label Content="Reservationsoversigt" Grid.Row="0" FontSize="30" FontWeight="Bold" HorizontalAlignment="Center" Foreground="White" FontFamily="Bernard MT Condensed"/>
+
+        <StackPanel Orientation="Horizontal" Grid.Row="1">
+            <Label Content="Sorter efter forestilling" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+            <ComboBox HorizontalAlignment="Center" VerticalAlignment="Center" Width="576" ItemsSource="{Binding  Showings}" />
+        </StackPanel>
+
+        <DataGrid ItemsSource="{Binding Reservations}" Grid.Row="2" AutoGenerateColumns="False" HeadersVisibility="Column" CanUserAddRows="False" IsReadOnly="True" FontFamily="Bernard MT Condensed">
+            <DataGrid.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black"/>
+                    <GradientStop Color="#FF972445" Offset="1"/>
+                </LinearGradientBrush>
+            </DataGrid.Background>
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Id" Binding="{Binding Id}"/>
+                <DataGridTextColumn Header="film" Binding="{Binding MovieTitle}"/>
+                <DataGridTextColumn Header="Sted" Binding="{Binding Place}"/>
+                <DataGridTextColumn Header="Dato" Binding="{Binding Date}"/>
+                <DataGridTextColumn Header="Tid" Binding="{Binding TimeRange}"/>
+                <DataGridTextColumn Header="tlf" Binding="{Binding CustomerPhone}" Width="200" />
+                <DataGridTextColumn Header="mail" Binding="{Binding CustomerMail}" Width="200"/>
+                <DataGridTextColumn Header="antal" Binding="{Binding NumberOfTickets}" Width="60"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button Content="Opret Reservation" Click="Open_Create_Reservation" FontFamily="Bernard MT Condensed" Height="20"/>
+            <Button Content="Luk reservationsliste" Margin="5" Click="Close_Overview" FontFamily="Bernard MT Condensed"/>
+        </StackPanel>
+
+    </Grid>
+</Window>

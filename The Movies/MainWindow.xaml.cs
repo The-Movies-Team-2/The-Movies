@@ -9,6 +9,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using The_Movies.Viewmodel;
+using The_Movies.Windows;
 
 namespace The_Movies
 {
@@ -17,29 +18,30 @@ namespace The_Movies
     /// </summary>
     public partial class MainWindow : Window
     {
-        MainViewModel dvm = new MainViewModel();
         public MainWindow()
         {
             InitializeComponent();
-            DataContext = dvm;
         }
 
-        private void CreateMovie_Button_Click(object sender, RoutedEventArgs e)
+        private void Show_MoviesOverview(object sender, RoutedEventArgs e)
         {
-            CreateMovieWindow c = new CreateMovieWindow();
-            c.Show();
+            MovieOverviewWindow SMW = new MovieOverviewWindow();
+            SMW.ShowDialog();
         }
 
-        private void ShowOverview_Button_Click(object sender, RoutedEventArgs e)
+        private void Show_ShowingsOverview(object sender, RoutedEventArgs e)
         {
-            MovieOverviewWindow m = new MovieOverviewWindow();
-            m.Show();
+            ShowingsOverview SSW = new ShowingsOverview();
+            SSW.ShowDialog();
+        }
+        private void Show_ReservationsOverview(object sender, RoutedEventArgs e)
+        {
+            ReservationOverviewWindow SRW = new ReservationOverviewWindow();
+            SRW.ShowDialog();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            ScreeningsOverview s = new ScreeningsOverview();
-            s.Show();
-        }
+       
+
+       
     }
 }

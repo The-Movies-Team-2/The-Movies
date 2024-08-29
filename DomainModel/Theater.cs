@@ -10,17 +10,15 @@ namespace DomainModel
     {
         public int Id {  get; set; }
         public string Name { get; set; }
-        public int CinemaId {  get; set; } 
+        public int CinemaId {  get; set; }
+        public int NumberOfSeats { get; set; }
 
-        public Theater(int Id, string Name, int CinemaId)
+        public Theater(int id, string name, int cinemaId,int numberOfSeats)
         {
-            this.Id = Id;
-            this.Name = Name;
-            this.CinemaId = CinemaId;
+            Name = name;
+            Id = id;
+            CinemaId = cinemaId;
+            NumberOfSeats = numberOfSeats;
         }
-
-
-       
-
     }
 }

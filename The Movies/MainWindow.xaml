@@ -46,7 +46,7 @@
                 </LinearGradientBrush>
             </Label.Background>
         </Label>
-        <Button Content="Vis Filmoversigt" HorizontalAlignment="Center" VerticalAlignment="Top" Height="54" Width="136" Grid.Column="3" Grid.Row="1" Click="ShowOverview_Button_Click" FontFamily="Bernard MT Condensed">
+        <Button Content="Film" HorizontalAlignment="Center" VerticalAlignment="Top" Height="54" Width="136" Grid.Column="3" Grid.Row="1" Click="Show_MoviesOverview" FontFamily="Bernard MT Condensed">
             <Button.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="Black"/>
@@ -54,7 +54,7 @@
                 </LinearGradientBrush>
             </Button.Background>
         </Button>
-        <Button Content="Tilføj Film" HorizontalAlignment="Center" Margin="0,72,0,0" VerticalAlignment="Top" Height="54" Width="136" Grid.Column="3" Grid.Row="1" Click="CreateMovie_Button_Click" FontFamily="Bernard MT Condensed">
+        <Button Content="Forestillinger" HorizontalAlignment="Center" Margin="0,63,0,0" VerticalAlignment="Top" Height="54" Width="136" Grid.Column="3" Grid.Row="1"  FontFamily="Bernard MT Condensed" Click="Show_ShowingsOverview">
             <Button.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="Black"/>
@@ -62,7 +62,7 @@
                 </LinearGradientBrush>
             </Button.Background>
         </Button>
-        <Button Content="Oversigt over forestillinger" HorizontalAlignment="Center" Margin="0,145,0,0" VerticalAlignment="Top" Height="54" Width="136" Grid.Column="3" Grid.Row="1"  FontFamily="Bernard MT Condensed" Click="Button_Click">
+        <Button Content="Reservationer" HorizontalAlignment="Center" VerticalAlignment="Top" Height="54" Width="136" Grid.Column="3" Grid.Row="1" Click="Show_ReservationsOverview" FontFamily="Bernard MT Condensed" Margin="0,123,0,0">
             <Button.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="Black"/>

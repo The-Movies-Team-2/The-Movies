@@ -3,29 +3,54 @@ using The_Movies.DomainModel;
 using The_Movies.Model;
 namespace ApplicationLayer.Repositories
 {
-    internal class TheaterRepository
+    public class TheaterRepository
     {
+        private readonly List<Theater> _theaters = new List<Theater>();
         public readonly List<Showing> Showings = new List<Showing>();
 
-        public List<Showing> GetShowing()
+
+        public TheaterRepository()
         {
-            return Showings;
+            Add(new Theater(0, "Testsal", 0,2));  // TestBiograf
+            Add(new Theater(1, "Main Hall", 1,100));  // Hjerm Biograf
+            Add(new Theater(2, "Cozy Corner", 1,50));  // Hjerm Biograf
+            Add(new Theater(3, "Hjerm Lounge", 1,200));  // Hjerm Biograf
+            Add(new Theater(4, "Central Screen", 2, 200));  // Videbæk Biograf
+            Add(new Theater(5, "Videbæk Balcony", 2,45));  // Videbæk Biograf
+            Add(new Theater(6, "Ocean View", 3,54));  // Thorsminde Biograf
+            Add(new Theater(7, "Sunset Hall", 3,30));  // Thorsminde Biograf
+            Add(new Theater(8, "Ræhr Prime", 4,100));  // Ræhr Biograf
+            Add(new Theater(9, "Ræhr Studio", 4, 20));  // Ræhr Biograf
         }
 
-        public Showing CreateShowing(int id, Movie movie, Cinema cinema, Theater theater, DateTime startTime, DateTime endTime)
+        public void Add(Theater theater)
         {
+            _theaters.Add(theater);
+        }
+          
+        public Showing CreateShowing(int id, Movie movie, Cinema cinema, Theater theater, DateTime startTime, DateTime endTime) {
             Showing showing = new Showing(id, movie, cinema, theater, startTime, endTime);
             Showings.Add(showing);
-            return showing; 
-
+            return showing;
         }
 
-        public void RemoveShowing(Showing showing)
+        public Theater GetById(int id)
         {
-            if (Showings.Contains(showing)) {
-                Showings.Remove(showing);
-            }
+            return _theaters.FirstOrDefault(g => g.Id == id);
         }
-
+        public List<Theater> GetByCinemaId(int id) { 
+            return _theaters.FindAll(ci => ci.CinemaId == id);
+        }
+                 
+        public void RemoveShowing(Showing showing) {
+                if (Showings.Contains(showing))
+                {
+                    Showings.Remove(showing);
+                }
+        }
+        public List<Theater> GetAll()
+        {
+            return _theaters.OrderBy(g => g.Name).ToList();
+        }
     }
 }

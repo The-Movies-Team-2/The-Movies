@@ -2,7 +2,7 @@
 
 namespace The_Movies.ApplicationLayer.Repositories
 {
-    internal class GenreRepository
+    public class GenreRepository
     {
         private readonly List<Genre> _genres = new List<Genre>();
 
@@ -22,11 +22,6 @@ namespace The_Movies.ApplicationLayer.Repositories
 
         public void Add(Genre genre)
         {
-            //int maxId = 0;
-            //if (genres.Count > 0) 
-            //maxId = genres.Max(h => h.Id);
-            //genre.Id = maxId + 1;
-
             if(!_genres.Contains(genre))
             _genres.Add(genre);
         }

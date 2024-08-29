@@ -20,21 +20,31 @@ namespace The_Movies
     /// </summary>
     public partial class MovieOverviewWindow : Window
     {
-        MovieViewModel movieViewModel = new MovieViewModel();
+        MovieListViewModel movieViewModel = new MovieListViewModel();
         public MovieOverviewWindow()
         {
             InitializeComponent();
             DataContext = movieViewModel;
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Close_overview(object sender, RoutedEventArgs e)
         {
             this.Close();
         }
 
-        private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void CreateMovie_Button_Click(object sender, RoutedEventArgs e)
         {
-
+            CreateMovieWindow createMovieWindow = new CreateMovieWindow();
+            createMovieWindow.Owner = this;
+            createMovieWindow.ShowDialog();
         }
+
+        public void RefreshOwner()
+        {
+            InitializeComponent();
+            MovieListViewModel movieViewModel = new MovieListViewModel();
+            DataContext = movieViewModel;
+        }
+
     }
 }

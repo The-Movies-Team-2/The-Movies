@@ -9,7 +9,7 @@ using The_Movies.DomainModel;
 
 namespace The_Movies.ApplicationLayer.Repositories
 {
-    internal class ShowingRepository
+    public class ShowingRepository
     {
         private readonly List<Showing> Showings = new List<Showing>();
         private readonly List<Booking> Bookings = new List<Booking>();
@@ -22,13 +22,17 @@ namespace The_Movies.ApplicationLayer.Repositories
         public void AddShowing(Showing Showing)
         {
             int maxId = 0;
-            if (Showings.Count > 0) maxId = Showings.Max(h => h.Id);
+            if (showings.Count > 0) maxId = showings.Max(h => h.Id);
             Showing.Id = maxId + 1;
-            Showings.Add(Showing);
+            showings.Add(Showing);
+        }
+        public Showing GetById(int id)
+        {
+            return showings.FirstOrDefault(g => g.Id == id);
         }
         public List<Showing> GetShowings()
         {
-            return Showings;
+            return showings;
         }
 
 

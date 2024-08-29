@@ -12,6 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using The_Movies.Commands;
 using The_Movies.Viewmodel;
 
 namespace The_Movies
@@ -21,23 +22,27 @@ namespace The_Movies
     /// </summary>
     public partial class CreateMovieWindow : Window
     {
-        MainViewModel dvm = new MainViewModel();
+        MovieCreateViewModel _viewModel = new MovieCreateViewModel();
         public CreateMovieWindow()
         {
             InitializeComponent();
-            DataContext = dvm;
-            int NumberOfGenres = 0;
+            _viewModel = new MovieCreateViewModel();
+            DataContext = _viewModel;
+
+            // Set up the command parameter in code-behind
+            CreateMovieCommandParameters commandParameters = new CreateMovieCommandParameters
+            {
+                MovieCreateViewModel = _viewModel,
+                Window = this
+            };
+            SaveButton.CommandParameter = commandParameters;
         }
-        private void NumericTextBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
+
+        private void AllowOnlyNumbersInTextBox(object sender, TextCompositionEventArgs e)
         {
             //regular expression(regex) genkender mønstrer og sørger for der kun kan indtastes tal i textboksen
             Regex regex = new Regex("[^0-9]+");
             e.Handled = regex.IsMatch(e.Text);
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            this.Close();
         }
 
         private void AddGenreComboBoX(object sender, RoutedEventArgs e)
@@ -48,26 +53,22 @@ namespace The_Movies
             // Opret ItemsSource binding til Genres
             Binding itemsSourceBinding = new Binding("AvailableGenres");
             genreComboBox.SetBinding(ComboBox.ItemsSourceProperty, itemsSourceBinding);
-
             // Sæt DisplayMemberPath
             genreComboBox.DisplayMemberPath = "Name";
 
             // Find indekset for den nye ComboBox
-            int index = dvm.SelectedGenres.Count;
-
+            int index = _viewModel.SelectedGenres.Count;
             // Sørg for, at listen er lang nok
-            if (index >= dvm.SelectedGenres.Count)
+            if (index >= _viewModel.SelectedGenres.Count)
             {
-                dvm.SelectedGenres.Add(null);  // Tilføj en ny post til listen
+                _viewModel.SelectedGenres.Add(null);  // Tilføj en ny post til listen
             }
-
             // Opret SelectedItem binding til den korrekte indeks i SelectedGenres
             Binding selectedItemBinding = new Binding($"SelectedGenres[{index}]")
             {
                 Mode = BindingMode.TwoWay
             };
             genreComboBox.SetBinding(ComboBox.SelectedItemProperty, selectedItemBinding);
-
             // Tilføj ComboBox til StackPanel
             GenreComboboxes.Children.Add(genreComboBox);
         }

@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:The_Movies"
+        xmlns:commands="clr-namespace:The_Movies.Commands"
         mc:Ignorable="d"
         Title="Create movie" Height="450" Width="800" MinWidth="100">
     <Grid>
@@ -24,30 +24,30 @@
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
 
-        <Label Grid.Column="1" Content="Tilføj film" FontSize="30" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Label Grid.Column="1" Content="Tilføj film" FontSize="30" FontWeight="Bold" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Bernard MT Condensed"/>
 
         <StackPanel Grid.Column="1" Grid.Row="1">
             <!-- Titel stackpanel -->
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,30,0" >
-                <Label Content="Titel" FontWeight="Bold" Margin="5,5,20,5" Foreground="#FFE5D8D8"/>
+                <Label Content="Titel" FontWeight="Bold" Margin="5,5,20,5" Foreground="#FFE5D8D8" FontFamily="Bernard MT Condensed"/>
                 <TextBox Text="{Binding Title, Mode=TwoWay}" Margin="5" Width="100"/>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,30,0" >
-                <Label Content="Instruktør" FontWeight="Bold" Margin="5,5,20,5" Foreground="#FFE5D8D8"/>
+                <Label Content="Instruktør" FontWeight="Bold" Margin="5,5,20,5" Foreground="#FFE5D8D8" FontFamily="Bernard MT Condensed"/>
                 <TextBox Text="{Binding Director, Mode=TwoWay}" Margin="5" Width="100"/>
             </StackPanel>
 
             <!-- spilletid stackpanel -->
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right"  Margin="0,0,0,0">
-                <Label Content="Spilletid" FontWeight="Bold" Margin="5,5,20,5" VerticalAlignment="Bottom" Foreground="#FFE5D8D8"/>
-                <TextBox Text="{Binding Duration, Mode=TwoWay}" VerticalAlignment="Bottom" Margin="5" Width="100" PreviewTextInput="NumericTextBox_PreviewTextInput"/>
-                <Label Content="min" VerticalAlignment="Bottom" Foreground="#FFE5D8D8" FontWeight="Bold"></Label>
+                <Label Content="Spilletid" FontWeight="Bold" Margin="5,5,20,5" VerticalAlignment="Bottom" Foreground="#FFE5D8D8" FontFamily="Bernard MT Condensed"/>
+                <TextBox Text="{Binding Duration, Mode=TwoWay}" VerticalAlignment="Bottom" Margin="5" Width="100" PreviewTextInput="AllowOnlyNumbersInTextBox"/>
+                <Label Content="min" VerticalAlignment="Bottom" Foreground="#FFE5D8D8" FontWeight="Bold" FontFamily="Bernard MT Condensed"></Label>
             </StackPanel>
 
             <!-- genre stackpanel -->
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,30,0">
-                <Label Content="Genre" FontWeight="Bold"  Margin="5,5,20,5" Foreground="#FFE5D8D8"/>
+                <Label Content="Genre" FontWeight="Bold"  Margin="5,5,20,5" Foreground="#FFE5D8D8" FontFamily="Bernard MT Condensed"/>
                 <!-- stackpanel til flere genredropboxe -->
                 <StackPanel Margin="5">
                     <!-- genredropboxe generes her-->
@@ -55,18 +55,11 @@
                         <ComboBox  ItemsSource="{Binding AvailableGenres}" DisplayMemberPath="Name" SelectedItem="{Binding SelectedGenres[0], Mode=TwoWay}" Width="100" ></ComboBox>
                     </StackPanel>
                     <!-- tilføj genreknap til sidst -->
-                    <Button Content="+Tilføj genre" Background="Transparent" BorderBrush="Transparent" Click="AddGenreComboBoX" Foreground="#FFE5D8D8" FontWeight="Bold"/>
+                    <Button Content="+Tilføj genre" Background="Transparent" BorderBrush="Transparent" Click="AddGenreComboBoX" Foreground="#FFE5D8D8" FontWeight="Bold" FontFamily="Bernard MT Condensed"/>
                 </StackPanel>
             </StackPanel>
 
-            <Button Content="Gem film"  Command="{Binding CreateMovieCMD}" CommandParameter="{Binding}" Click="Button_Click" FontWeight="Bold">
-                <Button.Background>
-                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                        <GradientStop Color="Black"/>
-                        <GradientStop Color="#FF198AEE" Offset="1"/>
-                    </LinearGradientBrush>
-                </Button.Background>
-            </Button>
+            <Button Content="Gem film" Command="{Binding CreateMovieCMD}" x:Name="SaveButton" FontFamily="Bernard MT Condensed"/>
 
         </StackPanel>
     </Grid>

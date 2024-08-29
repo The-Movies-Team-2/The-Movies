@@ -21,7 +21,7 @@ namespace ApplicationLayer.DataHandlers.DomainDataHandlers
         private readonly GenreRepository _genreRepository = new GenreRepository();
 
 
-        internal override MovieRepository Read()
+        internal MovieRepository Read()
         {
             CheckIfFileExists(_filePath);
             CheckIfFileExists(_genreRelationPath);
@@ -31,11 +31,12 @@ namespace ApplicationLayer.DataHandlers.DomainDataHandlers
             {
                 string[] values = line.Split(';');
                 int id = int.Parse(values[0]);
-                string title = values[1];
+                string title = DecryptString(values[1]);
                 int playingTime = int.Parse(values[2]);
+                string director = values[3];
 
                 List<Genre> genres = GetGenresForMovie(id);
-                Movie movie = new Movie(id, title, playingTime, genres);
+                Movie movie = new Movie(id, title, playingTime, genres, director);
                 _repository.Add(movie);
             }
             return _repository;
@@ -61,7 +62,7 @@ namespace ApplicationLayer.DataHandlers.DomainDataHandlers
             return genres;
         }
 
-        internal override void Write(MovieRepository repository)
+        internal void Write(MovieRepository repository)
         {
             CheckIfFileExists(_filePath);
             CheckIfFileExists(_genreRelationPath);
@@ -69,7 +70,9 @@ namespace ApplicationLayer.DataHandlers.DomainDataHandlers
             List<Movie> lines = _repository.GetAll().ToList();
             foreach (Movie movie in lines)
             {
-                var createText = $"{movie.Id};{movie.Title};{movie.PlayTime}";
+                string encryptedTitle = EncryptString(movie.Title);
+
+                string createText = $"{movie.Id};{encryptedTitle};{movie.Duration};{movie.Director}";
                 File.AppendAllText(_filePath, createText + Environment.NewLine);
                 foreach (Genre genre in movie.Genres)
                 {

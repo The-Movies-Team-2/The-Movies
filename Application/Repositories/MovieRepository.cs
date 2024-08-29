@@ -7,7 +7,7 @@ using The_Movies.DomainModel;
 
 namespace The_Movies.ApplicationLayer.Repositories
 {
-    internal class MovieRepository
+    public class MovieRepository
     {
         private readonly List<Movie> movies = new List<Movie>();
 
