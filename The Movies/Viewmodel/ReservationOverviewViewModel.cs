@@ -3,19 +3,32 @@ using DomainModel;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using The_Movies.ApplicationLayer.Controllers;
 using The_Movies.Controllers;
 using The_Movies.DomainModel;
+using The_Movies.Model;
 
 namespace The_Movies.Viewmodel
 {
-    public class ReservationOverviewViewModel
+    public class ReservationOverviewViewModel: INotifyPropertyChanged
     {
         public ObservableCollection<ReservationForView> Reservations { get; set; }
         public ObservableCollection<Showing> Showings { get; set; }
+        private Showing selectedShowing { get; set; }
+        public Showing SelectedShowing
+        {
+            get { return selectedShowing; }
+            set
+            {
+                selectedShowing = value;
+                OnPropertyChanged(nameof(SelectedShowing));
+                LoadReservations(selectedShowing.Id);
+            }
+        }
 
         public ReservationController reservationController { get; set; }
         public ShowingController showingController { get; set; }
@@ -34,9 +47,15 @@ namespace The_Movies.Viewmodel
             LoadShowings();
         }
 
-        private void LoadReservations()
+        private void LoadReservations(int showId = 0)
         {
-            List<Reservation> TempReservations = reservationController.GetAll();
+            Reservations.Clear();
+             List<Reservation> TempReservations = reservationController.GetAll();
+            if (showId != 0)
+            {
+                TempReservations = TempReservations.Where(item => item.Id == showId).ToList();
+            }
+            
             foreach (Reservation reservation in TempReservations)
             {
                 ReservationForView reservationForView = new ReservationForView();
@@ -78,6 +97,12 @@ namespace The_Movies.Viewmodel
             public string CustomerPhone { get; set; }
             public string CustomerMail { get; set; }
 
+        }
+
+        public event PropertyChangedEventHandler? PropertyChanged;
+        protected void OnPropertyChanged(string name)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
         }
     }
 }

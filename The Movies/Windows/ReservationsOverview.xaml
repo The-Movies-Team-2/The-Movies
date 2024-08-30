@@ -23,8 +23,8 @@
         <Label Content="Reservationsoversigt" Grid.Row="0" FontSize="30" FontWeight="Bold" HorizontalAlignment="Center" Foreground="White" FontFamily="Bernard MT Condensed"/>
 
         <StackPanel Orientation="Horizontal" Grid.Row="1">
-            <Label Content="Sorter efter forestilling" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-            <ComboBox HorizontalAlignment="Center" VerticalAlignment="Center" Width="576" ItemsSource="{Binding  Showings}" />
+            <Label Content="Sorter efter forestilling" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="White"/>
+            <ComboBox HorizontalAlignment="Center" VerticalAlignment="Center" Width="576" ItemsSource="{Binding  Showings}" SelectedItem="{Binding SelectedShowing}" />
         </StackPanel>
 
         <DataGrid ItemsSource="{Binding Reservations}" Grid.Row="2" AutoGenerateColumns="False" HeadersVisibility="Column" CanUserAddRows="False" IsReadOnly="True" FontFamily="Bernard MT Condensed">
@@ -40,8 +40,8 @@
                 <DataGridTextColumn Header="Sted" Binding="{Binding Place}"/>
                 <DataGridTextColumn Header="Dato" Binding="{Binding Date}"/>
                 <DataGridTextColumn Header="Tid" Binding="{Binding TimeRange}"/>
-                <DataGridTextColumn Header="tlf" Binding="{Binding CustomerPhone}" Width="200" />
-                <DataGridTextColumn Header="mail" Binding="{Binding CustomerMail}" Width="200"/>
+                <DataGridTextColumn Header="tlf" Binding="{Binding CustomerPhone}" Width="150" />
+                <DataGridTextColumn Header="mail" Binding="{Binding CustomerMail}" Width="150"/>
                 <DataGridTextColumn Header="antal" Binding="{Binding NumberOfTickets}" Width="60"/>
             </DataGrid.Columns>
         </DataGrid>
