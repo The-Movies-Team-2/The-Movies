@@ -29,7 +29,7 @@ namespace ApplicationLayer.DataHandlers.DomainDataHandlers
                 string phone = values[3];
                 int numberofticket = int.Parse(values[4]);
 
-                Reservation reservation = new Reservation(id, showingId, email, phone, numberofticket);
+                Reservation reservation = new Reservation(id, showingId,phone, email, numberofticket);
                 _repository.Add(reservation);
             }
             return _repository;
